@@ -1,4 +1,5 @@
 > trigger onStop in case of an error
+> hide the mouse cursor by default
 > ability to load and then return to previous program
   (could make a test suit with that)
 > rect

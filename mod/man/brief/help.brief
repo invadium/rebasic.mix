@@ -1,0 +1,9 @@
+# core commands help
+
+>> print - print values
+
+usage:
+    print "hello"
+    print 2 + 3
+
+>> help - show help for rebasic or one of it's functions

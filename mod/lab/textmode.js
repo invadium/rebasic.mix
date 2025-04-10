@@ -147,6 +147,11 @@ function shiftCursor() {
     }
 }
 
+// how many character positions are still available on this line
+function shiftsRemaining() {
+    return this.tw - this.cx
+}
+
 function setCursor(x, y) {
     this.touch()
     this.cx = x

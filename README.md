@@ -49,7 +49,7 @@ Compare that to the original:
 PRINT "HELLO, BASIC"
 ```
 
-How can you get any simpler than that? It is just a command following by a string. You are telling the computer to print out a string. Plain and simple. No objects, no boilerplate, no noise.
+How can you get any simpler than that? It is just a command followed by a string. You are telling the computer to print out a string. Plain and simple. No objects, no boilerplate, no noise.
 
 _And that is how it is supposed to be in a learning environment._ That is how it is in _ReBasic_.
 

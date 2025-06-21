@@ -1,12 +1,17 @@
-> help!
-> help tags
+> if - goto - else statement
+> fix inkey$ to comply with common behavior (clear the buffer)
+> function to read a key state without clearing the buffer (kinda like inkey$ works now)
 > help intro
+> help titles in ROM
+> help tags for faster search (e.g. #function #math)?
+> about command
+> additional help pages
+> man with command details
+> single quote ' comments (MSX-BASIC, GW-BASIC and QBASIC)
 > trigger onStop in case of an error
-> hide the mouse cursor by default
+> capture and hide the mouse cursor by default
 > ability to load and then return to previous program
   (could make a test suit with that)
-> rect
-> color name mapping? (doesn't work everywhere?)
 > function/procedure declaration with defun
 > edit # line? #editor
 > shift numbers #editor
@@ -15,12 +20,19 @@
 > rnd(N) to accept the number 0..N
 > rnd(-N) to set up the seed
 > redefine the color palette
-> on - gosub statement
-> on - goto statement
-> if - goto - else statement
 > cont after stop
-> proper line mapping on load? (seems to be done?)
 
+> load with swap
+> reload the previous program
+> test cases with load with swap -> autoreload on stop -> load next...
+
+# drawing
+> draw command (DSL?)
+> turtle graphics?
+> rect
+> color name mapping? (doesn't work everywhere?)
+
+# sprites
 > sprite engine 
 > sprite hex data
 > paired tile loading support (test.bas + test.png), maybe #include comments
@@ -29,6 +41,14 @@
 > double buffering support
 > native js functions
 
+> electron app
+> local app functions (e.g. load and save files etc...)
+
+V clear command to clear local variables and definitions
+V proper line mapping on load
+V on - goto statement
+V on - gosub statement
+V help!
 V save the style before run and restore it (on stop/end?)
 V INKEY$
 V clg

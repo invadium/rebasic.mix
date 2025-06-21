@@ -9,5 +9,8 @@ dist
 *.tar
 *.tgz
 
+# jeddy
+.jeddy
+
 # MacOS X
 .DS_Store

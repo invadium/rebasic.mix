@@ -1,5 +1,5 @@
-> if - goto - else statement
-> fix inkey$ to comply with common behavior (clear the buffer)
+> don't blink the cursor when lost focus
+> capture mouse on click?
 > function to read a key state without clearing the buffer (kinda like inkey$ works now)
 > help intro
 > help titles in ROM
@@ -7,7 +7,6 @@
 > about command
 > additional help pages
 > man with command details
-> single quote ' comments (MSX-BASIC, GW-BASIC and QBASIC)
 > trigger onStop in case of an error
 > capture and hide the mouse cursor by default
 > ability to load and then return to previous program
@@ -44,6 +43,9 @@
 > electron app
 > local app functions (e.g. load and save files etc...)
 
+V if - goto - else statement
+V single quote ' comments (MSX-BASIC, GW-BASIC and QBASIC)
+V fix inkey$ to comply with common behavior (clear the buffer)
 V clear command to clear local variables and definitions
 V proper line mapping on load
 V on - goto statement

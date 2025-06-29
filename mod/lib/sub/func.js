@@ -1,7 +1,9 @@
 const func = {
 
     inkey$: function() {
-        return env.currentKey
+        const k = env.currentKey
+        env.currentKey = ''
+        return k
     },
 
 }

@@ -1,3 +1,5 @@
+// .page format parser
+
 function register(manPage) {
     if (!manPage) return
     if (!lib.page) lib.touch('page')

@@ -123,7 +123,12 @@ const io = {
             const tagline = romTaglines[key]
 
             const sufix = tagline? ' - ' + tagline : ''
-            vm.command.print(' * ' + key + sufix, { semi: false })
+            env.context.leftMargin = 3
+            vm.command.print(' * ' + key + sufix, { semi: true })
+
+            // restore the left margin and shift to the next line
+            env.context.leftMargin = 0
+            vm.command.print('', { semi: false })
         })
         vm.command.print('')
     },

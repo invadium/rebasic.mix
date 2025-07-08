@@ -74,6 +74,8 @@ function adjust() {
     this.fsy = .5
 
     this.tw = floor(W / this.fw) - 1
+    env.context.leftMargin  = 0
+    env.context.rightMargin = this.tw
     this.th = floor(H / this.fh)
     this.dx = floor(W - this.tw*this.fw)/2
     this.dy = floor(H - this.th*this.fh)/2
@@ -131,7 +133,7 @@ function shiftScreen() {
 }
 
 function returnCursor() {
-    this.cx = 0
+    this.cx = env.context.leftMargin
     this.cy ++
     if (this.cy >= this.th) {
         this.shiftScreen()
@@ -141,7 +143,7 @@ function returnCursor() {
 
 function shiftCursor() {
     this.cx ++
-    if (this.cx >= this.tw) {
+    if (this.cx >= env.context.rightMargin) {
         this.returnCursor()
         return true
     }

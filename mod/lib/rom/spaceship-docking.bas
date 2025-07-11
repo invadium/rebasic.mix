@@ -1,3 +1,4 @@
+05 rem space ship docking game
 10 print "spaceship-1 x coordinate?"
 20 input a
 30 print "spaceship-1 y coordinate?"

@@ -1,3 +1,4 @@
+' draw ASCII square
 5 cls
 10 print "xxxxxxxx"
 20 print "x      x"

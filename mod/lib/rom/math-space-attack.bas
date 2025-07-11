@@ -1,3 +1,4 @@
+05 ' use your math skills to target an enemy ship
 10 let c=0
 20 let a=int(rnd()*20+1)
 30 let b=int(rnd()*20+1)

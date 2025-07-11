@@ -118,6 +118,9 @@ const io = {
 
         const vm = this
         vm.command.print('=== ROM EXAMPLES ===')
+        vm.command.print('TO LOAD USE:')
+        vm.command.print('LOAD "<NAME>"')
+        vm.command.print('--------------------')
         Object.keys(lib.rom._dir).forEach(key => {
             const text = lib.rom._dir[key]
             const tagline = romTaglines[key]

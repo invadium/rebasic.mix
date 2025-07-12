@@ -1,3 +1,5 @@
+> map of options
+> option - start from the top
 > don't blink the cursor when lost focus
 > capture mouse on click?
 > function to read a key state without clearing the buffer (kinda like inkey$ works now)

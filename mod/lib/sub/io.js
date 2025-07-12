@@ -54,6 +54,11 @@ const io = {
                     semi = true
                 } else if (val.comma) {
                     comma = true
+                } else if (val.toPrint) {
+                    if (i > 0 && !semi) lab.textmode.outc(' ')
+                    lab.textmode.printout(val.toPrint())
+                    semi = false
+                    comma = false
                 }
             } else {
                 if (i > 0 && comma) lab.textmode.outc(' ')
@@ -119,7 +124,7 @@ const io = {
         const vm = this
         vm.command.print('=== ROM EXAMPLES ===')
         vm.command.print('TO LOAD USE:')
-        vm.command.print('LOAD "<NAME>"')
+        vm.command.print('> LOAD "<NAME>"')
         vm.command.print('--------------------')
         Object.keys(lib.rom._dir).forEach(key => {
             const text = lib.rom._dir[key]

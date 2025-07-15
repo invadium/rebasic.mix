@@ -344,20 +344,20 @@ function backshift() {
 function htab(x) {
     if (!x) return
     this.touch()
-    this.cx = limit(x - 1, 0, this.tw - 1)
+    this.cx = clamp(x - 1, 0, this.tw - 1)
 }
 
 function vtab(y) {
     if (!y) return
     this.touch()
-    this.cy = limit(y - 1, 0, this.th - 1)
+    this.cy = clamp(y - 1, 0, this.th - 1)
 }
 
 function locate(x, y, c) {
     if (!x || !y) return
     this.touch()
-    this.cx = limit(x - 1, 0, this.tw - 1)
-    this.cy = limit(y - 1, 0, this.th - 1)
+    this.cx = clamp(x - 1, 0, this.tw - 1)
+    this.cy = clamp(y - 1, 0, this.th - 1)
     if (c !== undefined) {
         this.cmode = c? 1 : 0
     }
@@ -376,6 +376,7 @@ function draw() {
     const { x, y, scale } = lab.render
     translate(x + this.dx*scale, y + this.dy*scale)
     font(this.fontSize * scale + this.font)
+    lineWidth(scale)
 
     const tw = this.tw,
           th = this.th,
@@ -396,6 +397,7 @@ function draw() {
 
             switch(fx) {
                 case 1:
+                    // invert blink
                     if (this.timer % 1 < .5) {
                         back = back || env.context.paper
                         const nback = face
@@ -404,19 +406,40 @@ function draw() {
                     }
                     break
                 case 2:
+                    // blink
                     if (this.timer % 1 > .5) {
                         continue 
                     }
                     break
             }
 
-            if (back) {
+            if (back && fx !== 4) {
                 fill(back)
                 rect((x*fw + fdx) * scale, (y*fh + fdy) * scale,
                        (fw + fsx) * scale,   (fh + fsy) * scale)
             }
             fill(face)
             text(ch, x*fw*scale, y*fh*scale)
+            switch(fx) {
+                case 3:
+                    const ux1 = (x*fw + fdx) * scale,
+                          ux2 = ux1 + (fw + fsx) * scale,
+                          uy1 = y * fh * scale,
+                          uy2 = uy1 + (fh + fsy) * scale
+                    stroke(face)
+                    line(ux1, uy2, ux2, uy2)
+                    break
+                case 4:
+                    if (back) {
+                        const ux1 = (x*fw + fdx) * scale,
+                              ux2 = ux1 + (fw + fsx) * scale,
+                              uy1 = y * fh * scale,
+                              uy2 = uy1 + (fh + fsy) * scale
+                        stroke(back)
+                        line(ux1, uy2, ux2, uy2)
+                    }
+                    break
+            }
         }
     }
 

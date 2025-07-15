@@ -55,7 +55,7 @@ function setupVM() {
     }
 
     // specific hooks to handle stdin/out
-    vm.command.open() // open IO with io-specific procedure
+    vm.command.open() // open IO with environment-specific procedure
 
     return vm
 }

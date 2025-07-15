@@ -7,7 +7,7 @@ function keyDown(e) {
         switch(e.code) {
             case 'KeyC':
             case 'Backspace':
-                lab.vm.stop()
+                lab.ioCtrl.stop()
                 break
 
             case 'ArrowUp':

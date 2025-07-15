@@ -1,4 +1,5 @@
-> map of options
+> active links 
+> map of options in addition to limits
 > option - start from the top
 > don't blink the cursor when lost focus
 > capture mouse on click?
@@ -15,7 +16,8 @@
   (could make a test suit with that)
 > function/procedure declaration with defun
 > edit # line? #editor
-> shift numbers #editor
+> shift line numbers #editor
+> "normalize" line numbers (e.g. 20, 23, 25, 27, 30 -> 20, 30, 40, 50, 60)
 > wait for a keypress to continue output mode
 > randomize (with optional seed)
 > rnd(N) to accept the number 0..N

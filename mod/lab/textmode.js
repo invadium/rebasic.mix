@@ -376,7 +376,7 @@ function draw() {
     const { x, y, scale } = lab.render
     translate(x + this.dx*scale, y + this.dy*scale)
     font(this.fontSize * scale + this.font)
-    lineWidth(scale)
+    lineWidth(scale * .7)
 
     const tw = this.tw,
           th = this.th,
@@ -394,6 +394,7 @@ function draw() {
                   fx   = this.cellFX[at]
             let face = this.cellFace[at] || env.context.ink,
                 back = this.cellBack[at] || null
+            let uw, uh, ux, uy
 
             switch(fx) {
                 case 1:
@@ -411,32 +412,45 @@ function draw() {
                         continue 
                     }
                     break
+                case 3: case 4: case 5: case 6:
+                    ux = (x*fw + fdx) * scale
+                    uw = (fw + fsx) * scale
+                    uy = y * fh * scale
+                    uh = (fh + fsy) * scale
+                    break
             }
 
-            if (back && fx !== 4) {
+            if (back && fx !== 4 && fx !== 6) {
                 fill(back)
                 rect((x*fw + fdx) * scale, (y*fh + fdy) * scale,
                        (fw + fsx) * scale,   (fh + fsy) * scale)
             }
             fill(face)
             text(ch, x*fw*scale, y*fh*scale)
+
             switch(fx) {
                 case 3:
-                    const ux1 = (x*fw + fdx) * scale,
-                          ux2 = ux1 + (fw + fsx) * scale,
-                          uy1 = y * fh * scale,
-                          uy2 = uy1 + (fh + fsy) * scale
+                    // underscore with the face color
                     stroke(face)
-                    line(ux1, uy2, ux2, uy2)
+                    line(ux, uy + uh, ux + uw, uy + uh)
                     break
                 case 4:
+                    // underscore with the char backdrop color
                     if (back) {
-                        const ux1 = (x*fw + fdx) * scale,
-                              ux2 = ux1 + (fw + fsx) * scale,
-                              uy1 = y * fh * scale,
-                              uy2 = uy1 + (fh + fsy) * scale
                         stroke(back)
-                        line(ux1, uy2, ux2, uy2)
+                        line(ux, uy + uh, ux + uw, uy + uh)
+                    }
+                    break
+                case 5:
+                    // strikethrough with the face color
+                    stroke(face)
+                    line(ux, uy + .65*uh, ux + uw, uy + .65*uh)
+                    break
+                case 6:
+                    // strikethrough with the char backdrop color
+                    if (back) {
+                        stroke(back)
+                        line(ux, uy + .65*uh, ux + uw, uy + .65*uh)
                     }
                     break
             }

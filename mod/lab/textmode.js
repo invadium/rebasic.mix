@@ -373,10 +373,13 @@ function draw() {
     alignLeft()
 
     const cell = this.cell
-    const { x, y, scale } = lab.render
-    translate(x + this.dx*scale, y + this.dy*scale)
-    font(this.fontSize * scale + this.font)
-    lineWidth(scale * .7)
+    const { x, y } = lab.render
+    const zoom = lab.render.scale
+
+    translate(x + this.dx*zoom, y + this.dy*zoom)
+    scale(zoom, zoom)
+    lineWidth(zoom * .7)
+    font(this.fontSize + this.font)
 
     const tw = this.tw,
           th = this.th,
@@ -413,20 +416,20 @@ function draw() {
                     }
                     break
                 case 3: case 4: case 5: case 6:
-                    ux = (x*fw + fdx) * scale
-                    uw = (fw + fsx) * scale
-                    uy = y * fh * scale
-                    uh = (fh + fsy) * scale
+                    ux = (x*fw + fdx)
+                    uw = (fw + fsx)
+                    uy = y * fh
+                    uh = (fh + fsy)
                     break
             }
 
             if (back && fx !== 4 && fx !== 6) {
                 fill(back)
-                rect((x*fw + fdx) * scale, (y*fh + fdy) * scale,
-                       (fw + fsx) * scale,   (fh + fsy) * scale)
+                rect((x*fw + fdx), (y*fh + fdy),
+                       (fw + fsx),   (fh + fsy))
             }
             fill(face)
-            text(ch, x*fw*scale, y*fh*scale)
+            text(ch, x*fw, y*fh)
 
             switch(fx) {
                 case 3:
@@ -463,10 +466,10 @@ function draw() {
             && this.timer % 1 < .5
             && this.isLastPage()) {
         fill(env.context.ink)
-        rect(this.cx*fw*scale,
-                (this.cy*fh + this.curShift)*scale,
-                fw*scale, this.curSize*scale)
-        //text(CUR, this.cx*fw*scale, this.cy*fh*scale)
+        rect(this.cx*fw,
+                (this.cy*fh + this.curShift),
+                fw, this.curSize)
+        //text(CUR, this.cx*fw, this.cy*fh)
     }
 
     restore()

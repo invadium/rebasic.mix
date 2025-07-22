@@ -236,14 +236,14 @@ function del() {
     }
 }
 
-function pageUp() {
+function pageUp(n) {
     if (this.disabled) return
-    lab.textmode.pageUp()
+    lab.textmode.pageUp(n)
 }
 
-function pageDown() {
+function pageDown(n) {
     if (this.disabled) return
-    lab.textmode.pageDown()
+    lab.textmode.pageDown(n)
 }
 
 function firstPage() {

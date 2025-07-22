@@ -292,13 +292,20 @@ function right() {
     return true
 }
 
-function pageUp() {
-    if (this.bottomLine > this.th * 2 - 2) this.bottomLine --
+function pageUp(n) {
+    const N = n || 1
+    for (let i = 0; i < N; i++) {
+        if (this.bottomLine > this.th * 2 - 2) this.bottomLine --
+    }
 }
 
-function pageDown() {
+function pageDown(n) {
+    const N = n || 1
     const maxLine = (this.cell.length / this.tw) - 1
-    if (this.bottomLine < maxLine) this.bottomLine ++
+
+    for (let i = 0; i < N; i++) {
+        if (this.bottomLine < maxLine) this.bottomLine ++
+    }
 }
 
 function lastPage() {

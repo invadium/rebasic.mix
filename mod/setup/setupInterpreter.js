@@ -66,7 +66,7 @@ function repl() {
     vm.repl()
 }
 
-function setup() {
+function setupInterpreter() {
     const buf = mod['screen-buf']
     lab.render.vram = buf.ctx.canvas
     buf.env.link(env.tune)
@@ -79,3 +79,4 @@ function setup() {
         trap('hash', window.location.hash)
     }
 }
+setupInterpreter.Z = 11

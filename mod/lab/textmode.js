@@ -463,7 +463,7 @@ function draw() {
     // show cursor if needed
     if (this.cmode === 1
             && !lab.ioCtrl.disabled
-            && this.timer % 1 < .5
+            && (!env.focused || this.timer % 1 < .5)
             && this.isLastPage()) {
         fill(env.context.ink)
         rect(this.cx*fw,

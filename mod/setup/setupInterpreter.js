@@ -60,10 +60,10 @@ function setupVM() {
     return vm
 }
 
-function repl() {
+function createVM() {
     const vm = setupVM()
     lab.attach(vm, 'vm')
-    vm.repl()
+    //vm.repl()
 }
 
 function setupInterpreter() {
@@ -72,7 +72,7 @@ function setupInterpreter() {
     buf.env.link(env.tune)
     buf.env.link(env.context)
 
-    repl()
+    createVM()
     buf.lib.screen.paper()
 
     if (window.location.hash) {

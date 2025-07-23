@@ -1,3 +1,4 @@
 function postSetup() {
-   lib.util.defineLimits()
+    lib.util.defineLimits()
+    lab.vm.repl()
 }

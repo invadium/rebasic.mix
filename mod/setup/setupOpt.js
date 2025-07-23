@@ -18,9 +18,10 @@ function setupOpt() {
     }
 
     opt.store = function() {
-        log('storing...')
+        lib.storage.storeOpt()
     }
 
     lab.vm.assign('opt', opt)
+    lib.storage.restoreOpt()
 }
-setupOpt.Z = 21
+setupOpt.Z = 23

@@ -8,8 +8,6 @@ function defineLimits() {
     limits.set('height', env.context.height)
     limits.set('columns', env.context.columns)
     limits.set('rows', env.context.rows)
-
-    console.dir(limits.data)
 }
 
 function loadSourceFile(file) {

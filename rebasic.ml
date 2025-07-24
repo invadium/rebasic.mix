@@ -1,5 +1,5 @@
 > don't blink the cursor when lost focus
-> capture mouse on click?
+> capture the mouse on click?
 > function to read a key state without clearing the buffer (kinda like inkey$ works now)
 > help intro
 > help titles in ROM
@@ -8,17 +8,17 @@
 > additional help pages
 > man with command details
 > trigger onStop in case of an error
-> capture and hide the mouse cursor by default
 > ability to load and then return to previous program
   (could make a test suit with that)
 > function/procedure declaration with defun
+> function-local variables? (LOCAL)
 > edit # line? #editor
-> shift numbers #editor
-> wait for a keypress to continue output mode
-> randomize (with optional seed)
+> DELETE LINE and DELETE FROM-TO
+> AUTO command
+> shift numbers #editor (and move all goto/gosub numbered entries accordingly)
+> wait for a keypress to continue output mode (more...)
 > rnd(N) to accept the number 0..N
 > rnd(-N) to set up the seed
-> redefine the color palette
 > cont after stop
 
 > load with swap
@@ -26,10 +26,11 @@
 > test cases with load with swap -> autoreload on stop -> load next...
 
 # drawing
-> draw command (DSL?)
+> draw command (MSX DSL?)
 > turtle graphics?
 > rect
 > color name mapping? (doesn't work everywhere?)
+> redefine the color palette
 
 # sprites
 > sprite engine 

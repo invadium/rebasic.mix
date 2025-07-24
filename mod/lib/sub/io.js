@@ -1,3 +1,42 @@
+let romTaglines
+
+function parseTagline(text) {
+    if (!text) return
+    const lines = text.split('\n')
+    if (lines.length < 1) return
+
+    let tagComment = false
+    let line = lines[0].trim().toLowerCase()
+    if (line) {
+        const lineNum = parseInt(line)
+        if (isNumber(lineNum) && !isNaN(lineNum)) {
+            const codeAt = line.indexOf(' ')
+            line = line.substring(codeAt).trim()
+        }
+        if (line.startsWith('rem')) {
+            line = line.substring(3).trim()
+            tagComment = true
+        } else if (line.startsWith("'") || line.startsWith("`")) {
+            line = line.substring(1).trim()
+            tagComment = true
+        }
+        
+        if (tagComment) return line
+    }
+
+    return
+}
+
+function compileTaglines(dir) {
+    if (!romTaglines) romTaglines = {}
+
+    Object.keys(dir).forEach(key => {
+        const text = dir[key]
+        const tagline = parseTagline(text)
+        if (tagline) romTaglines[key] = tagline
+    })
+}
+
 const io = {
 
     open: function() {},
@@ -15,6 +54,11 @@ const io = {
                     semi = true
                 } else if (val.comma) {
                     comma = true
+                } else if (val.toPrint) {
+                    if (i > 0 && !semi) lab.textmode.outc(' ')
+                    lab.textmode.printout(val.toPrint())
+                    semi = false
+                    comma = false
                 }
             } else {
                 if (i > 0 && comma) lab.textmode.outc(' ')
@@ -73,10 +117,26 @@ const io = {
     },
 
     rom: function() {
+        if (!romTaglines) {
+            compileTaglines(lib.rom._dir)
+        }
+
         const vm = this
         vm.command.print('=== ROM EXAMPLES ===')
+        vm.command.print('TO LOAD USE:')
+        vm.command.print('> LOAD "<NAME>"')
+        vm.command.print('--------------------')
         Object.keys(lib.rom._dir).forEach(key => {
-            vm.command.print(key + ' ', { semi: true })
+            const text = lib.rom._dir[key]
+            const tagline = romTaglines[key]
+
+            const sufix = tagline? ' - ' + tagline : ''
+            env.context.leftMargin = 3
+            vm.command.print(' * ' + key + sufix, { semi: true })
+
+            // restore the left margin and shift to the next line
+            env.context.leftMargin = 0
+            vm.command.print('', { semi: false })
         })
         vm.command.print('')
     },

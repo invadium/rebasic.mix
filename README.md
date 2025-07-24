@@ -13,7 +13,7 @@ And we believe, these are crucial for beginners to grok the programming.
 
 This project contains only a web shell and related functions and utilities.
 The ReBasic interpreter itself and its core functions are located
-in [ReBasic Project](https://github.com/invider/rebasic).
+in [the ReBasic repository](https://github.com/invider/rebasic).
 
 
 
@@ -140,7 +140,7 @@ help abs
 
 
 ### Commands
-* print <str>... - print provided values
+* print <params...> - print provided params, where params are comma or semicolon-separated string/number literals or variables
 * list [from],[to] - list the lines of current program
 * run - run current program
 * cls - clear the screen

@@ -1,7 +1,7 @@
 {
     "name": "rebasic.mix",
-    "version": "0.0.1",
-    "description": "rebasic web shell",
+    "version": "0.2.0",
+    "description": "rebasic collider shell",
     "scripts": {
         "start": "node ./node_modules/collider.jam/jam.js"
     },

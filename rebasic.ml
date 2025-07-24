@@ -1,3 +1,6 @@
+> active links 
+> map of options in addition to limits
+> option - start from the top
 > don't blink the cursor when lost focus
 > capture the mouse on click?
 > function to read a key state without clearing the buffer (kinda like inkey$ works now)
@@ -17,6 +20,10 @@
 > AUTO command
 > shift numbers #editor (and move all goto/gosub numbered entries accordingly)
 > wait for a keypress to continue output mode (more...)
+> shift line numbers #editor
+> "normalize" line numbers (e.g. 20, 23, 25, 27, 30 -> 20, 30, 40, 50, 60)
+> wait for a keypress to continue output mode
+> randomize (with optional seed)
 > rnd(N) to accept the number 0..N
 > rnd(-N) to set up the seed
 > cont after stop

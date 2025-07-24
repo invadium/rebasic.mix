@@ -71,7 +71,7 @@ function mapColor(ci) {
 
 function drawLine(x1, y1, x2, y2, ci) {
     const c = mapColor(ci) || env.context.ink
-    const RGBA = color2RGBA(c) // TODO optimize to have in the color table
+    const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
     const dx = abs(x2 - x1),
           dy = abs(y2 - y1),
@@ -158,7 +158,7 @@ const screen = {
         if (x < 0 || x >= env.width || y < 0 || y >= env.height) return
         const c = mapColor(ci) || env.context.ink
         if (!c) return
-        const RGBA = color2RGBA(c) // TODO optimize to have in the color table
+        const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         let i = (y * env.width + x) * 4
         lab.pdata[i++] = RGBA[0]
@@ -173,7 +173,7 @@ const screen = {
 
     line: function(x1, y1, x2, y2, ci) {
         const c = mapColor(ci) || env.context.ink
-        const RGBA = color2RGBA(c) // TODO optimize to have in the color table
+        const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         const dx = abs(x2 - x1),
               dy = abs(y2 - y1),
@@ -222,14 +222,14 @@ const screen = {
 
     circle: function(x, y, r, ci) {
         const c = mapColor(ci) || env.context.ink
-        const RGBA = color2RGBA(c) // TODO optimize to have in the color table
+        const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         lib.gx.drawCircle(x, y, r, RGBA)
     },
 
     box: function(x, y, w, h, ci) {
         let c = mapColor(ci) || env.context.ink
-        const RGBA = color2RGBA(c) // TODO optimize to have in the color table
+        const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         lib.gx.drawBox(x, y, w, h, RGBA)
     },
@@ -272,7 +272,13 @@ screen.backdrop.man = 'set character backdrop color, 0 if transparent'
 
 screen.fx.usage = '[type]'
 screen.fx.man = 'set character effect\n    available types:'
-                + '\n    0: none\n    1: inverse blink\n    2: blink'
+                + '\n    0: none'
+                + '\n    1: inverse blink'
+                + '\n    2: blink'
+                + '\n    3: underscore with the face color'
+                + '\n    4: underscore with the backdrop color'
+                + '\n    5: strikethrough with the face color'
+                + '\n    6: strikethrough with the backdrop color'
 
 screen.face.usage = '[color]'
 screen.face.man = 'set ink color'

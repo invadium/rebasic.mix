@@ -1,4 +1,4 @@
-5 rem hiding place
+5 rem hide and seek game
 10 let a = 0
 20 let r = int(rnd()*10)+1
 25 print "what is the number of"

@@ -1,3 +1,4 @@
+' render current palette
 5 cls
 10 c = 0
 15 background 7

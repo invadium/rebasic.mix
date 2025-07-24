@@ -55,27 +55,28 @@ function setupVM() {
     }
 
     // specific hooks to handle stdin/out
-    vm.command.open() // open IO with io-specific procedure
+    vm.command.open() // open IO with environment-specific procedure
 
     return vm
 }
 
-function repl() {
+function createVM() {
     const vm = setupVM()
     lab.attach(vm, 'vm')
-    vm.repl()
+    //vm.repl()
 }
 
-function setup() {
+function setupInterpreter() {
     const buf = mod['screen-buf']
     lab.render.vram = buf.ctx.canvas
     buf.env.link(env.tune)
     buf.env.link(env.context)
 
-    repl()
+    createVM()
     buf.lib.screen.paper()
 
     if (window.location.hash) {
         trap('hash', window.location.hash)
     }
 }
+setupInterpreter.Z = 11

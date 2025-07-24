@@ -1,4 +1,4 @@
-010 REM Sample circle drawing without using the CIRCLE command
+010 REM DRAW A CIRCLE USING PLOT
 
 020 DIM i, r, x, y, q as FLOAT
 030 DIM ax, ay, zx, zy, dx, dy as Integer

@@ -1,3 +1,4 @@
+05 ' ask for the name and calculate the age
 10 print "what is your name?"
 20 input n$
 30 print "what is the year of your birth?"

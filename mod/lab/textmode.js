@@ -74,6 +74,8 @@ function adjust() {
     this.fsy = .5
 
     this.tw = floor(W / this.fw) - 1
+    env.context.leftMargin  = 0
+    env.context.rightMargin = this.tw
     this.th = floor(H / this.fh)
     this.dx = floor(W - this.tw*this.fw)/2
     this.dy = floor(H - this.th*this.fh)/2
@@ -131,7 +133,7 @@ function shiftScreen() {
 }
 
 function returnCursor() {
-    this.cx = 0
+    this.cx = env.context.leftMargin
     this.cy ++
     if (this.cy >= this.th) {
         this.shiftScreen()
@@ -141,7 +143,7 @@ function returnCursor() {
 
 function shiftCursor() {
     this.cx ++
-    if (this.cx >= this.tw) {
+    if (this.cx >= env.context.rightMargin) {
         this.returnCursor()
         return true
     }
@@ -290,13 +292,20 @@ function right() {
     return true
 }
 
-function pageUp() {
-    if (this.bottomLine > this.th * 2 - 2) this.bottomLine --
+function pageUp(n) {
+    const N = n || 1
+    for (let i = 0; i < N; i++) {
+        if (this.bottomLine > this.th * 2 - 2) this.bottomLine --
+    }
 }
 
-function pageDown() {
+function pageDown(n) {
+    const N = n || 1
     const maxLine = (this.cell.length / this.tw) - 1
-    if (this.bottomLine < maxLine) this.bottomLine ++
+
+    for (let i = 0; i < N; i++) {
+        if (this.bottomLine < maxLine) this.bottomLine ++
+    }
 }
 
 function lastPage() {
@@ -342,20 +351,20 @@ function backshift() {
 function htab(x) {
     if (!x) return
     this.touch()
-    this.cx = limit(x - 1, 0, this.tw - 1)
+    this.cx = clamp(x - 1, 0, this.tw - 1)
 }
 
 function vtab(y) {
     if (!y) return
     this.touch()
-    this.cy = limit(y - 1, 0, this.th - 1)
+    this.cy = clamp(y - 1, 0, this.th - 1)
 }
 
 function locate(x, y, c) {
     if (!x || !y) return
     this.touch()
-    this.cx = limit(x - 1, 0, this.tw - 1)
-    this.cy = limit(y - 1, 0, this.th - 1)
+    this.cx = clamp(x - 1, 0, this.tw - 1)
+    this.cy = clamp(y - 1, 0, this.th - 1)
     if (c !== undefined) {
         this.cmode = c? 1 : 0
     }
@@ -371,9 +380,13 @@ function draw() {
     alignLeft()
 
     const cell = this.cell
-    const { x, y, scale } = lab.render
-    translate(x + this.dx*scale, y + this.dy*scale)
-    font(this.fontSize * scale + this.font)
+    const { x, y } = lab.render
+    const zoom = lab.render.scale
+
+    translate(x + this.dx*zoom, y + this.dy*zoom)
+    scale(zoom, zoom)
+    lineWidth(zoom * .7)
+    font(this.fontSize + this.font)
 
     const tw = this.tw,
           th = this.th,
@@ -391,9 +404,11 @@ function draw() {
                   fx   = this.cellFX[at]
             let face = this.cellFace[at] || env.context.ink,
                 back = this.cellBack[at] || null
+            let uw, uh, ux, uy
 
             switch(fx) {
                 case 1:
+                    // invert blink
                     if (this.timer % 1 < .5) {
                         back = back || env.context.paper
                         const nback = face
@@ -402,32 +417,66 @@ function draw() {
                     }
                     break
                 case 2:
+                    // blink
                     if (this.timer % 1 > .5) {
                         continue 
                     }
                     break
+                case 3: case 4: case 5: case 6:
+                    ux = (x*fw + fdx)
+                    uw = (fw + fsx)
+                    uy = y * fh
+                    uh = (fh + fsy)
+                    break
             }
 
-            if (back) {
+            if (back && fx !== 4 && fx !== 6) {
                 fill(back)
-                rect((x*fw + fdx) * scale, (y*fh + fdy) * scale,
-                       (fw + fsx) * scale,   (fh + fsy) * scale)
+                rect((x*fw + fdx), (y*fh + fdy),
+                       (fw + fsx),   (fh + fsy))
             }
             fill(face)
-            text(ch, x*fw*scale, y*fh*scale)
+            text(ch, x*fw, y*fh)
+
+            switch(fx) {
+                case 3:
+                    // underscore with the face color
+                    stroke(face)
+                    line(ux, uy + uh, ux + uw, uy + uh)
+                    break
+                case 4:
+                    // underscore with the char backdrop color
+                    if (back) {
+                        stroke(back)
+                        line(ux, uy + uh, ux + uw, uy + uh)
+                    }
+                    break
+                case 5:
+                    // strikethrough with the face color
+                    stroke(face)
+                    line(ux, uy + .65*uh, ux + uw, uy + .65*uh)
+                    break
+                case 6:
+                    // strikethrough with the char backdrop color
+                    if (back) {
+                        stroke(back)
+                        line(ux, uy + .65*uh, ux + uw, uy + .65*uh)
+                    }
+                    break
+            }
         }
     }
 
     // show cursor if needed
     if (this.cmode === 1
             && !lab.ioCtrl.disabled
-            && this.timer % 1 < .5
+            && (!env.focused || this.timer % 1 < .5)
             && this.isLastPage()) {
         fill(env.context.ink)
-        rect(this.cx*fw*scale,
-                (this.cy*fh + this.curShift)*scale,
-                fw*scale, this.curSize*scale)
-        //text(CUR, this.cx*fw*scale, this.cy*fh*scale)
+        rect(this.cx*fw,
+                (this.cy*fh + this.curShift),
+                fw, this.curSize)
+        //text(CUR, this.cx*fw, this.cy*fh)
     }
 
     restore()

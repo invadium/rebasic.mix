@@ -1,4 +1,28 @@
-module.exports = {
+const system = {
+
+    profile: function profile(name, save) {
+        const vm = this
+
+        if (save) {
+            if (save !== "save") throw new Error('"save" string flag is expected')
+            lib.profile.saveProfile(name)
+        } else if (name) {
+            lib.profile.loadProfile(name)
+        } else {
+            // show the current profile
+            vm.command.print('=== current ===')
+            vm.command.print(`  + ${env.profile}`)
+
+            // list the predefined profiles
+            vm.command.print('=== predefined ===')
+            Object.keys(lib.profiles._dir).forEach(key => {
+                vm.command.print(`  - ${key}`)
+            })
+
+            // list the custom profiles
+            vm.command.print('=== custom ===')
+        }
+    },
 
     load: function load(name) {
         if (name) {
@@ -94,3 +118,10 @@ module.exports = {
 
     }
 }
+
+system.profile.usage = '(name), (save)'
+system.profile.man = 'show or load the profile\n'
+                + '    * shows all profiles if no name is specified\n'
+                + '    * loads the profile if the name is specified'
+
+module.exports = system

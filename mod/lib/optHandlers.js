@@ -1,13 +1,13 @@
-/*
-function ink(val) {
-    this.vm.command.ink(val)
-}
+const optHandlers = {
 
-function paper(val) {
-    this.vm.command.paper(val)
-}
+    mouse: function(val) {
+        if (val === "show") {
+            lib.ui.showCursor()
+        } else if (val === "hide") {
+            lib.ui.hideCursor()
+        } else {
+            throw new Error('must be either "show" or "hide"')
+        }
+    }
 
-function border(val) {
-    this.vm.command.border(val)
 }
-*/

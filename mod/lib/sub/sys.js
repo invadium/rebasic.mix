@@ -16,7 +16,11 @@ const system = {
             // list the predefined profiles
             vm.command.print('=== predefined ===')
             Object.keys(lib.profiles._dir).forEach(key => {
-                vm.command.print(`  - ${key}`)
+                if (key === env.profile.name) {
+                    vm.command.print(`  + ${key}`)
+                } else {
+                    vm.command.print(`  - ${key}`)
+                }
             })
 
             // list the custom profiles
@@ -125,8 +129,9 @@ const system = {
 }
 
 system.profile.usage = '(name), (save)'
-system.profile.man = 'show or load the profile\n'
-                + '    * shows all profiles if no name is specified\n'
-                + '    * loads the profile if the name is specified'
+system.profile.man = 'manage profiles\n'
+                + '    * list all profiles when no name is specified\n'
+                + '    * load the profile when the name is specified\n'
+                + '    * save the profile if the name is followed by "save"'
 
 module.exports = system

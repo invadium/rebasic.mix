@@ -7,6 +7,7 @@ function setupOpt() {
 
     opt.set = function(key, val) {
         key = key.toLowerCase()
+        val = val.toLowerCase()
         lab.vm.Map.prototype.set.apply(this, [ key, val ])
 
         // find a custom handler
@@ -19,6 +20,8 @@ function setupOpt() {
     lab.vm.assign('opt', opt)
     lab.vm.defineConst('opt', opt)
     //lib.profile.restoreOpt()
+
+    opt.set('mouse', 'show')
 }
 
 function setupCache() {

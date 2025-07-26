@@ -1,10 +1,7 @@
-> index custom profiles and cache the index in the profile config
-> active links 
-> map of options in addition to limits
 > option - start from the top
-> don't blink the cursor when lost focus
+> active links 
 > capture the mouse on click?
-> function to read a key state without clearing the buffer (kinda like inkey$ works now)
+> function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
 > help intro
 > help titles in ROM
 > help tags for faster search (e.g. #function #math)?
@@ -52,6 +49,9 @@
 > electron app
 > local app functions (e.g. load and save files etc...)
 
+V don't blink the cursor when lost focus
+V index custom profiles and cache the index in the profile config
+V map of options in addition to limits
 V if - goto - else statement
 V single quote ' comments (MSX-BASIC, GW-BASIC and QBASIC)
 V fix inkey$ to comply with common behavior (clear the buffer)

@@ -39,9 +39,13 @@ function setupProfile() {
     setupOpt()
     setupCache()
 
-    env.profile = 'default'
+    env.profile = {
+        name: 'default',
+        customList: [],
+    }
     lib.profile.restoreProfileConfig()
-    log(`PROFILE: [${env.profile}]`)
-    lib.profile.loadProfile(env.profile)
+    log(`PROFILE: [${env.profile.name}]`)
+    console.dir(env.profile.customList)
+    lib.profile.loadProfileConfig(env.profile.name)
 }
 setupProfile.Z = 21

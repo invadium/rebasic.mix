@@ -13,26 +13,43 @@ function restoreMap(map, data) {
 }
 
 // set the profile name and cache the profile config
-function setProfile(profile) {
-    profile = profile.toLowerCase()
+function setProfile(profileName) {
+    profileName = profileName.toLowerCase()
 
     // TODO store the custom index
-    env.profile = profile
-    lib.storage.storeEntry('profile', {
-        name: profile,
-    })
+    if (!isObj(env.profile)) {
+        env.profile = {
+            name: profileName,
+            customList: []
+        }
+    } else {
+        env.profile.name = profileName
+    }
+    storeProfileConfig()
+}
+
+function registerCustomProfile(profileName) {
+    if (!isObj(env.profile)) {
+        env.profile = {
+            name: 'default',
+            customList: []
+        }
+    }
+    if (env.profile.customList.indexOf(profileName) < 0) {
+        env.profile.customList.push(profileName)
+    }
 }
 
 // restore the profile from cache if previously stored
 function restoreProfileConfig() {
     const storedProfile = lib.storage.restoreEntry('profile')
     if (storedProfile && storedProfile.name) {
-        env.profile = storedProfile.name
+        env.profile = storedProfile
     }
 }
 
 // load an existing profile or create and store a new one
-function loadProfile(name) {
+function loadProfileConfig(name) {
     name = name.toLowerCase()
 
     // look for a predefined profiled
@@ -50,7 +67,7 @@ function loadProfile(name) {
         log.raw(profileSrc)
         lab.vm.runSource(profileSrc)
 
-        const optRestored   = this.restoreOpt()
+        const optRestored = this.restoreOpt()
         if (!optRestored) {
             lab.vm.scope.opt.data = {}
         }
@@ -63,24 +80,6 @@ function loadProfile(name) {
     } else {
         throw new Error(`can't find the profile [${name}]`)
     }
-
-    /*
-    const optRestored   = this.restoreOpt()
-
-    if (!optRestored) {
-        const opt = lab.vm.scope.opt
-        const bcontext = env.context
-
-        log(`setting profile ink to ${bcontext.ink}`)
-        opt.set('ink', bcontext.ink)
-
-        log(`setting profile paper to ${bcontext.paper}`)
-        opt.set('paper', bcontext.paper)
-
-        log(`setting profile border to ${bcontext.paper}`)
-        opt.set('border', bcontext.border)
-    }
-    */
 }
 
 function storeOpt(profile) {
@@ -101,6 +100,10 @@ function restoreCache() {
     return this.restoreMap(lab.vm.scope.cache, storedCache)
 }
 
+function storeProfileConfig() {
+    lib.storage.storeEntry('profile', env.profile)
+}
+
 function saveProfile(name) {
     log(`saving profile [${name}]`)
     const profileSrc = lab.vm.source()
@@ -110,4 +113,6 @@ function saveProfile(name) {
     })
     storeOpt(name)
     storeCache(name)
+    registerCustomProfile(name)
+    storeProfileConfig()
 }

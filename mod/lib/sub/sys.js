@@ -7,11 +7,11 @@ const system = {
             if (save !== "save") throw new Error('"save" string flag is expected')
             lib.profile.saveProfile(name)
         } else if (name) {
-            lib.profile.loadProfile(name)
+            lib.profile.loadProfileConfig(name)
         } else {
             // show the current profile
             vm.command.print('=== current ===')
-            vm.command.print(`  + ${env.profile}`)
+            vm.command.print(`  + ${env.profile.name}`)
 
             // list the predefined profiles
             vm.command.print('=== predefined ===')
@@ -20,7 +20,12 @@ const system = {
             })
 
             // list the custom profiles
-            vm.command.print('=== custom ===')
+            if (env.profile && env.profile.customList.length > 0) {
+                vm.command.print('=== custom ===')
+                env.profile.customList.forEach(profile => {
+                    vm.command.print(`  - ${profile}`)
+                })
+            }
         }
     },
 

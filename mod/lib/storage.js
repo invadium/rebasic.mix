@@ -1,5 +1,6 @@
 function restoreEntry(key) {
     try {
+        // log('loading: ' + env.tune.storagePrefix + '-' + key.toLowerCase())
         const raw = localStorage.getItem( env.tune.storagePrefix + '-' + key.toLowerCase())
 
         if (raw) {

@@ -49,7 +49,7 @@ function restoreProfileConfig() {
 }
 
 // load an existing profile or create and store a new one
-function loadProfileConfig(name) {
+function loadProfile(name) {
     name = name.toLowerCase()
 
     // look for a predefined profiled
@@ -84,20 +84,22 @@ function loadProfileConfig(name) {
 }
 
 function storeOpt(profile) {
-    lib.storage.storeEntry('opt-' + (profile || env.profile), lab.vm.scope.opt.data)
+    if (!lab.vm.scope.opt || Object.keys(lab.vm.scope.opt.data).length === 0) return
+    lib.storage.storeEntry('opt-' + (profile || env.profile.name), lab.vm.scope.opt.data)
 }
 
 function restoreOpt() {
-    const storedOpt = lib.storage.restoreEntry('opt-' + env.profile)
+    const storedOpt = lib.storage.restoreEntry('opt-' + env.profile.name)
     return this.restoreMap(lab.vm.scope.opt, storedOpt)
 }
 
 function storeCache(profile) {
-    lib.storage.storeEntry('cache-' + (profile || env.profile), lab.vm.scope.cache.data)
+    if (!lab.vm.scope.cache || Object.keys(lab.vm.scope.cache.data).length === 0) return
+    lib.storage.storeEntry('cache-' + (profile || env.profile.name), lab.vm.scope.cache.data)
 }
 
 function restoreCache() {
-    const storedCache = lib.storage.restoreEntry('cache-' + env.profile)
+    const storedCache = lib.storage.restoreEntry('cache-' + env.profile.name)
     return this.restoreMap(lab.vm.scope.cache, storedCache)
 }
 

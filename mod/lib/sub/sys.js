@@ -7,7 +7,7 @@ const system = {
             if (save !== "save") throw new Error('"save" string flag is expected')
             lib.profile.saveProfile(name)
         } else if (name) {
-            lib.profile.loadProfileConfig(name)
+            lib.profile.loadProfile(name)
         } else {
             // show the current profile
             vm.command.print('=== current ===')

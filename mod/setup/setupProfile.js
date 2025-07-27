@@ -39,18 +39,18 @@ function setupCache() {
 }
 
 function setupProfile() {
-    setupOpt()
-    setupCache()
-
     env.profile = {
         name: 'default',
         customList: [],
     }
+    setupOpt()
+    setupCache()
+
     lib.profile.restoreProfileConfig()
     log(`PROFILE: [${env.profile.name}]`)
     console.dir(env.profile.customList)
 
-    lib.profile.loadProfileConfig(env.profile.name)
+    lib.profile.loadProfile(env.profile.name)
     lab.textmode.clear()
 }
 setupProfile.Z = 21

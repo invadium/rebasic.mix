@@ -17,7 +17,6 @@ function init() {
     this.cellBack = []
     this.cellFX   = []
     this.adjust()
-    this.clear()
 }
 
 function adjust() {
@@ -97,7 +96,13 @@ function clear() {
     }
     this.lastPage()
     this.cx = 0
-    this.cy = th - 1
+    if (env.opt.startat === 1) {
+        this.cy = 0
+    } else if (env.opt.startat === -1) {
+        this.cy = th - 1
+    } else {
+        this.cy = th - 1
+    }
     this.lastFX = 0
 }
 

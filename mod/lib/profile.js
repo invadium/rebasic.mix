@@ -71,6 +71,7 @@ function loadProfileConfig(name) {
         if (!optRestored) {
             lab.vm.scope.opt.data = {}
         }
+        env.opt = lab.vm.scope.opt.data
 
         const cacheRestored = this.restoreCache()
         if (!cacheRestored) {

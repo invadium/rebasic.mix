@@ -7,7 +7,7 @@ function setupOpt() {
 
     opt.set = function(key, val) {
         key = key.toLowerCase()
-        val = val.toLowerCase()
+        if (val.toLowerCase) val = val.toLowerCase()
         lab.vm.Map.prototype.set.apply(this, [ key, val ])
 
         // find a custom handler
@@ -19,7 +19,7 @@ function setupOpt() {
 
     lab.vm.assign('opt', opt)
     lab.vm.defineConst('opt', opt)
-    //lib.profile.restoreOpt()
+    env.opt = opt.data
 
     opt.set('mouse', 'show')
 }
@@ -28,7 +28,7 @@ function setupCache() {
     const cache = new lab.vm.Map('cache')
 
     cache.set = function(key, val) {
-        key = key.toLowerCase()
+        ey = key.toLowerCase()
         lab.vm.Map.prototype.set.apply(this, [ key, val ])
         lib.profile.storeCache()
     }
@@ -49,6 +49,8 @@ function setupProfile() {
     lib.profile.restoreProfileConfig()
     log(`PROFILE: [${env.profile.name}]`)
     console.dir(env.profile.customList)
+
     lib.profile.loadProfileConfig(env.profile.name)
+    lab.textmode.clear()
 }
 setupProfile.Z = 21

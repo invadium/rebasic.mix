@@ -69,31 +69,48 @@ const system = {
     help: function help(name) {
         const vm = this
 
+        function helpForFn(target, fn) {
+            let def = target
+            if (fn.usage) def += ' ' + fn.usage
+            if (fn.man) def += ' - ' + fn.man
+            vm.command.print(def)
+        }
+
         function helpFor(target) {
             // normalize possible ReBasic id object
             if (target && typeof target === 'object') {
                 target = target.id
             }
 
+            if (target === 'tags') {
+                vm.command.print(vm.listTags())
+                return
+            } else if (target.startsWith('#')) {
+                const targets = vm.getByTag(target.substring(1))
+                targets.forEach(next => helpForFn(next.name, next))
+                return
+            }
+
             const fn = vm.command[target] || vm.fun[target]
             if (fn) {
-                let def = target
-                if (fn.usage) def += ' ' + fn.usage
-                if (fn.man) def += ' - ' + fn.man
-                vm.command.print(def)
+                helpForFn(target, fn)
             } else {
                 const page = lib.page._dir[target]
                 if (page) {
                     vm.command.print(page.body)
                 } else {
-                    vm.command.print(target + ' - unknown page/command')
+                    if (vm.tags.indexOf(target) >= 0) {
+                        const targets = vm.getByTag(target)
+                        targets.forEach(next => helpForFn(next.name, next))
+                    } else {
+                        vm.command.print(target + ' - unknown command/page/tag')
+                    }
                 }
             }
         }
 
         if (name) {
             helpFor(name)
-
             if (arguments.length > 1) {
                 for (let i = 1; i < arguments.length; i++) {
                     helpFor(arguments[i])

@@ -268,22 +268,29 @@ screen.face = screen.ink
 //
 // === help ===
 //
-screen.background.usage = '[color]'
-screen.background.man = 'set background(paper) color'
-
 screen.paper.usage = '[color]'
+screen.paper.tags = 'classic, draw'
 screen.paper.man = 'set background(paper) color'
 
+// TODO how to split help for similar functions? Can we close a function?
+screen.background.usage = '[color]'
+screen.background.tags = 'classic, draw'
+screen.background.man = 'set background(paper) color'
+
 screen.border.usage = '[color]'
+screen.border.tags = 'classic, draw'
 screen.border.man = 'set border color'
 
 screen.ink.usage = '[color]'
+screen.ink.tags = 'classic, draw'
 screen.ink.man = 'set ink color'
 
 screen.backdrop.usage = '[color]'
+screen.backdrop.tags = "text"
 screen.backdrop.man = 'set character backdrop color, 0 if transparent'
 
 screen.fx.usage = '[type]'
+screen.fx.tags = "text"
 screen.fx.man = 'set character effect\n    available types:'
                 + '\n    0: none'
                 + '\n    1: inverse blink'
@@ -294,23 +301,30 @@ screen.fx.man = 'set character effect\n    available types:'
                 + '\n    6: strikethrough with the backdrop color'
 
 screen.face.usage = '[color]'
+screen.face.tags = "classic, text"
 screen.face.man = 'set ink color'
 
 screen.color.usage = "<face>, <background>, <border>"
+screen.color.tags = "classic, draw"
 screen.color.man =   "set colors"
 
 screen.plot.usage = "[x], [y], <color>"
+screen.plot.tags = "core, classic, draw"
 screen.plot.man = "draw a pixel"
 
 screen.pset.usage = "[x], [y], <color>"
+screen.pset.tags = "core, classic, draw"
 screen.pset.man = "low-level set of a pixel value"
 
 screen.line.usage = "[x1], [y1], [x2], [y2], <color>"
+screen.line.tags = "draw"
 screen.line.man = "draw a line"
 
 screen.drawto.usage = "[x], [y]"
+screen.drawto.tags = "draw"
 screen.drawto.man = "draw a line to coordinates"
 
 screen.circle.usage = "[x], [y], [r], <color>"
+screen.circle.tags = "draw"
 screen.circle.man = "draw a circle"
 

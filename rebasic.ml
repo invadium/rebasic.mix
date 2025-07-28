@@ -1,8 +1,8 @@
 V help titles in ROM
 V fix not interrupted after an error
+V help tags for faster search (e.g. #function #math)?
 
 > load with swap (exec/exit?) - ability to load and then return to previous program
-> help tags for faster search (e.g. #function #math)?
 > output markdown options to control the style and formatting
 > fix data elements somehow preserved after new program and data is already there?
 > function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)

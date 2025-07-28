@@ -155,6 +155,8 @@ const screen = {
     },
 
     plot: function(x, y, ci) {
+        x = Math.round(x)
+        y = Math.round(y)
         if (x < 0 || x >= env.width || y < 0 || y >= env.height) return
         const c = mapColor(ci) || env.context.ink
         if (!c) return
@@ -169,6 +171,18 @@ const screen = {
         // cache coordinates in the graphical context
         context.x = x
         context.y = y
+    },
+
+    pset: function(x, y, ci) {
+        const c = mapColor(ci) || env.context.ink
+        if (!c) return
+        const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
+
+        let i = (y * env.width + x) * 4
+        lab.pdata[i++] = RGBA[0]
+        lab.pdata[i++] = RGBA[1]
+        lab.pdata[i++] = RGBA[2]
+        lab.pdata[i  ] = RGBA[3]
     },
 
     line: function(x1, y1, x2, y2, ci) {
@@ -250,7 +264,6 @@ const screen = {
 // aliases
 screen.background = screen.paper
 screen.face = screen.ink
-screen.pset = screen.plot
 
 //
 // === help ===
@@ -290,7 +303,7 @@ screen.plot.usage = "[x], [y], <color>"
 screen.plot.man = "draw a pixel"
 
 screen.pset.usage = "[x], [y], <color>"
-screen.pset.man = "draw a pixel"
+screen.pset.man = "low-level set of a pixel value"
 
 screen.line.usage = "[x1], [y1], [x2], [y2], <color>"
 screen.line.man = "draw a line"

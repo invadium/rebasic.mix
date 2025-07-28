@@ -3,6 +3,8 @@ function sync() {
 }
 
 function put(x, y, RGBA) {
+    x = Math.round(x)
+    y = Math.round(y)
     if (x < 0 || x >= env.width || y < 0 || y >= env.height) return
     let i = (y * env.width + x) * 4
     lab.pdata[i++] = RGBA[0]
@@ -12,6 +14,10 @@ function put(x, y, RGBA) {
 }
 
 function drawBox(x, y, w, h, RGBA) {
+    x = Math.round(x)
+    y = Math.round(y)
+    w = Math.round(w)
+    h = Math.round(h)
     for (let iy = 0; iy < h; iy++) {
         for (let ix = 0; ix < w; ix++) {
             put(x + ix, y + iy, RGBA)

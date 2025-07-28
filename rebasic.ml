@@ -1,25 +1,20 @@
-V option - start from the top
-V rnd(N) to accept the number 0..N
-V rnd(-N) to set up the seed
-V fix history browser - should retarget the tail after a command execution
-V fix plot with float numbers (e.g. rnd)
+V help titles in ROM
+V fix not interrupted after an error
+
+> load with swap (exec/exit?) - ability to load and then return to previous program
 > help tags for faster search (e.g. #function #math)?
 > output markdown options to control the style and formatting
 > fix data elements somehow preserved after new program and data is already there?
-> fix not interrupted after an error
 > function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
 > active links 
 > capture the mouse on click?
+> save full textbuffer as a text file
 > help intro
-> help titles in ROM
 > about command
 > additional help pages
 > man with command details
 > trigger onStop in case of an error
-> ability to load and then return to previous program
   (could make a test suit with that)
-> function/procedure declaration with defun
-> function-local variables? (LOCAL)
 > edit # line? #editor
 > DELETE LINE and DELETE FROM-TO
 > AUTO command
@@ -30,7 +25,10 @@ V fix plot with float numbers (e.g. rnd)
 > wait for a keypress to continue output mode
 > cont after stop
 
-> load with swap
+> while - while-end loops
+> function/procedure declaration with defun
+> function-local variables? (LOCAL)
+
 > reload the previous program
 > test cases with load with swap -> autoreload on stop -> load next...
 
@@ -53,6 +51,11 @@ V fix plot with float numbers (e.g. rnd)
 > electron app
 > local app functions (e.g. load and save files etc...)
 
+V option - start from the top
+V rnd(N) to accept the number 0..N
+V rnd(-N) to set up the seed
+V fix history browser - should retarget the tail after a command execution
+V fix plot with float numbers (e.g. rnd)
 V don't blink the cursor when lost focus
 V index custom profiles and cache the index in the profile config
 V map of options in addition to limits

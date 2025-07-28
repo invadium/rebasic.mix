@@ -153,12 +153,12 @@ io.print.man = 'print out\n'
        + '    [print] with no arguments prints a new line'
 
 
-io.cls.man = 'clear the screen'
+io.cls.man = 'clear the screen (both the textbuffer and framebuffer)'
 io.home = io.cls
 
-io.clt.man = 'clear the text buffer'
+io.clt.man = 'clear the textbuffer (text only)'
 
-io.clg.man = 'clear the framebuffer (graphics)'
+io.clg.man = 'clear the framebuffer (graphics only)'
 
 io.screenshot.usage = '<filename>'
 io.screenshot.manual = 'take a screenshot'

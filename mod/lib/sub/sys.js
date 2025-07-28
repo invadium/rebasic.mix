@@ -69,24 +69,34 @@ const system = {
     help: function help(name) {
         const vm = this
 
-        // normalize possible ReBasic id object
-        if (name && typeof name === 'object') {
-            name = name.id
-        }
+        function helpFor(target) {
+            // normalize possible ReBasic id object
+            if (target && typeof target === 'object') {
+                target = target.id
+            }
 
-        if (name) {
-            const fn = vm.command[name] || vm.fun[name]
+            const fn = vm.command[target] || vm.fun[target]
             if (fn) {
-                let def = name
+                let def = target
                 if (fn.usage) def += ' ' + fn.usage
                 if (fn.man) def += ' - ' + fn.man
                 vm.command.print(def)
             } else {
-                const page = lib.page._dir[name]
+                const page = lib.page._dir[target]
                 if (page) {
                     vm.command.print(page.body)
                 } else {
-                    vm.command.print(name + ' - unknown page/command')
+                    vm.command.print(target + ' - unknown page/command')
+                }
+            }
+        }
+
+        if (name) {
+            helpFor(name)
+
+            if (arguments.length > 1) {
+                for (let i = 1; i < arguments.length; i++) {
+                    helpFor(arguments[i])
                 }
             }
 
@@ -124,7 +134,6 @@ const system = {
             }
             vm.command.print('')
         }
-
     }
 }
 

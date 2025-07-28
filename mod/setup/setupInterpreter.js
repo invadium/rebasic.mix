@@ -3,6 +3,7 @@ function setupVM() {
     vm.lexFromSource = mod.rebasic.arch.lex
     vm.parse = mod.rebasic.arch.parser
 
+    vm.exitOnError = false
     vm.opt.errToConsole = true
     if (env.config && env.config.debug) vm.opt.debug = true
             

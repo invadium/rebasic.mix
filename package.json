@@ -1,6 +1,6 @@
 {
     "name": "rebasic.mix",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "rebasic collider shell",
     "scripts": {
         "start": "node ./node_modules/collider.jam/jam.js"

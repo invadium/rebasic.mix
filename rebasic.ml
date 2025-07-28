@@ -1,10 +1,15 @@
-> option - start from the top
+V option - start from the top
+V rnd(N) to accept the number 0..N
+V rnd(-N) to set up the seed
+V fix history browser - should retarget the tail after a command execution
+> fix plot with float numbers (e.g. rnd)
+> help tags for faster search (e.g. #function #math)?
+> output markdown options to control the style and formatting
+> function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
 > active links 
 > capture the mouse on click?
-> function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
 > help intro
 > help titles in ROM
-> help tags for faster search (e.g. #function #math)?
 > about command
 > additional help pages
 > man with command details
@@ -21,9 +26,6 @@
 > shift line numbers #editor
 > "normalize" line numbers (e.g. 20, 23, 25, 27, 30 -> 20, 30, 40, 50, 60)
 > wait for a keypress to continue output mode
-> randomize (with optional seed)
-> rnd(N) to accept the number 0..N
-> rnd(-N) to set up the seed
 > cont after stop
 
 > load with swap

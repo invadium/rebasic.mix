@@ -67,8 +67,8 @@ function saveHistory(cmd) {
     if (cmd && cmd !== last) {
         this.unexecuted = null
         this.history.push(cmd)
-        this.historyPos = this.history.length
     }
+    this.historyPos = this.history.length
 }
 
 function command(cmd) {

@@ -2,9 +2,11 @@ V option - start from the top
 V rnd(N) to accept the number 0..N
 V rnd(-N) to set up the seed
 V fix history browser - should retarget the tail after a command execution
-> fix plot with float numbers (e.g. rnd)
+V fix plot with float numbers (e.g. rnd)
 > help tags for faster search (e.g. #function #math)?
 > output markdown options to control the style and formatting
+> fix data elements somehow preserved after new program and data is already there?
+> fix not interrupted after an error
 > function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
 > active links 
 > capture the mouse on click?

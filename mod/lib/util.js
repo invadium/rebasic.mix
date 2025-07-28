@@ -8,6 +8,7 @@ function defineLimits() {
     limits.set('height', env.context.height)
     limits.set('columns', env.context.columns)
     limits.set('rows', env.context.rows)
+    vm.defineConst('limits', limits)
 }
 
 function loadSourceFile(file) {
@@ -16,7 +17,7 @@ function loadSourceFile(file) {
 	let reader = new FileReader()
 	reader.onload = function(){
         lab.vm.loadSource(reader.result)
-        defineLimits()
+        //defineLimits()
 	};
 	reader.readAsText(input.files[0]);
 }

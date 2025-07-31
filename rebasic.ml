@@ -1,7 +1,15 @@
 V help titles in ROM
 V fix not interrupted after an error
 V help tags for faster search (e.g. #function #math)?
+V raw DATA entries
 
+> "no more data entries" error doesn't show up in the console and doesn't return to repl
+> binary format literals support (good for masks in DATA statements)
+> MASK command to use ASCII art to define sprites
+> while loops
+> do..while loops (DO..LOOP?)
+> ERASE to deallocate maps and arrays?
+> REDIM - redefine an array dimentions?
 > load with swap (exec/exit?) - ability to load and then return to previous program
 > output markdown options to control the style and formatting
 > fix data elements somehow preserved after new program and data is already there?

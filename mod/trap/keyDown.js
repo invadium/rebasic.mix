@@ -38,6 +38,10 @@ function keyDown(e) {
                 lab.ioCtrl.stop()
                 break
 
+            case 'Pause':
+                lab.ioCtrl.pause()
+                break
+
             case 'Enter':
                 lab.ioCtrl.enter()
                 break

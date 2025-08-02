@@ -256,6 +256,12 @@ function lastPage() {
     lab.textmode.lastPage()
 }
 
+function pause() {
+    // TODO should pause be different from stop/break/escape?
+    lab.vm.stop()
+    this.enable()
+}
+
 function stop() {
     lab.vm.stop()
     this.enable()

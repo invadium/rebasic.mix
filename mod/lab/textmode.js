@@ -106,6 +106,15 @@ function clear() {
     this.lastFX = 0
 }
 
+function truncate() {
+    this.cell.splice(0, this.tw)
+    this.bottomLine--
+}
+
+function truncOverflow() {
+    if (this.cell.length > this.tw * env.tune.maxLines) this.truncate()
+}
+
 function touch() {
     this.bottomLine = this.cell.length / this.tw - 1
 }
@@ -144,6 +153,7 @@ function returnCursor() {
         this.shiftScreen()
         this.cy = this.th - 1
     }
+    this.truncOverflow()
 }
 
 function shiftCursor() {
@@ -198,6 +208,8 @@ function putc(x, y, c) {
     this.cellFace[at] = env.context.ink
     this.cellBack[at] = env.context.back
     this.cellFX[at]   = env.context.fx
+
+    this.truncOverflow()
 }
 
 function swap(x, y, c) {

@@ -3,7 +3,7 @@ function keyDown(e) {
         env.currentKey = e.key.toLowerCase()
     }
 
-    if (e.ctrlKey) {
+    if (e.ctrlKey || e.metaKey) {
         switch(e.code) {
             case 'KeyC':
             case 'Backspace':
@@ -22,7 +22,6 @@ function keyDown(e) {
             case 'ArrowRight':
                 lab.ioCtrl.lastLine()
                 break
-
             case 'Home':
                 lab.ioCtrl.firstPage()
                 break

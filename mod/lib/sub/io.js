@@ -141,6 +141,13 @@ const io = {
         vm.command.print('')
     },
 
+    vsync: function() {
+        const vm = this
+        vm.vsync = true
+        vm.interrupted = true
+        vm.resumeOnTimeout = true
+    },
+
     close: function() {},
 }
 
@@ -167,6 +174,8 @@ io.rom.man = 'list examples from rom'
 
 io.htab.man = 'set horizontal cursor position'
 io.vtab.man = 'set vertical cursor position'
+
+io.vsync.man = 'wait for the next frame'
 
 io.locate.usage = '[x], [y], <cursor-mode>'
 io.locate.man = 'set the cursor position and mode'

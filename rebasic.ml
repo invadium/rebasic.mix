@@ -2,12 +2,12 @@ V help titles in ROM
 V fix not interrupted after an error
 V help tags for faster search (e.g. #function #math)?
 V raw DATA entries
+V continue after stop
+V do/while/until -> break -> loop/while/until flow
 
 > "no more data entries" error doesn't show up in the console and doesn't return to repl
 > binary format literals support (good for masks in DATA statements)
 > MASK command to use ASCII art to define sprites
-> while loops
-> do..while loops (DO..LOOP?)
 > ERASE to deallocate maps and arrays?
 > REDIM - redefine an array dimentions?
 > load with swap (exec/exit?) - ability to load and then return to previous program
@@ -31,9 +31,7 @@ V raw DATA entries
 > shift line numbers #editor
 > "normalize" line numbers (e.g. 20, 23, 25, 27, 30 -> 20, 30, 40, 50, 60)
 > wait for a keypress to continue output mode
-> cont after stop
 
-> while - while-end loops
 > function/procedure declaration with defun
 > function-local variables? (LOCAL)
 

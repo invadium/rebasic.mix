@@ -34,4 +34,12 @@ function draw() {
     this.w = sw
     this.h = sh
     this.scale = scale
+
+    // run post-vsync if needed
+    if (lab.vm.resumeOnTimeout && lab.vm.vsync) {
+        lab.vm.vsync = false
+        lab.vm.interrupted = false
+        lab.vm.resumeOnTimeout = false
+        lab.vm.resume()
+    }
 }

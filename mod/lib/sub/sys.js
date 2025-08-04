@@ -59,11 +59,25 @@ const system = {
         if (name.indexOf('.') < 0) name += '.bas'
 
         const source = lab.vm.source()
+        lib.util.saveFile(name, source)
+    },
 
-        const a = document.createElement('a')
-        a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(source)
-        a.download = name
-        a.click()
+    savelog: function textshot(name) {
+        name = name || 'rebasic.log'
+        name = name.toLowerCase()
+        if (name.indexOf('.') < 0) name += '.log'
+
+        // compile the log
+        const lines = lab.textmode.getLines()
+        while (lines.length > 0 && lines[lines.length - 1].trim().length === 0) {
+            lines.pop() // drop trailing empty lines
+        }
+        if (lines.length > 0 && lines[lines.length - 1].toLowerCase().trim().startsWith('savelog')) {
+            lines.pop() // drop the "savelog" command
+        }
+        const content = lines.join('\n')
+
+        lib.util.saveFile(name, content)
     },
 
     help: function help(name) {
@@ -153,6 +167,9 @@ const system = {
         }
     }
 }
+
+system.savelog.usage = '(name)'
+system.savelog.man = 'save screen text log in a file'
 
 system.profile.usage = '(name), (save)'
 system.profile.man = 'manage profiles\n'

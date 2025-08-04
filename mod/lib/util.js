@@ -27,3 +27,10 @@ function takeScreenshot(name) {
     name = name || 'rebasic' + (++shots)
     lib.img.screenshot(name)
 }
+
+function saveFile(name, content) {
+    const a = document.createElement('a')
+    a.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(content)
+    a.download = name
+    a.click()
+}

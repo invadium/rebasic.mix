@@ -4,25 +4,26 @@ V help tags for faster search (e.g. #function #math)?
 V raw DATA entries
 V continue after stop
 V do/while/until -> break -> loop/while/until flow
+V binary format literals support (good for masks in DATA statements)
+V ERASE to deallocate maps and arrays or variables?
+V save full textbuffer as a text file
+V fix data elements somehow preserved after new program and data is already there
 
-> "no more data entries" error doesn't show up in the console and doesn't return to repl
-> binary format literals support (good for masks in DATA statements)
-> MASK command to use ASCII art to define sprites
-> ERASE to deallocate maps and arrays?
-> REDIM - redefine an array dimentions?
-> load with swap (exec/exit?) - ability to load and then return to previous program
+> multiple screens
+> read a pixel (is it HEX value or a number from the palette?)
+> ability to set the border size
+> presize scaling in exact multiples to keep pixel size consistent
+> MASK & MMAP command to use ASCII art to define sprites
+> LEN() should work on arrays and maps (# of keys?) - it is only strings now (?)
 > output markdown options to control the style and formatting
-> fix data elements somehow preserved after new program and data is already there?
 > function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
 > active links 
 > capture the mouse on click?
-> save full textbuffer as a text file
 > help intro
 > about command
 > additional help pages
 > man with command details
 > trigger onStop in case of an error
-  (could make a test suit with that)
 > edit # line? #editor
 > DELETE LINE and DELETE FROM-TO
 > AUTO command
@@ -30,13 +31,17 @@ V do/while/until -> break -> loop/while/until flow
 > wait for a keypress to continue output mode (more...)
 > shift line numbers #editor
 > "normalize" line numbers (e.g. 20, 23, 25, 27, 30 -> 20, 30, 40, 50, 60)
-> wait for a keypress to continue output mode
+> wait for a keypress to continue output mode?
+> REDIM - redefine an array dimentions?
+> "no more data entries" error doesn't show up in the console and doesn't return to repl
 
 > function/procedure declaration with defun
 > function-local variables? (LOCAL)
 
 > reload the previous program
 > test cases with load with swap -> autoreload on stop -> load next...
+> load with swap (exec/exit?) - ability to load and then return to previous program
+  (could make a test suit with that)
 
 # drawing
 > draw command (MSX DSL?)

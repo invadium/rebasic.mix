@@ -498,3 +498,36 @@ function draw() {
 
     restore()
 }
+
+function getLines() {
+    const { cell, tw } = this
+    
+    const lines = []
+    let linePos = 0, lastChar = -1, lineBuf = [], contentStarted = false
+    for (let i = 0; i < cell.length; i++) {
+        const ch = cell[i]
+        lineBuf.push(ch)
+        linePos ++
+        if (ch !== ' ' && ch !== '\t' && ch !== '\n' && ch !== '\r') lastChar = linePos
+
+        if (linePos === tw) {
+            let line = lineBuf.join('')
+            if (lastChar < line.length) line = line.substring(0, lastChar + 1)
+            
+            if (!contentStarted) {
+                if (line.length > 0) contentStarted = true
+            }
+            if (contentStarted) {
+                lines.push(line)
+            }
+            lineBuf  = []
+            lastChar = -1
+            linePos  = 0
+        }
+    }
+    return lines
+}
+
+function getText() {
+    return this.getLines().join('\n')
+}

@@ -115,6 +115,10 @@ const screen = {
     //
     // === graphics commands ===
     //
+    
+    screen: function(n) {
+        lib.gx.enableScreen(n)
+    },
 
     ink: function(ci) {
         const c = mapColor(ci)
@@ -144,8 +148,7 @@ const screen = {
             ctx.fillRect(0, 0, rx(1), ry(1))
             env.context.paper = c
         }
-        lab.framebuffer = ctx.getImageData(0, 0, ctx.width, ctx.height)
-        lab.pdata = lab.framebuffer.data
+        lib.gx.syncOut(env.context.screen)
     },
 
     border: function(ci) {
@@ -268,6 +271,9 @@ screen.face = screen.ink
 //
 // === help ===
 //
+screen.screen.usage = '[number]'
+screen.screen.man = 'enable the screen #'
+
 screen.paper.usage = '[color]'
 screen.paper.tags = 'classic, draw'
 screen.paper.man = 'set background(paper) color'

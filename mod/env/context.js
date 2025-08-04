@@ -1,8 +1,8 @@
 const context = {
-    width: 256,
+    width:  256,
     height: 192,
 
-    //border: hsl(.6, .15, .15),
+    screen:      1,
     border:      RGB(30, 32, 34),   // the screen outer edge color
     paper:       hsl(.16, .4, .7),  // the main screen background color
     ink:        '#252527',          // current color for text and drawing
@@ -10,4 +10,6 @@ const context = {
     fx:          0,
     leftMargin:  0,
     rightMargin: 0,
+
+    MAX_SCREEN:  16,
 }

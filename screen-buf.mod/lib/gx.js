@@ -1,5 +1,33 @@
 function sync() {
-    ctx.putImageData(lab.framebuffer, 0, 0)
+    ctx.putImageData(lab.renderbuffers[env.context.screen], 0, 0)
+}
+
+// copy current framebuffer data to a renderbuffer
+function syncOut(screen) {
+    if (screen === undefined) screen = env.context.screen
+
+    lab.renderbuffers[screen] = ctx.getImageData(0, 0, ctx.width, ctx.height)
+    if (env.context.screen === screen) {
+        lab.pdata = lab.renderbuffers[screen].data
+    }
+}
+
+function syncOutAll() {
+    for (let screen = 0; screen < env.context.MAX_SCREEN; screen++) {
+        lib.gx.syncOut(screen)
+    }
+}
+
+function createRenderbuffers() {
+    lab.renderbuffers = []
+    syncOutAll()
+}
+
+function enableScreen(screen) {
+    if (!isNum(screen)) throw new Error('Screen number is expected!')
+
+    env.context.screen = screen
+    lab.pdata = lab.renderbuffers[screen].data
 }
 
 function put(x, y, RGBA) {

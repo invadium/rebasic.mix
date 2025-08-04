@@ -1,6 +1,7 @@
 function setup() {
-    const W = _$.env.context.width
-    const H = _$.env.context.height
+    const context    = _$.env.context
+    const W          = context.width
+    const H          = context.height
 
     const canvas = ctx.canvas
 

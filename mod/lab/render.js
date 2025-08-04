@@ -6,28 +6,28 @@ function draw() {
     const base = env.height < env.width? env.height : env.width
     env.tune.edge = base * .05
 
-    const vram = this.vram
-    const aspect = vram.width/vram.height
+    const framebuffer = this.framebuffer
+    const aspect = framebuffer.width/framebuffer.height
 
     // calculate target area
     const w = env.width - 2*env.tune.edge
     const h = env.height - 2*env.tune.edge
 
     // determine best scale
-    const hscale = w/vram.width
-    const vscale = h/vram.height
+    const hscale = w/framebuffer.width
+    const vscale = h/framebuffer.height
     const scale = hscale < vscale? hscale : vscale
 
     // calculate actual screen dimention and position
-    const sw = vram.width * scale * env.tune.scale
-    const sh = vram.height * scale * env.tune.scale
+    const sw = framebuffer.width * scale * env.tune.scale
+    const sh = framebuffer.height * scale * env.tune.scale
     const x = (env.width - sw)/2
     const y = (env.height - sh)/2
 
-    mod['screen-buf'].lib.gx.sync() // sync pixel data with the framebuffer
+    lib.gx.sync() // sync current screen buffer with the framebuffer
     blocky()
-    //smooth()
-    image(vram, x, y, sw, sh)       // render the framebuffer
+    //smooth() - this one looks UUUGLY!
+    image(framebuffer, x, y, sw, sh) // render the framebuffer
 
     this.x = x
     this.y = y

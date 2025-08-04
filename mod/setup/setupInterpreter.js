@@ -30,8 +30,8 @@ function setupVM() {
     for (let n in str) vm.defineFun(n, str[n])
 
     // graphics
-    const screen = mod['screen-buf'].lib.screen
-    for (let n in screen) vm.defineCmd(n, screen[n])
+    const screenLib = pin.buf.lib.screen
+    for (let n in screenLib) vm.defineCmd(n, screenLib[n])
 
     // === define event handlers ===
     vm.onNewLine = function(n) {
@@ -69,11 +69,15 @@ function createVM() {
 
 function setupInterpreter() {
     const buf = mod['screen-buf']
-    lab.render.vram = buf.ctx.canvas
+    pin.buf = buf
+    lab.render.framebuffer = buf.ctx.canvas
     buf.env.link(env.tune)
     buf.env.link(env.context)
+    lib.link(buf.lib.gx)
 
     createVM()
+    lib.gx.createRenderbuffers()
+    buf.lib.screen.screen(env.context.screen)
     buf.lib.screen.paper()
 
     if (window.location.hash) {

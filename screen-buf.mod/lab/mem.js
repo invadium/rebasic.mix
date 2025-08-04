@@ -22,8 +22,8 @@ function drawNoise() {
 }
 */
 
+/*
 function paint() {
-    /*
     const w = env.width
     const h = env.height
     //this.generateNoise(w, h)
@@ -49,8 +49,8 @@ function paint() {
     text(txt, 0, 0)
 
     restore()
-    */
 }
+*/
 
 /*
 let dirty = true

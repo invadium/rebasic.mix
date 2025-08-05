@@ -262,6 +262,33 @@ const screen = {
             this.command.border(borderColor)
         }
     },
+
+    iput: function(dim, x, y) {
+        const W = env.context.width
+        const H = env.context.height
+
+        const d = dim.data
+        const w = d[0]
+        const h = d[1]
+        const x2 = clamp(x + w, x, W)
+        const y2 = clamp(y + h, y, H)
+        const x1 = clamp(x, 0, W)
+        const y1 = clamp(y, 0, H)
+
+        const pdata = lab.pdata
+
+        let i = 2
+        for (let cy = y1; cy < y2; cy++) {
+            const base = (cy * W * 4)
+            for (let cx = x1; cx < x2; cx++) {
+                let sh = base + cx * 4
+                pdata[sh]   = d[i++]
+                pdata[sh+1] = d[i++]
+                pdata[sh+2] = d[i++]
+                pdata[sh+3] = d[i++]
+            }
+        }
+    },
 }
 
 // aliases
@@ -333,4 +360,7 @@ screen.drawto.man = "draw a line to coordinates"
 screen.circle.usage = "[x], [y], [r], <color>"
 screen.circle.tags = "draw"
 screen.circle.man = "draw a circle"
+
+screen.iput.usage = '[array], [x], [y]'
+screen.iput.man = 'draw image data'
 

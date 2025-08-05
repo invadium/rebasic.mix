@@ -33,6 +33,9 @@ function setupVM() {
     const screenLib = pin.buf.lib.screen
     for (let n in screenLib) vm.defineCmd(n, screenLib[n])
 
+    const screenFun = pin.buf.lib.screenFun
+    for (let n in screenFun) vm.defineFun(n, screenFun[n])
+
     // === define event handlers ===
     vm.onNewLine = function(n) {
         lab.ioCtrl.onNewLine(n)
@@ -76,6 +79,7 @@ function setupInterpreter() {
     lib.link(buf.lib.gx)
 
     createVM()
+    buf.lab.link(lab.vm)
     lib.gx.createRenderbuffers()
     buf.lib.screen.screen(env.context.screen)
     buf.lib.screen.paper()

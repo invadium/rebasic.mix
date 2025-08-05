@@ -8,9 +8,11 @@ V binary format literals support (good for masks in DATA statements)
 V ERASE to deallocate maps and arrays or variables?
 V save full textbuffer as a text file
 V fix data elements somehow preserved after new program and data is already there
+V multiple screens
+V IGET and IPUT to copy and paste screen areas
 
-> multiple screens
 > read a pixel (is it HEX value or a number from the palette?)
+> save and restore drawing context
 > ability to set the border size
 > presize scaling in exact multiples to keep pixel size consistent
 > MASK & MMAP command to use ASCII art to define sprites

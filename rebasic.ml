@@ -10,6 +10,7 @@ V save full textbuffer as a text file
 V fix data elements somehow preserved after new program and data is already there
 V multiple screens
 V IGET and IPUT to copy and paste screen areas
+V function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
 
 > read a pixel (is it HEX value or a number from the palette?)
 > save and restore drawing context
@@ -18,7 +19,6 @@ V IGET and IPUT to copy and paste screen areas
 > MASK & MMAP command to use ASCII art to define sprites
 > LEN() should work on arrays and maps (# of keys?) - it is only strings now (?)
 > output markdown options to control the style and formatting
-> function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
 > active links 
 > capture the mouse on click?
 > help intro

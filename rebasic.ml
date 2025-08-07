@@ -14,6 +14,7 @@ V function to read a key state without clearing the buffer (kinda like inkey$ wo
 
 > read a pixel (is it HEX value or a number from the palette?)
 > save and restore drawing context
+> overlay at 1000 "romProgramName"
 > ability to set the border size
 > presize scaling in exact multiples to keep pixel size consistent
 > MASK & MMAP command to use ASCII art to define sprites

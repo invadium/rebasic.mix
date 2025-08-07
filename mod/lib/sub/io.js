@@ -116,7 +116,7 @@ const io = {
         lab.textmode.locate(x, y, c)
     },
 
-    rom: function() {
+    rom: function(filter) {
         if (!romTaglines) {
             compileTaglines(lib.rom._dir)
         }
@@ -129,14 +129,15 @@ const io = {
         Object.keys(lib.rom._dir).forEach(key => {
             const text = lib.rom._dir[key]
             const tagline = romTaglines[key]
+            if (!filter || text.includes(filter) || (tagline && tagline.includes(filter))) {
+                const sufix = tagline? ' - ' + tagline : ''
+                env.context.leftMargin = 3
+                vm.command.print(' * ' + key + sufix, { semi: true })
 
-            const sufix = tagline? ' - ' + tagline : ''
-            env.context.leftMargin = 3
-            vm.command.print(' * ' + key + sufix, { semi: true })
-
-            // restore the left margin and shift to the next line
-            env.context.leftMargin = 0
-            vm.command.print('', { semi: false })
+                // restore the left margin and shift to the next line
+                env.context.leftMargin = 0
+                vm.command.print('', { semi: false })
+            }
         })
         vm.command.print('')
     },
@@ -170,7 +171,9 @@ io.clg.man = 'clear the framebuffer (graphics only)'
 io.screenshot.usage = '<filename>'
 io.screenshot.manual = 'take a screenshot'
 
-io.rom.man = 'list examples from rom'
+io.rom.usage = '(filter)',
+io.rom.man = 'list rebasic examples from rom\n'
+             + '  provide a filter string to narrow the result'
 
 io.htab.man = 'set horizontal cursor position'
 io.vtab.man = 'set vertical cursor position'

@@ -1,43 +1,227 @@
 const palette = [
-    //'#000000', // black
-    //'#dc322f', // red
+
+    // === block 0 === 
+    null,       // 00 -transparent
+    // solarized
+    '#e9362b', // red
+    '#cb4b16', // orange
+    '#b58900', // yellow
+    '#859900', // green
+    '#2aa198', // cyan
+    '#268bd2', // blue
+    '#6c71c4', // violet
+    '#d33682', // magenta
+    '#444444',
+
+    // =====================
+    '#808080',
+    // solarized base
+    '#002b36',    // base 03
+    '#073642',    // base 02
+    '#586e75',    // base 01
+    '#657b83',    // base 00
+    '#839496',    // base 0
+    '#93a1a1',    // base 1
+    '#eee8d5',    // base 2 - pale mocca
+    '#fdf6e3',    // base 3
+    '#666666',
+
+    // === block ===
+    '#000000',
+    // selenized light background
+    '#cc1729', // red
+    '#bc5819', // orange
+    '#a78300', // yellow
+    '#428b00', // green
+    '#00978a', // cyan
+    '#006dce', // blue
+    '#825dc0', // violet
+    '#c44392', // magenta
+
+    '#444444',
+
+    // === block ===
+    '#202020',
+    // selenized light
+    '#d2212d', // red
+    '#c25d1e', // orange
+    '#ad8900', // yellow
+    '#489100', // green
+    '#009c8f', // cyan
+    '#0072d4', // blue
+    '#8762c6', // violet
+    '#ca4898', // magenta
+    '#666666',
+
+    // === block ===
+    '#707070',
+    // selenized light base
+    '#fbf3db', // bg-0
+    '#ece3cc', // bg-1
+    '#d5cdb6', // bg-2
+    '#909995', // dim-0
+    '#53676d', // fg-0
+    '#3a4d53', // fg-1
+    '#444444', //
+    '#666666', //
+    '#444444', //
+
+    // =====================
+    '#606060',
+    // selenized dark
+    '#ed4a46', // red
+    '#e67f43', // orange
+    '#dbb32d', // yellow
+    '#70b433', // green
+    '#3fc5b7', // cyan
+    '#368aeb', // blue
+    '#a580e2', // violet
+    '#eb6eb7', // magenta
+    '#666666', //
+
+    // === block ===
+    '#303030',
+    // selenized dark background
+    '#ff5e56', // red
+    '#fa9153', // orange
+    '#efc541', // yellow
+    '#83c746', // green
+    '#56d8c9', // cyan
+    '#4f9cfe', // blue
+    '#b891f5', // violet
+    '#ff81ca', // magenta
+    '#444444', //
+
+    // === block ===
+    // selenized black base
+    '#666666', // gray
+
+    '#181818', // bg-0
+    '#252525', // bg-1
+    '#3b3b3b', // bg-2
+    '#777777', // dim-0
+    '#b9b9b9', // fg-0
+    '#dedede', // fg-1
+
+    '#666666', //
+    '#444444', //
+    '#666666', //
+
+    // selenized dark base
+    '#777777',
+    '#103c48', // bg-0
+    '#184956', // bg-1
+    '#2d5b69', // bg-2
+    '#72898f', // dim-0
+    '#adbcbc', // fg-0
+    '#cad8d9', // fg-1
+    '#444444', //
+    '#666666', //
+    '#444444', //
+
+
+    // nord - frost and aurora
+    '#2e3440', // deep night
+    '#bf616a', // red
+    '#d08770', // orange
+    '#ebcb8b', // yellow
+    '#a3be8c', // green
+    '#88c0d0', // cyan
+    '#81a1c1', // blue
+    '#5e81ac', // almost violet
+    '#b48ead', // magenta
+    '#eceff4', // light snow
+
+    // nord - polar night
+    '#3b4252', // night
+    '#434c5e', // light night
+    '#4c566a', // dusk
+    // nord - snow storm
+    '#d8dee9', // heavy snow
+    '#e5e9f0', // snow
+    '#8fbcbb', // teal
+
+    '#222222',
+    '#444444',
+    '#222222',
+    '#444444',
+
+    // =========================
+    // sweetie 16
+    '#1a1c2c', // black
+    '#b13e53', // red
+    '#ef7d57', // orange
+    '#ffcd75', // yellow
+    '#38b764', // green
+    '#257179', // teal
+    '#41a6f6', // sky blue
+    '#3b5dc9', // sea blue
+    '#29366f', // dark blue
+    '#666666',
+
+    // =========================
+    // sweetie 16
+    '#000000',
+    '#5d275d', // dark red
+    '#a7f070', // salad green
+    '#73eff7', // cyan
+    '#f4f4f4', // whitish
+    '#94b0c2', // light gray
+    '#566c86', // metal gray
+    '#333c57', // dark gray 
+    '#000000',
+    '#000000',
+
+    // =========================
+    // bubblegum
+    '#16171a', // black
+    '#7f0622', // dark red
+    '#ffd100', // yellow
+    '#bfff3c', // light green
+    '#10d275', // green
+    '#007899', // teal
+    '#68aed4', // cyan
+    '#430067', // purple
+    '#ff2674', // pink
+    '#ff80a4', // light pink
 ]
 
 const colors = {
-    'clear':    null,           // transparent
+    'clear':    null,           // 00 - transparent
+
+    // solar
     'yellow':   '#b58900',      // solar - yellow
     'orange':   '#cb4b16',      // solar - orange
-    'purple':   '#5d275d',
     'red':      '#e9362b',      // solar - red
     'magenta':  '#d33682',      // solar - magenta
-
-    'dark blue': '#29366f',     // dark blue
-    'violet':    '#6c71c4',      // solar - violet
-    'some blue': '#3b5dc9',     // blue
-    'blue':      '#268bd2',      // solar - blue
-    'sky':       '#41a6f6',      // sky
-    'not-cyan':  '#73eff7',      // cyan
-
-    'deep-teal': '#002b36',     // solar - base 03
-    'base-teal': '#073642',     // solar - base 02
-    'ocean':     '#257179',     // darker teal
+    'violet':    '#6c71c4',     // solar - violet
+    'blue':      '#268bd2',     // solar - blue
     'teal':      '#2aa198',     // solar - cyan
-
     'green':    '#859900',      // solar - green
+
+    'base03':     '#002b36',    // solar - base 03
+    'base02':     '#073642',    // solar - base 02
+    'base01':     '#586e75',    // solar - base 01
+    'base00':     '#657b83',    // solar - base 00
+    'base0':      '#839496',    // solar - base 0
+    'base1':      '#93a1a1',    // solar - base 1
+    'base2':      '#eee8d5',    // base 2 - pale mocca
+    'base3':      '#fdf6e3',    // base 3
+
+    'ocean':     '#257179',     // darker teal
     'grass':    '#38b764',      // green
     'salad':    '#a7f070',      // salad
+    'purple':   '#5d275d',
+    'dark blue': '#29366f',     // dark blue
+    'some blue': '#3b5dc9',     // blue
+    'sky':       '#41a6f6',     // sky
+    'not-cyan':  '#73eff7',     // cyan
 
-    'base01':        '#586e75', // solar - base 01
-    'base00':        '#657b83', // solar - base 00
-    'base0':         '#839496', // solar - base 0
-    'base1':         '#93a1a1', // solar - base 1
     'metal':         '#94b0c2', // metal
     'dark-metal':    '#566c86', // dark metal
     'gray-blue':     '#333c57', // grayish blue
     'bluisn-black':  '#1a1c2c', // bluish black
     'black':         '#252527',
-    'white':         '#fdf6e3', // base 3
-    'pale-mocca':    '#eee8d5', // base 2 - pale mocca
     'pale-yellow':   '#d1cf94', // pale yellow paper
     'brown':         '#d98148',
     'dark-orange':   '#ef7d57', // orange
@@ -45,6 +229,20 @@ const colors = {
     'bright-yellow': '#ffcd75', // yellow
 
     'gray':          '#808080',
+
+    // nostalgOS retro palette
+    'nos-red':      '#dc6250',
+    'nos-pink':     '#deada5',
+    'nos-mocha':    '#dad4c9',
+    'nos-sun':      '#ffd183',
+    'nos-yellow':   '#eeb24a',
+    'nos-green':    '#55927f',
+    'nos-teal':     '#21525a',
+    'nos-gray':     '#272a32',
+    'nos-blue':     '#2152a5',
+    'nos-sky':      '#5a8bde',
+    'nos-purple':   '#b89ce9',
+    'nos-grape':    '#844790',
 }
 
 const context = {
@@ -52,7 +250,7 @@ const context = {
     y: 0,
 }
 
-Object.values(colors).forEach(c => palette.push(c))
+//Object.values(colors).forEach(c => palette.push(c))
 
 function mapColor(ci) {
     let c
@@ -161,8 +359,10 @@ const screen = {
         x = Math.round(x)
         y = Math.round(y)
         if (x < 0 || x >= env.width || y < 0 || y >= env.height) return
-        const c = mapColor(ci) || env.context.ink
-        if (!c) return
+        let c = env.context.ink
+        if (ci !== undefined) {
+            c = mapColor(ci) || '#00000000'
+        }
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         let i = (y * env.width + x) * 4
@@ -177,7 +377,8 @@ const screen = {
     },
 
     pset: function(x, y, ci) {
-        const c = mapColor(ci) || env.context.ink
+        let c = env.context.ink
+        if (ci !== undefined) c = mapColor(ci)
         if (!c) return
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
@@ -189,7 +390,9 @@ const screen = {
     },
 
     line: function(x1, y1, x2, y2, ci) {
-        const c = mapColor(ci) || env.context.ink
+        let c = env.context.ink
+        if (ci !== undefined) c = mapColor(ci)
+        if (!c) return
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         const dx = abs(x2 - x1),
@@ -238,14 +441,18 @@ const screen = {
     },
 
     circle: function(x, y, r, ci) {
-        const c = mapColor(ci) || env.context.ink
+        let c = env.context.ink
+        if (ci !== undefined) c = mapColor(ci)
+        if (!c) return
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         lib.gx.drawCircle(x, y, r, RGBA)
     },
 
     box: function(x, y, w, h, ci) {
-        let c = mapColor(ci) || env.context.ink
+        let c = env.context.ink
+        if (ci !== undefined) c = mapColor(ci)
+        if (!c) return
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         lib.gx.drawBox(x, y, w, h, RGBA)

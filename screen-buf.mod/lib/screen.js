@@ -11,10 +11,10 @@ const palette = [
     '#268bd2', // blue
     '#6c71c4', // violet
     '#d33682', // magenta
-    '#444444',
+    '',
 
     // =====================
-    '#808080',
+    '',
     // solarized base
     '#002b36',    // base 03
     '#073642',    // base 02
@@ -24,10 +24,10 @@ const palette = [
     '#93a1a1',    // base 1
     '#eee8d5',    // base 2 - pale mocca
     '#fdf6e3',    // base 3
-    '#666666',
+    '',
 
     // === block ===
-    '#000000',
+    '',
     // selenized light background
     '#cc1729', // red
     '#bc5819', // orange
@@ -37,11 +37,10 @@ const palette = [
     '#006dce', // blue
     '#825dc0', // violet
     '#c44392', // magenta
-
-    '#444444',
+    '',
 
     // === block ===
-    '#202020',
+    '',
     // selenized light
     '#d2212d', // red
     '#c25d1e', // orange
@@ -51,10 +50,10 @@ const palette = [
     '#0072d4', // blue
     '#8762c6', // violet
     '#ca4898', // magenta
-    '#666666',
+    '',
 
     // === block ===
-    '#707070',
+    '',
     // selenized light base
     '#fbf3db', // bg-0
     '#ece3cc', // bg-1
@@ -62,12 +61,12 @@ const palette = [
     '#909995', // dim-0
     '#53676d', // fg-0
     '#3a4d53', // fg-1
-    '#444444', //
-    '#666666', //
-    '#444444', //
+    '', //
+    '', //
+    '', //
 
     // =====================
-    '#606060',
+    '',
     // selenized dark
     '#ed4a46', // red
     '#e67f43', // orange
@@ -77,10 +76,10 @@ const palette = [
     '#368aeb', // blue
     '#a580e2', // violet
     '#eb6eb7', // magenta
-    '#666666', //
+    '', //
 
     // === block ===
-    '#303030',
+    '',
     // selenized dark background
     '#ff5e56', // red
     '#fa9153', // orange
@@ -90,35 +89,92 @@ const palette = [
     '#4f9cfe', // blue
     '#b891f5', // violet
     '#ff81ca', // magenta
-    '#444444', //
+    '', //
 
     // === block ===
     // selenized black base
-    '#666666', // gray
-
+    '', // gray
     '#181818', // bg-0
     '#252525', // bg-1
     '#3b3b3b', // bg-2
     '#777777', // dim-0
     '#b9b9b9', // fg-0
     '#dedede', // fg-1
-
-    '#666666', //
-    '#444444', //
-    '#666666', //
+    '', //
+    '', //
+    '', //
 
     // selenized dark base
-    '#777777',
+    '',
     '#103c48', // bg-0
     '#184956', // bg-1
     '#2d5b69', // bg-2
     '#72898f', // dim-0
     '#adbcbc', // fg-0
     '#cad8d9', // fg-1
-    '#444444', //
-    '#666666', //
-    '#444444', //
+    '', //
+    '', //
+    '', //
 
+    // gruvbox bright
+    '', //
+    '#fb4934', // red
+    '#fe8019', // orange
+    '#fabd2f', // yellow
+    '#b8bb26', // green 
+    '#8ec07c', // aqua
+    '#83a598', // blue
+    '#d3869b', // purple
+    '', //
+    '', //
+
+    // gruvbox normie
+    '', //
+    '#cc241d', // red
+    '#d65d0e', // orange
+    '#d79921', // yellow
+    '#98971a', // green
+    '#689d6a', // aqua
+    '#458588', // blue
+    '#b16286', // purple
+    '', //
+    '', //
+
+    // gruvbox faded
+    '', //
+    '#9d0006', // red
+    '#af3a03', // orange
+    '#b57614', // yellow
+    '#79740e', // green
+    '#427b58', // aqua
+    '#076678', // blue
+    '#8f3f71', // purple
+    '', //
+    '', //
+
+    // grovbox base dark
+    '#1d2021', // dark0-hard
+    '#282828', // dark0
+    '#32302f', // dark0-soft
+    '#3c3836', // dark1
+    '#504945', // dark2
+    '#665c54', // dark3
+    '#7c6f64', // dark4
+    '#7c6f64', // dark4_256
+    '#928374', // gray_245
+    '#928374', // gray_244
+
+    // grovbox base light
+    '#f9f5d7', // light0-hard
+    '#fbf1c7', // light0
+    '#f2e5bc', // light0-soft
+    '#ebdbb2', // light1
+    '#d5c4a1', // light2
+    '#bdae93', // light3
+    '#a89984', // light4
+    '#a89984', // light4_256
+    '', //
+    '', //
 
     // nord - frost and aurora
     '#2e3440', // deep night
@@ -141,14 +197,14 @@ const palette = [
     '#e5e9f0', // snow
     '#8fbcbb', // teal
 
-    '#222222',
-    '#444444',
-    '#222222',
-    '#444444',
+    '',
+    '',
+    '',
+    '',
 
     // =========================
     // sweetie 16
-    '#1a1c2c', // black
+    '', 
     '#b13e53', // red
     '#ef7d57', // orange
     '#ffcd75', // yellow
@@ -157,11 +213,11 @@ const palette = [
     '#41a6f6', // sky blue
     '#3b5dc9', // sea blue
     '#29366f', // dark blue
-    '#666666',
+    '',
 
     // =========================
     // sweetie 16
-    '#000000',
+    '',
     '#5d275d', // dark red
     '#a7f070', // salad green
     '#73eff7', // cyan
@@ -169,8 +225,8 @@ const palette = [
     '#94b0c2', // light gray
     '#566c86', // metal gray
     '#333c57', // dark gray 
-    '#000000',
-    '#000000',
+    '#1a1c2c', // black
+    '',
 
     // =========================
     // bubblegum
@@ -184,6 +240,31 @@ const palette = [
     '#430067', // purple
     '#ff2674', // pink
     '#ff80a4', // light pink
+
+
+    // plan 9
+    '', //
+    '#cc8888', // red
+    '', //
+    '#cccc88', // yellow
+    '#88cc88', // green
+    '', //
+    '#88cccc', // blue
+    '#8888cc', // purple
+    '#cc88cc', // magenta
+    '', //
+
+
+    '',
+    '#884444', // red
+    '',
+    '#888844', // yellowish
+    '#448844', // green
+    '',
+    '#448888', // blue
+    '#444488', // purple
+    '#884488', // magenta
+    '',
 ]
 
 const colors = {

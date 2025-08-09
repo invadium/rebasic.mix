@@ -2,7 +2,217 @@ const palette = [
 
     // === block 0 === 
     null,       // 00 -transparent
+    // nord - frost and aurora
+    '#bf616a', // red
+    '#d08770', // orange
+    '#ebcb8b', // yellow
+    '#a3be8c', // green
+    '#88c0d0', // cyan
+    '#81a1c1', // blue
+    '#5e81ac', // almost violet
+    '#b48ead', // magenta
+    '#d8dee9', // heavy snow
+    //'#eceff4', // light snow
+
+    // '', '', '', '', '', '', '', '', '', '',
+
+    // =========================
+    // sweetie 16
+    '#2d5b69', // selenzied dark bg-2
+    '#b13e53', // red
+    '#ef7d57', // orange
+    //'#ffcd75', // yellow
+    '#fabd2f', // yellow
+    '#38b764', // green
+    '#257179', // teal
+    '#41a6f6', // sky blue
+    '#3b5dc9', // sea blue
+    '#5d275d', // dark red
+    '#f9f5d7', // gruvbox light0-hard
+    //'#e5e9f0', // snow
+    //'#f4f4f4', // sweetie whitish
+
+
+
+    // === block ===
+    '#184956', // selenized dark bg-1
+    // selenized dark background
+    '#ff5e56', // red
+    '#fa9153', // orange
+    '#efc541', // yellow
+    '#83c746', // green
+    '#56d8c9', // cyan
+    '#4f9cfe', // blue
+    '#b891f5', // violet
+    '#ff81ca', // magenta
+    '#fbf1c7', // gruvbox light0
+
+    // === block ===
+    '#103c48', // selenized dark bg-0
+    // selenized light
+    '#d2212d', // red
+    '#c25d1e', // orange
+    '#ad8900', // yellow
+    '#489100', // green
+    '#009c8f', // cyan
+    '#0072d4', // blue
+    '#8762c6', // violet
+    '#ca4898', // magenta
+    '#f2e5bc', // gruvbox light0-soft
+
+    // gruvbox normie
+    '#3b3b3b', // selenized bg-2
+    '#cc241d', // red
+    '#d65d0e', // orange
+    '#d79921', // yellow
+    '#98971a', // green
+    '#689d6a', // aqua
+    '#458588', // blue
+    '#8888cc', // plan9 - purple
+    '#b16286', // purple
+    '#53676d', // selenized fg-0
+
+
+    // gruvbox faded
+    '#252525', // selenized bg-1
+    '#9d0006', // red
+    '#af3a03', // orange
+    '#b57614', // yellow
+    '#79740e', // green
+    '#427b58', // aqua
+    '#076678', // blue
+    '#444488', // plan 9 - dark purple
+    '#8f3f71', // purple
+    '#72898f', // selenized dark dim-0
+
+
+    // =========================
+    // bubblegum
+    '#181818', // selenized bg-0
+    //'#16171a', // black
+    '#7f0622', // dark red
+    '#ffd100', // yellow
+    '#bfff3c', // light green
+    '#10d275', // green
+    '#68aed4', // blue
+    '#007899', // teal
+    '#430067', // purple
+    '#ff2674', // pink
+    '#b9b9b9', // selenized fg-0
+
+    // =========================
+    // sweetie 16
+    '#333c57', // nord - dark gray 
+    '#cc8888', // plan 9 red
+    '#cccc88', // plan 9 yellow
+    '#ebdbb2', // gruvbox light1
+    '#a7f070', // sweetie 16 salad green
+    '#73eff7', // sweetie 16 cyan
+    '#29366f', // sweetie 16 dark blue
+    //'#1a1c2c', // black
+    '#a580e2', // violet
+    '#ff80a4', // bubblegum light pink
+    '#c7f0d8', // cyan
+
+
+    // pure
+    '#000000', //
+    '#ff0000', //
+    '#ff8000', //
+    '#ffff00', //
+    '#00ff00', //
+    '#00ffff', //
+    '#0000ff', //
+    '#8000ff', //
+    '#ff00ff', //
+    '#ffffff', //
+
+    // pure 2
+    '#404040', //
+    '#800000', //
+    '#804000', //
+    '#808000', //
+    '#008000', //
+    '#008080', //
+    '#000080', //
+    '#400080', //
+    '#800080', //
+    //'#808080', //
+    '#777777', // selenized black dim-0
+
+    // shades of nokia 12
+    '#884444', // plan 9 dark red
+    '#744538', // n12 brown
+    '#aa6d3c', // n12 orange brown
+    //'#aa9d80', // light brown
+    '#a89984', // gruvbox light4
+    '#43523d', // n12 greenish
+    '#88cccc', // plan 9 blue
+    '#3c4460', // n12 blue
+    '#695e70', // n12 purple
+    '#884488', // plan 9 dark magenta
+    '#909995', // selenized dim-0
+
+    // =================================
+    // nord - polar night
+    '#3a4d53', // selenized fg-1
+    '#2e3440', // nord deep night
+    '#3b4252', // nord night
+    '#434c5e', // nord light night
+    '#4c566a', // nord dusk
+    '#566c86', // nord metal gray
+    // nord - snow storm
+    //'#8fbcbb', // teal
+    //'#94b0c2', // sweetie 16 light gray
+    '#bdae93', // gruvbox light3
+    '#d5c4a1', // gruvbox light2
+    '#d5cdb6', // selenized bg-2
+    '#ece3cc', // selenized bg-1
+
+
+
+    // grovbox base dark
+    '#312b25', // n12 dark brown
+    '#1d2021', // gruvbox dark0-hard
+    '#282828', // gruvbox dark0
+    '#32302f', // gruvbox dark0-soft
+    '#3c3836', // gruvbox dark1
+    '#504945', // gruvbox dark2
+    '#665c54', // gruvbox dark3
+    '#7c6f64', // gruvbox dark4
+    '#928374', // gruvbox gray_245
+    '#adbcbc', // selenized dark fg-0
+
+
+    // tester line
+    '#404040',
+    '#404040',
+    '#404040',
+    '#404040',
+    '#404040',
+    '#404040',
+    '#404040',
+    '#404040',
+    '#808080',
+    '#808080',
+
+
+    '', '', '', '', '', '', '', '', '', '',
+
+
+    // carbon copy
+    '#81a1c1', // blue
+    '#5e81ac', // almost violet
+
+    '#ece3cc', // selenized bg-1
+    '#f9f5d7', // gruvbox light0-hard
+    '', '',
+    '', '',
+    '', '',
+
+    /*
     // solarized
+    '',
     '#e9362b', // red
     '#cb4b16', // orange
     '#b58900', // yellow
@@ -12,7 +222,9 @@ const palette = [
     '#6c71c4', // violet
     '#d33682', // magenta
     '',
+    */
 
+    /*
     // =====================
     '',
     // solarized base
@@ -25,6 +237,7 @@ const palette = [
     '#eee8d5',    // base 2 - pale mocca
     '#fdf6e3',    // base 3
     '',
+    */
 
     // === block ===
     '',
@@ -39,31 +252,6 @@ const palette = [
     '#c44392', // magenta
     '',
 
-    // === block ===
-    '',
-    // selenized light
-    '#d2212d', // red
-    '#c25d1e', // orange
-    '#ad8900', // yellow
-    '#489100', // green
-    '#009c8f', // cyan
-    '#0072d4', // blue
-    '#8762c6', // violet
-    '#ca4898', // magenta
-    '',
-
-    // === block ===
-    '',
-    // selenized light base
-    '#fbf3db', // bg-0
-    '#ece3cc', // bg-1
-    '#d5cdb6', // bg-2
-    '#909995', // dim-0
-    '#53676d', // fg-0
-    '#3a4d53', // fg-1
-    '', //
-    '', //
-    '', //
 
     // =====================
     '',
@@ -74,53 +262,17 @@ const palette = [
     '#70b433', // green
     '#3fc5b7', // cyan
     '#368aeb', // blue
-    '#a580e2', // violet
+    '',
+    //'#a580e2', // violet
     '#eb6eb7', // magenta
     '', //
 
-    // === block ===
-    '',
-    // selenized dark background
-    '#ff5e56', // red
-    '#fa9153', // orange
-    '#efc541', // yellow
-    '#83c746', // green
-    '#56d8c9', // cyan
-    '#4f9cfe', // blue
-    '#b891f5', // violet
-    '#ff81ca', // magenta
-    '', //
-
-    // === block ===
-    // selenized black base
-    '', // gray
-    '#181818', // bg-0
-    '#252525', // bg-1
-    '#3b3b3b', // bg-2
-    '#777777', // dim-0
-    '#b9b9b9', // fg-0
-    '#dedede', // fg-1
-    '', //
-    '', //
-    '', //
-
-    // selenized dark base
-    '',
-    '#103c48', // bg-0
-    '#184956', // bg-1
-    '#2d5b69', // bg-2
-    '#72898f', // dim-0
-    '#adbcbc', // fg-0
-    '#cad8d9', // fg-1
-    '', //
-    '', //
-    '', //
 
     // gruvbox bright
     '', //
     '#fb4934', // red
     '#fe8019', // orange
-    '#fabd2f', // yellow
+    '',
     '#b8bb26', // green 
     '#8ec07c', // aqua
     '#83a598', // blue
@@ -128,142 +280,30 @@ const palette = [
     '', //
     '', //
 
-    // gruvbox normie
-    '', //
-    '#cc241d', // red
-    '#d65d0e', // orange
-    '#d79921', // yellow
-    '#98971a', // green
-    '#689d6a', // aqua
-    '#458588', // blue
-    '#b16286', // purple
-    '', //
-    '', //
 
-    // gruvbox faded
-    '', //
-    '#9d0006', // red
-    '#af3a03', // orange
-    '#b57614', // yellow
-    '#79740e', // green
-    '#427b58', // aqua
-    '#076678', // blue
-    '#8f3f71', // purple
-    '', //
-    '', //
 
-    // grovbox base dark
-    '#1d2021', // dark0-hard
-    '#282828', // dark0
-    '#32302f', // dark0-soft
-    '#3c3836', // dark1
-    '#504945', // dark2
-    '#665c54', // dark3
-    '#7c6f64', // dark4
-    '#7c6f64', // dark4_256
-    '#928374', // gray_245
-    '#928374', // gray_244
-
-    // grovbox base light
-    '#f9f5d7', // light0-hard
-    '#fbf1c7', // light0
-    '#f2e5bc', // light0-soft
-    '#ebdbb2', // light1
-    '#d5c4a1', // light2
-    '#bdae93', // light3
-    '#a89984', // light4
-    '#a89984', // light4_256
-    '', //
-    '', //
-
-    // nord - frost and aurora
-    '#2e3440', // deep night
-    '#bf616a', // red
-    '#d08770', // orange
-    '#ebcb8b', // yellow
-    '#a3be8c', // green
-    '#88c0d0', // cyan
-    '#81a1c1', // blue
-    '#5e81ac', // almost violet
-    '#b48ead', // magenta
-    '#eceff4', // light snow
-
-    // nord - polar night
-    '#3b4252', // night
-    '#434c5e', // light night
-    '#4c566a', // dusk
-    // nord - snow storm
-    '#d8dee9', // heavy snow
-    '#e5e9f0', // snow
-    '#8fbcbb', // teal
-
-    '',
-    '',
-    '',
-    '',
-
-    // =========================
-    // sweetie 16
-    '', 
-    '#b13e53', // red
-    '#ef7d57', // orange
-    '#ffcd75', // yellow
-    '#38b764', // green
-    '#257179', // teal
-    '#41a6f6', // sky blue
-    '#3b5dc9', // sea blue
-    '#29366f', // dark blue
-    '',
-
-    // =========================
-    // sweetie 16
-    '',
-    '#5d275d', // dark red
-    '#a7f070', // salad green
-    '#73eff7', // cyan
-    '#f4f4f4', // whitish
-    '#94b0c2', // light gray
-    '#566c86', // metal gray
-    '#333c57', // dark gray 
-    '#1a1c2c', // black
-    '',
-
-    // =========================
-    // bubblegum
-    '#16171a', // black
-    '#7f0622', // dark red
-    '#ffd100', // yellow
-    '#bfff3c', // light green
-    '#10d275', // green
-    '#007899', // teal
-    '#68aed4', // cyan
-    '#430067', // purple
-    '#ff2674', // pink
-    '#ff80a4', // light pink
 
 
     // plan 9
+    '',
+    '',
     '', //
-    '#cc8888', // red
+    '#88cc88', // plan 9 green
     '', //
-    '#cccc88', // yellow
-    '#88cc88', // green
-    '', //
-    '#88cccc', // blue
-    '#8888cc', // purple
-    '#cc88cc', // magenta
+    '',
+    '',
+    '#cc88cc', // plan 9 magenta
     '', //
 
 
     '',
-    '#884444', // red
     '',
-    '#888844', // yellowish
-    '#448844', // green
     '',
-    '#448888', // blue
-    '#444488', // purple
-    '#884488', // magenta
+    '#888844', // plan 9 dark yellowish
+    '#448844', // plan 9 dark green
+    '',
+    '#448888', // plan 9 dark blue
+    '', 
     '',
 ]
 

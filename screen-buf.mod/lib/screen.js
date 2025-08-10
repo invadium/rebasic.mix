@@ -28,7 +28,7 @@ const palette = [
     '#41a6f6', // sky blue
     '#3b5dc9', // sea blue
     '#5d275d', // dark red
-    '#f9f5d7', // gruvbox light0-hard
+    '#b9b9b9', // selenized black fg-0
     //'#e5e9f0', // snow
     //'#f4f4f4', // sweetie whitish
 
@@ -45,7 +45,7 @@ const palette = [
     '#4f9cfe', // blue
     '#b891f5', // violet
     '#ff81ca', // magenta
-    '#fbf1c7', // gruvbox light0
+    '#c7f0d8', // cyan
 
     // === block ===
     '#103c48', // selenized dark bg-0
@@ -58,7 +58,7 @@ const palette = [
     '#0072d4', // blue
     '#8762c6', // violet
     '#ca4898', // magenta
-    '#f2e5bc', // gruvbox light0-soft
+    '#adbcbc', // selenized dark fg-0
 
     // gruvbox normie
     '#3b3b3b', // selenized bg-2
@@ -70,20 +70,20 @@ const palette = [
     '#458588', // blue
     '#8888cc', // plan9 - purple
     '#b16286', // purple
-    '#53676d', // selenized fg-0
+    '#f9f5d7', // gruvbox light0-hard
 
 
     // gruvbox faded
     '#252525', // selenized bg-1
-    '#9d0006', // red
-    '#af3a03', // orange
-    '#b57614', // yellow
-    '#79740e', // green
-    '#427b58', // aqua
-    '#076678', // blue
+    '#9d0006', // gruvbox faded red
+    '#af3a03', // gruvbox faded orange
+    '#b57614', // gruvbox faded yellow
+    '#79740e', // gruvbox faded green
+    '#427b58', // gruvbox faded aqua
+    '#076678', // gruvbox faded blue
     '#444488', // plan 9 - dark purple
     '#8f3f71', // purple
-    '#72898f', // selenized dark dim-0
+    '#fbf1c7', // gruvbox light0
 
 
     // =========================
@@ -98,7 +98,7 @@ const palette = [
     '#007899', // teal
     '#430067', // purple
     '#ff2674', // pink
-    '#b9b9b9', // selenized fg-0
+    '#f2e5bc', // gruvbox light0-soft
 
     // =========================
     // sweetie 16
@@ -112,8 +112,38 @@ const palette = [
     //'#1a1c2c', // black
     '#a580e2', // violet
     '#ff80a4', // bubblegum light pink
-    '#c7f0d8', // cyan
+    '#d5c4a1', // gruvbox light2
 
+
+    // shades of nokia 12
+    '#884444', // plan 9 dark red
+    '#744538', // n12 brown
+    '#aa6d3c', // n12 orange brown
+    //'#aa9d80', // light brown
+    '#a89984', // gruvbox light4
+    '#43523d', // n12 greenish
+    '#88cccc', // plan 9 blue
+    '#3c4460', // n12 blue
+    '#695e70', // n12 purple
+    '#884488', // plan 9 dark magenta
+    '#d5cdb6', // selenized bg-2
+
+    // =================================
+    // nord - polar night
+    '#2e3440', // nord deep night
+    '#3b4252', // nord night
+    '#434c5e', // nord light night
+    '#4c566a', // nord dusk
+    '#566c86', // nord metal gray
+    // nord - snow storm
+    //'#8fbcbb', // teal
+    //'#94b0c2', // sweetie 16 light gray
+    '#3a4d53', // selenized fg-1
+    '#53676d', // selenized fg-0
+    '#72898f', // selenized dark dim-0
+    '#909995', // selenized dim-0
+    //'',
+    '#ece3cc', // selenized bg-1
 
     // pure
     '#000000', //
@@ -140,36 +170,6 @@ const palette = [
     //'#808080', //
     '#777777', // selenized black dim-0
 
-    // shades of nokia 12
-    '#884444', // plan 9 dark red
-    '#744538', // n12 brown
-    '#aa6d3c', // n12 orange brown
-    //'#aa9d80', // light brown
-    '#a89984', // gruvbox light4
-    '#43523d', // n12 greenish
-    '#88cccc', // plan 9 blue
-    '#3c4460', // n12 blue
-    '#695e70', // n12 purple
-    '#884488', // plan 9 dark magenta
-    '#909995', // selenized dim-0
-
-    // =================================
-    // nord - polar night
-    '#3a4d53', // selenized fg-1
-    '#2e3440', // nord deep night
-    '#3b4252', // nord night
-    '#434c5e', // nord light night
-    '#4c566a', // nord dusk
-    '#566c86', // nord metal gray
-    // nord - snow storm
-    //'#8fbcbb', // teal
-    //'#94b0c2', // sweetie 16 light gray
-    '#bdae93', // gruvbox light3
-    '#d5c4a1', // gruvbox light2
-    '#d5cdb6', // selenized bg-2
-    '#ece3cc', // selenized bg-1
-
-
 
     // grovbox base dark
     '#312b25', // n12 dark brown
@@ -181,20 +181,7 @@ const palette = [
     '#665c54', // gruvbox dark3
     '#7c6f64', // gruvbox dark4
     '#928374', // gruvbox gray_245
-    '#adbcbc', // selenized dark fg-0
-
-
-    // tester line
-    '#404040',
-    '#404040',
-    '#404040',
-    '#404040',
-    '#404040',
-    '#404040',
-    '#404040',
-    '#404040',
-    '#808080',
-    '#808080',
+    '#bdae93', // gruvbox light3
 
 
     '', '', '', '', '', '', '', '', '', '',
@@ -206,8 +193,12 @@ const palette = [
 
     '#ece3cc', // selenized bg-1
     '#f9f5d7', // gruvbox light0-hard
-    '', '',
-    '', '',
+
+    '#cccc88', // plan 9 yellow
+    '#f2e5bc', // gruvbox light0-soft
+
+    '#ebdbb2', // gruvbox light1
+    '#f2e5bc', // gruvbox light0-soft
     '', '',
 
     /*

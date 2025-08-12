@@ -11,14 +11,16 @@ V fix data elements somehow preserved after new program and data is already ther
 V multiple screens
 V IGET and IPUT to copy and paste screen areas
 V function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
+V LEN() should work on arrays and maps (# of keys?) - it is only strings now (?)
 
+> MASK & MMAP command to use ASCII art to define sprites
+> enable multiple screens at the same time (with transparency and background screen)
+> transparent paper (to be able to CLS with the transparent color and use background layers instead)
 > read a pixel (is it HEX value or a number from the palette?)
 > save and restore drawing context
-> overlay at 1000 "romProgramName"
+> overlay command, like OVERLAY AT 1000 "PROGRAM-NAME"
 > ability to set the border size
 > presize scaling in exact multiples to keep pixel size consistent
-> MASK & MMAP command to use ASCII art to define sprites
-> LEN() should work on arrays and maps (# of keys?) - it is only strings now (?)
 > output markdown options to control the style and formatting
 > active links 
 > capture the mouse on click?

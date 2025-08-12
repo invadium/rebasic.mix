@@ -182,120 +182,6 @@ const palette = [
     '#7c6f64', // gruvbox dark4
     '#928374', // gruvbox gray_245
     '#bdae93', // gruvbox light3
-
-
-    '', '', '', '', '', '', '', '', '', '',
-
-
-    // carbon copy
-    '#81a1c1', // blue
-    '#5e81ac', // almost violet
-
-    '#ece3cc', // selenized bg-1
-    '#f9f5d7', // gruvbox light0-hard
-
-    '#cccc88', // plan 9 yellow
-    '#f2e5bc', // gruvbox light0-soft
-
-    '#ebdbb2', // gruvbox light1
-    '#f2e5bc', // gruvbox light0-soft
-    '', '',
-
-    /*
-    // solarized
-    '',
-    '#e9362b', // red
-    '#cb4b16', // orange
-    '#b58900', // yellow
-    '#859900', // green
-    '#2aa198', // cyan
-    '#268bd2', // blue
-    '#6c71c4', // violet
-    '#d33682', // magenta
-    '',
-    */
-
-    /*
-    // =====================
-    '',
-    // solarized base
-    '#002b36',    // base 03
-    '#073642',    // base 02
-    '#586e75',    // base 01
-    '#657b83',    // base 00
-    '#839496',    // base 0
-    '#93a1a1',    // base 1
-    '#eee8d5',    // base 2 - pale mocca
-    '#fdf6e3',    // base 3
-    '',
-    */
-
-    // === block ===
-    '',
-    // selenized light background
-    '#cc1729', // red
-    '#bc5819', // orange
-    '#a78300', // yellow
-    '#428b00', // green
-    '#00978a', // cyan
-    '#006dce', // blue
-    '#825dc0', // violet
-    '#c44392', // magenta
-    '',
-
-
-    // =====================
-    '',
-    // selenized dark
-    '#ed4a46', // red
-    '#e67f43', // orange
-    '#dbb32d', // yellow
-    '#70b433', // green
-    '#3fc5b7', // cyan
-    '#368aeb', // blue
-    '',
-    //'#a580e2', // violet
-    '#eb6eb7', // magenta
-    '', //
-
-
-    // gruvbox bright
-    '', //
-    '#fb4934', // red
-    '#fe8019', // orange
-    '',
-    '#b8bb26', // green 
-    '#8ec07c', // aqua
-    '#83a598', // blue
-    '#d3869b', // purple
-    '', //
-    '', //
-
-
-
-
-
-    // plan 9
-    '',
-    '',
-    '', //
-    '#88cc88', // plan 9 green
-    '', //
-    '',
-    '',
-    '#cc88cc', // plan 9 magenta
-    '', //
-
-
-    '',
-    '',
-    '',
-    '#888844', // plan 9 dark yellowish
-    '#448844', // plan 9 dark green
-    '',
-    '#448888', // plan 9 dark blue
-    '', 
-    '',
 ]
 
 const colors = {
@@ -362,6 +248,7 @@ const context = {
     y: 0,
 }
 
+//while(palette.length < 256) palette.push('#444444')
 //Object.values(colors).forEach(c => palette.push(c))
 
 function mapColor(ci) {

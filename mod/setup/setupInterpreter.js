@@ -6,6 +6,23 @@ function setupVM() {
     vm.exitOnError = false
     vm.opt.errToConsole = true
     if (env.config && env.config.debug) vm.opt.debug = true
+
+    vm.defineSpecial('mask', {
+        masked:    true,
+        immediate: true,
+
+        doParse: function(opt) {
+            console.dir(opt)
+        }
+    })
+    vm.defineSpecial('mmap', {
+        masked:    true,
+        immediate: true,
+
+        doParse: function(opt) {
+            console.dir(opt)
+        }
+    })
             
     const core = mod.rebasic.lib.core
     for (let n in core) vm.defineCmd(n, core[n])

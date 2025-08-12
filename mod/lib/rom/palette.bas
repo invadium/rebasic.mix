@@ -2,7 +2,7 @@
 10 cls
 20 c = 0
 30 bx = 3
-40 by = 0
+40 by = 3
 50 W = limits("width")
 60 H = limits("height")
 

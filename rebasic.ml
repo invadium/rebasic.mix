@@ -17,6 +17,7 @@ V LEN() should work on arrays and maps (# of keys?) - it is only strings now (?)
 > enable multiple screens at the same time (with transparency and background screen)
 > transparent paper (to be able to CLS with the transparent color and use background layers instead)
 > read a pixel (is it HEX value or a number from the palette?)
+
 > save and restore drawing context
 > overlay command, like OVERLAY AT 1000 "PROGRAM-NAME"
 > ability to set the border size

@@ -7,23 +7,14 @@ function setupVM() {
     vm.opt.errToConsole = true
     if (env.config && env.config.debug) vm.opt.debug = true
 
-    vm.defineSpecial('mask', {
-        masked:    true,
-        immediate: true,
+    for (let name in lib.sub.special) {
+        const special = lib.sub.special[name]
 
-        doParse: function(opt) {
-            console.dir(opt)
+        if (isObj(special)) {
+            vm.defineSpecial(name, special)
         }
-    })
-    vm.defineSpecial('mmap', {
-        masked:    true,
-        immediate: true,
+    }
 
-        doParse: function(opt) {
-            console.dir(opt)
-        }
-    })
-            
     const core = mod.rebasic.lib.core
     for (let n in core) vm.defineCmd(n, core[n])
 

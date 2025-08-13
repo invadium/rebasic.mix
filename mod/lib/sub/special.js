@@ -67,10 +67,13 @@ const mask = {
                             if (!target) {
                                 raw.push(0); raw.push(0); raw.push(0); raw.push(0)
                             } else {
-                                raw.push(255);
-                                raw.push(128);
-                                raw.push(255);
-                                raw.push(255);
+                                // map the target to iRGB colors
+                                const c = mod['screen-buf'].lib.gx.mapColor(target) || '#ff80ffff'
+                                const RGBA = lib.color.color2RGBA(c)
+                                raw.push(RGBA[0]);
+                                raw.push(RGBA[1]);
+                                raw.push(RGBA[2]);
+                                raw.push(RGBA[3]);
                             }
                         }
                     }

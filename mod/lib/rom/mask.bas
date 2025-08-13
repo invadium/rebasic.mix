@@ -5,7 +5,7 @@
 50 let ih = 4
 60 let x = int(w/2 - iw/2)
 70 let y = int(h/2 - ih/2)
-80 let dx = 1
+80 let dx = 10
 90 let dy = 10
 100 let now = time()
 110 let timer = 0
@@ -23,13 +23,8 @@
 
 300 ' draw the frame
 310 cls
-320 iput invader1, x, y
-
-330 locate 40, 1
-340 timer = timer + delta
-350 if timer > 1 then gosub 500
-360 fpsa = fpsa + 1
-370 print "FPS:",fps
+320 gosub 630 ' show FPS
+330 if (now * 0.001) % 1 < 0.5 then gosub 700 else gosub 800
 
 400 ' next frame
 410 vsync
@@ -40,12 +35,34 @@
 520 fpsa = 0
 530 return
 
-1000 mmap x, 7
+630 locate 40, 1
+640 timer = timer + delta
+650 if timer > 1 then gosub 500
+660 fpsa = fpsa + 1
+670 print "FPS:",fps
+680 return
+
+700 iput invader1, x, y
+710 return
+
+800 iput invader2, x, y
+810 return
+
+1000 mmap x, 22
+1005 mmap o, 26
 1010 mask invader1
 1020 mask ------------
 1030 mask x  xxxxxx  x
-1040 mask xx x xx x xx
+1040 mask xx xoxxox xx
 1050 mask   xxxxxxxx  
 1060 mask   x  xx  x  
 1070 mask ------------
+
+2010 mask invader2
+2020 mask ------------
+2030 mask    xxxxxx   
+2040 mask  x xoxxox x 
+2050 mask x xxxxxxxx x
+2060 mask x x  xx  x x
+2070 mask ------------
 

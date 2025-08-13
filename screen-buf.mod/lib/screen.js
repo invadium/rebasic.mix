@@ -488,10 +488,22 @@ const screen = {
             const base = (cy * W * 4)
             for (let cx = x1; cx < x2; cx++) {
                 let sh = base + cx * 4
-                pdata[sh]   = d[i++]
-                pdata[sh+1] = d[i++]
-                pdata[sh+2] = d[i++]
-                pdata[sh+3] = d[i++]
+                const a = d[i + 3]
+                if (a === 255) {
+                    // replace
+                    pdata[sh  ] = d[i  ]
+                    pdata[sh+1] = d[i+1]
+                    pdata[sh+2] = d[i+2]
+                    pdata[sh+3] = d[i+3]
+                } else if (a > 0) {
+                    // blend
+                    const fa = a/255
+                    pdata[sh  ] = (1-fa) * pdata[sh  ] + d[i  ] * fa
+                    pdata[sh+1] = (1-fa) * pdata[sh+1] + d[i+1] * fa
+                    pdata[sh+2] = (1-fa) * pdata[sh+2] + d[i+2] * fa
+                    pdata[sh+3] = (1-fa) * pdata[sh+3] + d[i+3] * fa
+                } // ignore with a === 0
+                i += 4
             }
         }
     },

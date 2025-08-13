@@ -472,6 +472,8 @@ const screen = {
     iput: function(dim, x, y) {
         const W = env.context.width
         const H = env.context.height
+        x = x | 0
+        y = y | 0
 
         const d = dim.data
         const w = d[0]

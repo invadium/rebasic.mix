@@ -13,6 +13,7 @@ V IGET and IPUT to copy and paste screen areas
 V function to read a key state without clearing the buffer (kinda like inkey$ works now - key$?)
 V LEN() should work on arrays and maps (# of keys?) - it is only strings now (?)
 V MASK & MMAP command to use ASCII art to define sprites
+V fix LIST command missing lines
 
 > fix iput edge rendering problem
 > enable multiple screens at the same time (with transparency and background screen)
@@ -21,10 +22,9 @@ V MASK & MMAP command to use ASCII art to define sprites
 
 > warnings on number collisions in the source
 > ability to set the border size
-> whole scaling factors to avoid pixel distortions 
+> presize scaling in exact multiples to keep pixel size consistent
 > save and restore drawing context
 > overlay command, like OVERLAY AT 1000 "PROGRAM-NAME"
-> presize scaling in exact multiples to keep pixel size consistent
 > output markdown options to control the style and formatting
 > active links 
 > capture the mouse on click?

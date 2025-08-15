@@ -12,6 +12,7 @@ function init() {
     this.cy = 0
     this.cmode = 1
     this.bottomLine = 0
+    this.upLimit = 0
     this.cell = []
     this.cellFace = []
     this.cellBack = []
@@ -98,10 +99,13 @@ function clear() {
     this.cx = 0
     if (env.opt.startat === 1) {
         this.cy = 0
+        this.upLimit = this.th - 1
     } else if (env.opt.startat === -1) {
         this.cy = th - 1
+        this.upLimit = this.th * 2 - 2
     } else {
         this.cy = th - 1
+        this.upLimit = this.th * 2 - 2
     }
     this.lastFX = 0
 }
@@ -311,8 +315,9 @@ function right() {
 
 function pageUp(n) {
     const N = n || 1
+
     for (let i = 0; i < N; i++) {
-        if (this.bottomLine > this.th * 2 - 2) this.bottomLine --
+        if (this.bottomLine > this.upLimit) this.bottomLine --
     }
 }
 

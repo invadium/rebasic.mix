@@ -30,7 +30,7 @@
 410 vsync
 420 goto 200
 
-500 timer = timer - 1
+500 timer = 0
 510 fps = fpsa
 520 fpsa = 0
 530 return

@@ -2,8 +2,8 @@
 03 ' setup the screen and parameters
 05 cls
 10 ink 31
-20 paper 26
-30 border 25
+20 paper 76
+30 border 91
 40 let w = limits("width")
 50 let h = limits("height")
 60 let stars = 256

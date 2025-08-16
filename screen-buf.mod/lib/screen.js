@@ -211,39 +211,67 @@ const screen = {
         const H = env.context.height
         x = x | 0
         y = y | 0
+        if (x >= W || y >= H) return
 
         const d = dim.data
         const w = d[0]
         const h = d[1]
-        const x2 = clamp(x + w, x, W)
-        const y2 = clamp(y + h, y, H)
-        const x1 = clamp(x, 0, W)
-        const y1 = clamp(y, 0, H)
+
+        let sx1 = 0, tx1 = x,
+            sx2 = w, tx2 = x + w
+        if (tx2 < 0) return
+        if (tx1 < 0) {
+            sx1 = abs(tx1)
+            tx1 = 0
+        }
+        if (tx2 >= W) {
+            sx2 -= (tx2 - W)
+            tx2 = W - 1
+        }
+
+        let sy1 = 0, ty1 = y,
+            sy2 = h, ty2 = y + h
+        if (ty2 < 0) return
+        if (ty1 < 0) {
+            sy1 = abs(ty1)
+            ty1 = 0
+        }
+        if (ty2 >= H) {
+            sy2 -= (ty2 - H)
+            ty2 = H - 1
+        }
+
 
         const pdata = lab.pdata
 
-        let i = 2
-        for (let cy = y1; cy < y2; cy++) {
-            const base = (cy * W * 4)
-            for (let cx = x1; cx < x2; cx++) {
-                let sh = base + cx * 4
-                const a = d[i + 3]
+        let sy = sy1
+        for (let ty = ty1; ty < ty2; ty++) {
+            const tbase = (ty * W * 4)
+            const sbase = (sy * w * 4)
+            
+            let sx = sx1
+            for (let tx = tx1; tx < tx2; tx++) {
+                const tsh = tbase + tx * 4
+                const ssh = 2 + sbase + sx * 4
+
+                const a = d[ssh + 3]
                 if (a === 255) {
                     // replace
-                    pdata[sh  ] = d[i  ]
-                    pdata[sh+1] = d[i+1]
-                    pdata[sh+2] = d[i+2]
-                    pdata[sh+3] = d[i+3]
+                    pdata[tsh  ] = d[ssh  ]
+                    pdata[tsh+1] = d[ssh+1]
+                    pdata[tsh+2] = d[ssh+2]
+                    pdata[tsh+3] = d[ssh+3]
                 } else if (a > 0) {
                     // blend
                     const fa = a/255
-                    pdata[sh  ] = (1-fa) * pdata[sh  ] + d[i  ] * fa
-                    pdata[sh+1] = (1-fa) * pdata[sh+1] + d[i+1] * fa
-                    pdata[sh+2] = (1-fa) * pdata[sh+2] + d[i+2] * fa
-                    pdata[sh+3] = (1-fa) * pdata[sh+3] + d[i+3] * fa
+                    pdata[tsh  ] = (1-fa) * pdata[tsh  ] + d[ssh  ] * fa
+                    pdata[tsh+1] = (1-fa) * pdata[tsh+1] + d[ssh+1] * fa
+                    pdata[tsh+2] = (1-fa) * pdata[tsh+2] + d[ssh+2] * fa
+                    pdata[tsh+3] = (1-fa) * pdata[tsh+3] + d[ssh+3] * fa
                 } // ignore with a === 0
-                i += 4
+                sx++
             }
+            sy++
         }
     },
 }

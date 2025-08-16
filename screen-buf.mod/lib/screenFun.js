@@ -2,8 +2,8 @@ function iget(x, y, w, h) {
     const W = env.context.width
     const H = env.context.height
 
-    const x2 = clamp(x + w, x, W)
-    const y2 = clamp(y + h, y, H)
+    const x2 = clamp(x + w, 0, W)
+    const y2 = clamp(y + h, 0, H)
     const x1 = clamp(x, 0, W)
     const y1 = clamp(y, 0, H)
 

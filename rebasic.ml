@@ -14,8 +14,8 @@ V function to read a key state without clearing the buffer (kinda like inkey$ wo
 V LEN() should work on arrays and maps (# of keys?) - it is only strings now (?)
 V MASK & MMAP command to use ASCII art to define sprites
 V fix LIST command missing lines
+V fix iput edge rendering problem
 
-> fix iput edge rendering problem
 > enable multiple screens at the same time (with transparency and background screen)
 > transparent paper (to be able to CLS with the transparent color and use background layers instead)
 > read a pixel (is it HEX value or a number from the palette?)

@@ -36,6 +36,13 @@ const system = {
     load: function load(name) {
         if (name) {
             name = name.toLowerCase()
+
+            // "latest" - a special name
+            if (name === 'latest') {
+                this.loadSource(env.profile.sources['latest'])
+                return
+            }
+
             // look up in ROM
             const src = lib.rom[name]
             if (src) {

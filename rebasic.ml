@@ -15,12 +15,16 @@ V LEN() should work on arrays and maps (# of keys?) - it is only strings now (?)
 V MASK & MMAP command to use ASCII art to define sprites
 V fix LIST command missing lines
 V fix iput edge rendering problem
+V redefine the color palette
+V multi-statements, e.g. stmt : stmt : stmt : stmt
+V store the source in the profile before each run
 
+> load "latest" to load the latest source on this profile from the local store
+> warnings on number collisions in the source
 > enable multiple screens at the same time (with transparency and background screen)
 > transparent paper (to be able to CLS with the transparent color and use background layers instead)
 > read a pixel (is it HEX value or a number from the palette?)
 
-> warnings on number collisions in the source
 > ability to set the border size
 > presize scaling in exact multiples to keep pixel size consistent
 > save and restore drawing context
@@ -57,7 +61,6 @@ V fix iput edge rendering problem
 > turtle graphics?
 > rect
 > color name mapping? (doesn't work everywhere?)
-> redefine the color palette
 
 # sprites
 > sprite engine 

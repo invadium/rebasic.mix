@@ -53,6 +53,7 @@ function setupVM() {
         env.currentKey = ''
         lab.ioCtrl.disable()
         lab.textmode.saveState()
+        lib.profile.storeSources()
         // TODO store the text mode settings
     }
 

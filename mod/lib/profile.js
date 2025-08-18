@@ -78,6 +78,7 @@ function loadProfile(name) {
             lab.vm.scope.cache.data = {}
         }
 
+        this.restoreSources()
     } else {
         throw new Error(`can't find the profile [${name}]`)
     }
@@ -103,6 +104,20 @@ function restoreCache() {
     return this.restoreMap(lab.vm.scope.cache, storedCache)
 }
 
+function storeSources(profile) {
+    const curSource = lab.vm.source()
+    if (curSource.length === 0) return
+
+    if (!env.profile.sources) env.profile.sources = {}
+    env.profile.sources['latest'] = lab.vm.source()
+
+    lib.storage.storeEntry('sources-' + (profile || env.profile.name), env.profile.sources)
+}
+
+function restoreSources() {
+    return env.profile.sources = lib.storage.restoreEntry('sources-' + env.profile.name) || {}
+}
+
 function storeProfileConfig() {
     lib.storage.storeEntry('profile', env.profile)
 }
@@ -116,6 +131,7 @@ function saveProfile(name) {
     })
     storeOpt(name)
     storeCache(name)
+    storeSources(name)
     registerCustomProfile(name)
     storeProfileConfig()
 }

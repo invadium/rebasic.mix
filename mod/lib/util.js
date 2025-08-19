@@ -16,8 +16,13 @@ function loadSourceFile(file) {
 
 	let reader = new FileReader()
 	reader.onload = function(){
-        lab.vm.loadSource(reader.result)
-        //defineLimits()
+        try {
+            lab.vm.loadSource(reader.result)
+            //defineLimits()
+        } catch (e) {
+            console.log(e)
+            lab.vm.command.print(e.message)
+        }
 	};
 	reader.readAsText(input.files[0]);
 }

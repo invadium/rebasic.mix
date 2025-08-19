@@ -19,9 +19,10 @@ V redefine the color palette
 V multi-statements, e.g. stmt : stmt : stmt : stmt
 V store the source in the profile before each run
 V load "latest" to load the latest source on this profile from the local store
+V warnings on number collisions in the source
 
-> warnings on number collisions in the source
 > option to just load or run immediately with #<name> in the URL (#!name to run?)
+> DELETE LINE and DELETE FROM-TO
 > enable multiple screens at the same time (with transparency and background screen)
 > transparent paper (to be able to CLS with the transparent color and use background layers instead)
 > read a pixel (is it HEX value or a number from the palette?)
@@ -39,7 +40,6 @@ V load "latest" to load the latest source on this profile from the local store
 > man with command details
 > trigger onStop in case of an error
 > edit # line? #editor
-> DELETE LINE and DELETE FROM-TO
 > AUTO command
 > shift numbers #editor (and move all goto/gosub numbered entries accordingly)
 > wait for a keypress to continue output mode (more...)
@@ -52,7 +52,6 @@ V load "latest" to load the latest source on this profile from the local store
 > function/procedure declaration with defun
 > function-local variables? (LOCAL)
 
-> reload the previous program
 > test cases with load with swap -> autoreload on stop -> load next...
 > load with swap (exec/exit?) - ability to load and then return to previous program
   (could make a test suit with that)
@@ -64,8 +63,8 @@ V load "latest" to load the latest source on this profile from the local store
 > color name mapping? (doesn't work everywhere?)
 
 # sprites
+V sprite hex data
 > sprite engine 
-> sprite hex data
 > paired tile loading support (test.bas + test.png), maybe #include comments
 > paired sound sprite loading
 > game loop engine (setup, level, handle, evo, draw, traps, actors)

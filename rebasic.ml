@@ -20,8 +20,8 @@ V multi-statements, e.g. stmt : stmt : stmt : stmt
 V store the source in the profile before each run
 V load "latest" to load the latest source on this profile from the local store
 V warnings on number collisions in the source
+V option to just load or run immediately with #<name> in the URL (#!name to run?)
 
-> option to just load or run immediately with #<name> in the URL (#!name to run?)
 > DELETE LINE and DELETE FROM-TO
 > enable multiple screens at the same time (with transparency and background screen)
 > transparent paper (to be able to CLS with the transparent color and use background layers instead)
@@ -48,10 +48,13 @@ V warnings on number collisions in the source
 > wait for a keypress to continue output mode?
 > REDIM - redefine an array dimentions?
 > "no more data entries" error doesn't show up in the console and doesn't return to repl
+> FOCUS/UNFOCUS to auto-narrow lines in the list
 
+# core
 > function/procedure declaration with defun
 > function-local variables? (LOCAL)
 
+# test
 > test cases with load with swap -> autoreload on stop -> load next...
 > load with swap (exec/exit?) - ability to load and then return to previous program
   (could make a test suit with that)
@@ -71,6 +74,16 @@ V sprite hex data
 > double buffering support
 > native js functions
 
+# sound
+> wave shaping
+> FM synth
+> music data
+
+# text editors
+> extended line editor (look at ed, forth etc...)
+> screen editor (look at nano, acme and vim)
+
+# Desktop Edition
 > electron app
 > local app functions (e.g. load and save files etc...)
 

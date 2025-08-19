@@ -125,6 +125,31 @@ LOAD
 And point to the needed \*.bas file in a dialog window.
 
 
+### 
+
+Use URL # section to indicate a ROM sample you want to load, e.g:
+
+```
+http://localhost:9999#stars
+```
+will load "stars" sample from the ROM.
+
+Adding a bang (!) after the (#) will load and then instantly execute the program
+(so you don't have to type "run"):
+
+```
+http://localhost:9999#!stars
+```
+
+You can also use a special name "latest" to load and run the latest run source
+on this profile:
+
+```
+http://localhost:9999#!latest
+```
+
+
+
 
 ## Reference
 

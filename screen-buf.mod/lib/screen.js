@@ -51,7 +51,7 @@ const screen = {
     //
     
     screen: function(n) {
-        lib.gx.enableScreen(n)
+        lib.gx.activateScreen(n)
     },
 
     ink: function(ci) {

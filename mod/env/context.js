@@ -3,6 +3,8 @@ const context = {
     height: 192,
 
     screen:      1,
+    screenOpt:   [],
+    screenMask:  1,
     border:      RGB(30, 32, 34),   // the screen outer edge color
     paper:       hsl(.16, .4, .7),  // the main screen background color
     ink:        '#252527',          // current color for text and drawing
@@ -13,3 +15,10 @@ const context = {
 
     MAX_SCREEN:  16,
 }
+
+for (let i = 0; i <= context.MAX_SCREEN; i++) {
+    context.screenOpt[i] = {
+        paper:   0,
+    }
+}
+

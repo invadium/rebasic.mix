@@ -22,10 +22,10 @@ V load "latest" to load the latest source on this profile from the local store
 V warnings on number collisions in the source
 V option to just load or run immediately with #<name> in the URL (#!name to run?)
 
-> DELETE LINE and DELETE FROM-TO
 > enable multiple screens at the same time (with transparency and background screen)
 > transparent paper (to be able to CLS with the transparent color and use background layers instead)
 > read a pixel (is it HEX value or a number from the palette?)
+> DELETE LINE and DELETE FROM-TO
 
 > ability to set the border size
 > presize scaling in exact multiples to keep pixel size consistent

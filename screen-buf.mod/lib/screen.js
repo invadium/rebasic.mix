@@ -1,3 +1,4 @@
+
 const context = {
     x: 0,
     y: 0,
@@ -72,17 +73,12 @@ const screen = {
 
     // clear the framebuffer and set the background(paper) color
     paper: function(ci) {
-        if (!ci) {
-            ctx.fillStyle = env.context.paper
-            ctx.fillRect(0, 0, rx(1), ry(1))
+        if (ci === undefined) {
+            lib.gx.clear(env.context.paper)
         } else {
-            const c = lib.gx.mapColor(ci)
-            if (!c) return
-            ctx.fillStyle = c
-            ctx.fillRect(0, 0, rx(1), ry(1))
-            env.context.paper = c
+            env.context.paper = lib.gx.mapColor(ci)
+            lib.gx.flood( env.context.paper )
         }
-        lib.gx.syncOut(env.context.screen)
     },
 
     border: function(ci) {

@@ -1,3 +1,5 @@
+const CLEAR_iRGBA = [0, 0, 0, 0]
+
 const palette = require('/mod/screen-buf/lib/palette')
 const colors = require('/mod/screen-buf/lib/colors')
 
@@ -44,6 +46,34 @@ function createRenderbuffers() {
     syncOutAll()
 }
 
+function floodScreen(screen, sRGBA) {
+    const iRGBA = sRGBA? color.color2RGBA(sRGBA) : CLEAR_iRGBA
+    const pdata = lab.renderbuffers[screen].data
+    const dataLength = pdata.length
+    let i = 0
+    while(i < dataLength) {
+        pdata[i++] = iRGBA[0]
+        pdata[i++] = iRGBA[1]
+        pdata[i++] = iRGBA[2]
+        pdata[i++] = iRGBA[3]
+    }
+}
+
+function clearScreen(screen, ci) {
+    const sRGBA = lib.gx.mapColor(ci)
+    if (sRGBA) {
+        floodScreen(screen, sRGBA)
+    } else {
+        floodScreen(screen)
+    }
+}
+
+function clearAll(ci) {
+    for (let screen = 0; screen < env.context.MAX_SCREEN; screen++) {
+        clearScreen(screen, ci)
+    }
+}
+
 function activateScreen(screen) {
     if (!isNum(screen)) throw new Error('Screen number is expected!')
 
@@ -60,6 +90,14 @@ function put(x, y, RGBA) {
     lab.pdata[i++] = RGBA[1]
     lab.pdata[i++] = RGBA[2]
     lab.pdata[i  ] = RGBA[3]
+}
+
+function flood(color) {
+    floodScreen(env.context.screen, color)
+}
+
+function clear(ci) {
+    clearScreen(env.context.screen, ci)
 }
 
 function drawBox(x, y, w, h, RGBA) {

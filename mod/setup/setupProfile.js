@@ -52,6 +52,8 @@ function setupProfile() {
 
     lib.profile.loadProfile(env.profile.name)
     lab.textmode.clear()
-    lib.gx.syncOutAll()
+    //lib.gx.syncOutAll()
+    lib.gx.clearAll()
+    lib.gx.flood(env.context.paper)
 }
 setupProfile.Z = 21

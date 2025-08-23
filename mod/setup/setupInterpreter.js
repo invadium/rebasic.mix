@@ -81,8 +81,7 @@ function createVM() {
 
 function setupInterpreter() {
     const buf = mod['screen-buf']
-    pin.buf = buf
-    lab.render.framebuffer = buf.ctx.canvas
+    pin.link(buf, 'buf')
     buf.env.link(env.tune)
     buf.env.link(env.context)
     lib.link(buf.lib.gx)

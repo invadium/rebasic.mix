@@ -36,11 +36,16 @@ function draw() {
     this.h = sh
     this.scale = scale
 
-    lib.gx.sync() // sync current screen buffer with the framebuffer
     blocky()
     //smooth() - this one looks UUUGLY!
-    const framebuffer = this.framebuffer
-    image(framebuffer, x, y, sw, sh) // render the framebuffer
+    
+    for (let i = 0; i < pin.rlab.rendercontext.length; i++) {
+        if ( i === env.context.screen || (env.context.screenMask & (1 << i)) ) {
+            const nextCtx = pin.rlab.rendercontext[i]
+            lib.gx.syncRenderbuffer(i)
+            image(nextCtx.canvas, x, y , sw, sh)
+        }
+    }
 
     // run post-vsync if needed
     if (lab.vm.resumeOnTimeout && lab.vm.vsync) {

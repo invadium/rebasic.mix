@@ -22,7 +22,12 @@ function mapColor(ci) {
 }
 
 function sync() {
-    ctx.putImageData(lab.renderbuffers[env.context.screen], 0, 0)
+    //ctx.putImageData(lab.renderbuffers[env.context.screen], 0, 0)
+    lab.rendercontext[env.context.screen].putImageData(lab.renderbuffers[env.context.screen], 0, 0)
+}
+
+function syncRenderbuffer(screen) {
+    lab.rendercontext[screen].putImageData(lab.renderbuffers[screen], 0, 0)
 }
 
 // copy current framebuffer data to a renderbuffer

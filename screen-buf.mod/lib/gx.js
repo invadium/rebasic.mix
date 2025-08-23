@@ -81,6 +81,16 @@ function activateScreen(screen) {
     lab.pdata = lab.renderbuffers[screen].data
 }
 
+function enableScreen(screen) {
+    env.context.screenMask = env.context.screenMask | (1 << screen)
+    //console.log('screen mask: ' + (env.context.screenMask >>> 0).toString(2))
+}
+
+function disableScreen(screen) {
+    env.context.screenMask = env.context.screenMask & (~(1 << screen))
+    //console.log('screen mask: ' + (env.context.screenMask >>> 0).toString(2))
+}
+
 function put(x, y, RGBA) {
     x = Math.round(x)
     y = Math.round(y)

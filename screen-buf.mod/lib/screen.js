@@ -51,8 +51,13 @@ const screen = {
     // === graphics commands ===
     //
     
-    screen: function(n) {
-        lib.gx.activateScreen(n)
+    screen: function(n, action) {
+        if (action) {
+            if (action === 'enable') lib.gx.enableScreen(n)
+            else if (action === 'disable') lib.gx.disableScreen(n)
+        } else {
+            lib.gx.activateScreen(n)
+        }
     },
 
     ink: function(ci) {

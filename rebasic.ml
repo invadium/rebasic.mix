@@ -24,11 +24,12 @@ V warnings on number collisions in the source
 V option to just load or run immediately with #<name> in the URL (#!name to run?)
 V enable multiple screens at the same time (with transparency and background screen)
 V transparent paper (to be able to CLS with the transparent color and use background layers instead)
+V multiple graphic modes
+V sprite hex data
+V save and restore drawing context
 
-> multiple graphic modes
 > ability to set the border size
 > presize scaling in exact multiples to keep pixel size consistent
-> save and restore drawing context
 
 > read a pixel (is it HEX value or a number from the palette?)
 > DELETE LINE and DELETE FROM-TO
@@ -55,7 +56,7 @@ V transparent paper (to be able to CLS with the transparent color and use backgr
 > FOCUS/UNFOCUS to auto-narrow lines in the list
 
 # core
-> "true" functions with sub/call
+> "true" subroutines with SUB/CALL/LOCAL
 > function/procedure declaration with defun
 > function-local variables? (LOCAL)
 
@@ -71,7 +72,6 @@ V transparent paper (to be able to CLS with the transparent color and use backgr
 > color name mapping? (doesn't work everywhere?)
 
 # sprites
-V sprite hex data
 > sprite engine 
 > paired tile loading support (test.bas + test.png), maybe #include comments
 > paired sound sprite loading

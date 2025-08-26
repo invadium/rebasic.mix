@@ -106,11 +106,13 @@ function setMode(mode) {
     env.context.mode = mode
     env.context.width = modeDef.width
     env.context.height = modeDef.height
+    $.lab.textmode.adjust()
     $.lib.util.redefineLimits()
 
     lib.contextUtil.redefineResolution(env.context.width, env.context.height)
     syncOutAll()
     clearAll()
+    $.lab.textmode.clear()
 }
 
 function put(x, y, RGBA) {

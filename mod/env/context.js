@@ -1,4 +1,5 @@
 const context = {
+    mode:   1,
     width:  256,
     height: 192,
 

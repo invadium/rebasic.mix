@@ -60,6 +60,10 @@ const screen = {
         }
     },
 
+    mode: function(mode) {
+        lib.gx.setMode(mode)
+    },
+
     ink: function(ci) {
         const c = lib.gx.mapColor(ci)
         if (!c) return
@@ -95,14 +99,14 @@ const screen = {
     plot: function(x, y, ci) {
         x = Math.round(x)
         y = Math.round(y)
-        if (x < 0 || x >= env.width || y < 0 || y >= env.height) return
+        if (x < 0 || x >= env.context.width || y < 0 || y >= env.context.height) return
         let c = env.context.ink
         if (ci !== undefined) {
             c = lib.gx.mapColor(ci) || '#00000000'
         }
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
-        let i = (y * env.width + x) * 4
+        let i = (y * env.context.width + x) * 4
         lab.pdata[i++] = RGBA[0]
         lab.pdata[i++] = RGBA[1]
         lab.pdata[i++] = RGBA[2]
@@ -119,7 +123,7 @@ const screen = {
         if (!c) return
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
-        let i = (y * env.width + x) * 4
+        let i = (y * env.context.width + x) * 4
         lab.pdata[i++] = RGBA[0]
         lab.pdata[i++] = RGBA[1]
         lab.pdata[i++] = RGBA[2]
@@ -284,8 +288,15 @@ screen.face = screen.ink
 //
 // === help ===
 //
-screen.screen.usage = '[number]'
-screen.screen.man = 'enable the screen #'
+screen.screen.usage = '[number], (state)'
+screen.screen.man = 'activate the screen #\n'
+                + '    (state) - can be "enable" or "disable"\n'
+                + '    provide to enable/disable a screen\n'
+                + '    without activating it'
+
+screen.mode.usage = '[number]'
+screen.mode.man = 'change the screen mode\n'
+        + '    to one of available graphics modes [1..6]'
 
 screen.paper.usage = '[color]'
 screen.paper.tags = 'classic, draw'

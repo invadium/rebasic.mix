@@ -1,10 +1,7 @@
 function setup() {
     const context = _$.env.context
-    const w       = context.width
-    const h       = context.height
-
-    env.width  = w
-    env.height = h
+    const w = context.width
+    const h = context.height
 
     lab.rendercontext = []
 

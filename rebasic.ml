@@ -1,3 +1,4 @@
+# version 0.4
 V help titles in ROM
 V fix not interrupted after an error
 V help tags for faster search (e.g. #function #math)?
@@ -24,12 +25,14 @@ V option to just load or run immediately with #<name> in the URL (#!name to run?
 V enable multiple screens at the same time (with transparency and background screen)
 V transparent paper (to be able to CLS with the transparent color and use background layers instead)
 
-> read a pixel (is it HEX value or a number from the palette?)
-> DELETE LINE and DELETE FROM-TO
-
+> multiple graphic modes
 > ability to set the border size
 > presize scaling in exact multiples to keep pixel size consistent
 > save and restore drawing context
+
+> read a pixel (is it HEX value or a number from the palette?)
+> DELETE LINE and DELETE FROM-TO
+
 > overlay command, like OVERLAY AT 1000 "PROGRAM-NAME"
 > output markdown options to control the style and formatting
 > active links 
@@ -46,11 +49,13 @@ V transparent paper (to be able to CLS with the transparent color and use backgr
 > shift line numbers #editor
 > "normalize" line numbers (e.g. 20, 23, 25, 27, 30 -> 20, 30, 40, 50, 60)
 > wait for a keypress to continue output mode?
+> custom tabs (typewriter-like)
 > REDIM - redefine an array dimentions?
 > "no more data entries" error doesn't show up in the console and doesn't return to repl
 > FOCUS/UNFOCUS to auto-narrow lines in the list
 
 # core
+> "true" functions with sub/call
 > function/procedure declaration with defun
 > function-local variables? (LOCAL)
 

@@ -14,8 +14,12 @@ const func = {
 func.inkey$.usage = ''
 func.inkey$.man = 'read a value of a currently pressed key'
 
-func.key$.usage = ""
-func.key$.man = "peek a value of a currently pressed key\n"
+func.get = func.inkey$
+func.get.usage = ''
+func.get.man = 'read a value of a currently pressed key, an alias to inkey$'
+
+func.key$.usage = ''
+func.key$.man = 'peek a value of a currently pressed key\n'
                 + "  this function doesn't clean up\n"
-                + "  the key buffer like inkey$()"
+                + '  the key buffer like inkey$()'
 

@@ -1,3 +1,4 @@
+# version 0.4
 V help titles in ROM
 V fix not interrupted after an error
 V help tags for faster search (e.g. #function #math)?
@@ -23,13 +24,18 @@ V warnings on number collisions in the source
 V option to just load or run immediately with #<name> in the URL (#!name to run?)
 V enable multiple screens at the same time (with transparency and background screen)
 V transparent paper (to be able to CLS with the transparent color and use background layers instead)
+V multiple graphic modes
+V sprite hex data
+V save and restore drawing context
+
+> ability to set the border size
+> presize scaling in exact multiples to keep pixel size consistent
 
 > ability to set the border size
 > presize scaling in exact multiples to keep pixel size consistent
 > read a pixel (is it HEX value or a number from the palette?)
 > DELETE LINE and DELETE FROM-TO
 
-> save and restore drawing context
 > overlay command, like OVERLAY AT 1000 "PROGRAM-NAME"
 > output markdown options to control the style and formatting
 > active links 
@@ -46,11 +52,13 @@ V transparent paper (to be able to CLS with the transparent color and use backgr
 > shift line numbers #editor
 > "normalize" line numbers (e.g. 20, 23, 25, 27, 30 -> 20, 30, 40, 50, 60)
 > wait for a keypress to continue output mode?
+> custom tabs (typewriter-like)
 > REDIM - redefine an array dimentions?
 > "no more data entries" error doesn't show up in the console and doesn't return to repl
 > FOCUS/UNFOCUS to auto-narrow lines in the list
 
 # core
+> "true" subroutines with SUB/CALL/LOCAL
 > function/procedure declaration with defun
 > function-local variables? (LOCAL)
 
@@ -66,7 +74,6 @@ V transparent paper (to be able to CLS with the transparent color and use backgr
 > color name mapping? (doesn't work everywhere?)
 
 # sprites
-V sprite hex data
 > sprite engine 
 > paired tile loading support (test.bas + test.png), maybe #include comments
 > paired sound sprite loading

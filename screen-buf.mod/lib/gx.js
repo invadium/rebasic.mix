@@ -34,7 +34,8 @@ function syncRenderbuffer(screen) {
 function syncOut(screen) {
     if (screen === undefined) screen = env.context.screen
 
-    lab.renderbuffers[screen] = ctx.getImageData(0, 0, ctx.width, ctx.height)
+    const context2D = lab.rendercontext[screen]
+    lab.renderbuffers[screen] = context2D.getImageData(0, 0, context2D.width, context2D.height)
     if (env.context.screen === screen) {
         lab.pdata = lab.renderbuffers[screen].data
     }
@@ -96,11 +97,29 @@ function disableScreen(screen) {
     //console.log('screen mask: ' + (env.context.screenMask >>> 0).toString(2))
 }
 
+function setMode(mode) {
+    if (!isNum(mode)) throw new Error(`mode number expected`)
+
+    const modeDef = env.tune.mode[mode]
+    if (!modeDef) throw new Error(`unknown mode [${mode}]`)
+
+    env.context.mode = mode
+    env.context.width = modeDef.width
+    env.context.height = modeDef.height
+    $.lab.textmode.adjust()
+    $.lib.util.redefineLimits()
+
+    lib.contextUtil.redefineResolution(env.context.width, env.context.height)
+    syncOutAll()
+    clearAll()
+    $.lab.textmode.clear()
+}
+
 function put(x, y, RGBA) {
     x = Math.round(x)
     y = Math.round(y)
-    if (x < 0 || x >= env.width || y < 0 || y >= env.height) return
-    let i = (y * env.width + x) * 4
+    if (x < 0 || x >= env.context.width || y < 0 || y >= env.context.height) return
+    let i = (y * env.context.width + x) * 4
     lab.pdata[i++] = RGBA[0]
     lab.pdata[i++] = RGBA[1]
     lab.pdata[i++] = RGBA[2]

@@ -1,14 +1,20 @@
-function defineLimits() {
-    log('Setting up the environment map')
-
-    const vm = lab.vm
-    const limits = new vm.Map()
-    vm.assign('limits', limits)
+function redefineLimits() {
+    const limits = lab.vm.constant['limits']
+    limits.set('mode', env.context.mode)
     limits.set('width', env.context.width)
     limits.set('height', env.context.height)
     limits.set('columns', env.context.columns)
     limits.set('rows', env.context.rows)
-    vm.defineConst('limits', limits)
+}
+
+function defineLimits() {
+    log('Setting up the environment map')
+
+    const limits = new lab.vm.Map()
+    lab.vm.assign('limits', limits)
+    lab.vm.defineConst('limits', limits)
+
+    redefineLimits()
 }
 
 function loadSourceFile(file) {

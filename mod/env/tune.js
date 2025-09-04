@@ -11,6 +11,7 @@ const tune = {
     },
 
     mode: [
+        null,
         {
             width:  256,
             height: 192,

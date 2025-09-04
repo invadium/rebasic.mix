@@ -1,9 +1,3 @@
-
-const context = {
-    x: 0,
-    y: 0,
-}
-
 function drawLine(x1, y1, x2, y2, ci) {
     const c = lib.gx.mapColor(ci) || env.context.ink
     const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
@@ -60,6 +54,66 @@ const screen = {
         }
     },
 
+    mode: function(mode) {
+        lib.gx.setMode(mode)
+    },
+
+    xstore: function() {
+        const c = env.context
+
+        // extract the state from the drawing context
+        const st = {
+            screen:      c.screen,
+            screenOpt:   [],
+            screenMask:  c.mask,
+            border:      c.border,
+            paper:       c.paper,
+            ink:         c.ink,
+            back:        c.back,
+            fx:          c.fx,
+            x:           c.x,
+            y:           c.y,
+            leftMargin:  c.leftMargin,
+            rightMargin: c.rightMargin,
+        }
+
+        c.screenOpt.forEach(opt => {
+            st.screenOpt.push({
+                paper: opt.paper,
+            })
+        })
+
+        // preserve current state in the buffer
+        c.buffer.push(st)
+    },
+
+    xrestore: function() {
+        const c = env.context
+        if (c.buffer.length === 0) throw new Error(`empty buffer - can't restore drawing context`)
+
+        const st = c.buffer.pop()
+
+        // restore drawing context
+        c.screen      = st.screen
+        c.screenOpt   = []
+        c.screenMask  = st.mask
+        c.border      = st.border
+        c.paper       = st.paper
+        c.ink         = st.ink
+        c.back        = st.back
+        c.fx          = st.fx
+        c.x           = st.x
+        c.y           = st.y
+        c.leftMargin  = st.leftMargin
+        c.rightMargin = st.rightMargin
+
+        st.screenOpt.forEach(opt => {
+            c.screenOpt.push({
+                paper: opt.paper,
+            })
+        })
+    },
+
     ink: function(ci) {
         const c = lib.gx.mapColor(ci)
         if (!c) return
@@ -95,22 +149,22 @@ const screen = {
     plot: function(x, y, ci) {
         x = Math.round(x)
         y = Math.round(y)
-        if (x < 0 || x >= env.width || y < 0 || y >= env.height) return
+        if (x < 0 || x >= env.context.width || y < 0 || y >= env.context.height) return
         let c = env.context.ink
         if (ci !== undefined) {
             c = lib.gx.mapColor(ci) || '#00000000'
         }
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
-        let i = (y * env.width + x) * 4
+        let i = (y * env.context.width + x) * 4
         lab.pdata[i++] = RGBA[0]
         lab.pdata[i++] = RGBA[1]
         lab.pdata[i++] = RGBA[2]
         lab.pdata[i  ] = RGBA[3]
 
         // cache coordinates in the graphical context
-        context.x = x
-        context.y = y
+        env.context.x = x
+        env.context.y = y
     },
 
     pset: function(x, y, ci) {
@@ -119,7 +173,7 @@ const screen = {
         if (!c) return
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
-        let i = (y * env.width + x) * 4
+        let i = (y * env.context.width + x) * 4
         lab.pdata[i++] = RGBA[0]
         lab.pdata[i++] = RGBA[1]
         lab.pdata[i++] = RGBA[2]
@@ -172,9 +226,9 @@ const screen = {
     line: drawLine,
 
     drawto: function(x, y) {
-        drawLine(context.x, context.y, x, y)
-        context.x = x
-        context.y = y
+        drawLine(env.context.x, env.context.y, x, y)
+        env.context.x = x
+        env.context.y = y
     },
 
     circle: function(x, y, r, ci) {
@@ -184,6 +238,9 @@ const screen = {
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         lib.gx.drawCircle(x, y, r, RGBA)
+
+        env.context.x = x
+        env.context.y = y
     },
 
     box: function(x, y, w, h, ci) {
@@ -193,6 +250,9 @@ const screen = {
         const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
 
         lib.gx.drawBox(x, y, w, h, RGBA)
+
+        env.context.x = x
+        env.context.y = y
     },
 
     color: function(faceColor, backgroundColor, borderColor) {
@@ -284,8 +344,21 @@ screen.face = screen.ink
 //
 // === help ===
 //
-screen.screen.usage = '[number]'
-screen.screen.man = 'enable the screen #'
+screen.screen.usage = '[number], (state)'
+screen.screen.man = 'activate the screen #\n'
+                + '    (state) - can be "enable" or "disable"\n'
+                + '    provide to enable/disable a screen\n'
+                + '    without activating it'
+
+screen.mode.usage = '[number]'
+screen.mode.man = 'change the screen mode\n'
+        + '    to one of available graphics modes [1..6]'
+
+screen.xstore.usage = ''
+screen.xstore.man = 'store drawing context'
+
+screen.xrestore.usage = ''
+screen.xrestore.man = 'restore drawing context'
 
 screen.paper.usage = '[color]'
 screen.paper.tags = 'classic, draw'

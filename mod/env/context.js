@@ -1,4 +1,5 @@
 const context = {
+    mode:   1,
     width:  256,
     height: 192,
 
@@ -10,10 +11,14 @@ const context = {
     ink:        '#252527',          // current color for text and drawing
     back:        null,              // each individual character background in the text buffer
     fx:          0,
+    x:           0,
+    y:           0,
     leftMargin:  0,
     rightMargin: 0,
 
     MAX_SCREEN:  16,
+
+    buffer:      [],
 }
 
 for (let i = 0; i <= context.MAX_SCREEN; i++) {

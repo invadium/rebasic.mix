@@ -4,12 +4,39 @@ function draw() {
     // TODO draw from the screen 0
     background(env.context.border)
 
-    // all screens MUST be in the same MODE!!!
-    // determine the current mode and scale
-    const width  = env.context.width,
-          height = env.context.height,
-          aspect = width/height
+    // === calculate viewport scale and placement ===
 
+    // all screens MUST be in the same MODE!!!
+
+    // determine current framebuffer mode and aspect rate
+    const fbWidth  = env.context.width,
+          fbHeight = env.context.height,
+          fbAspect = fbWidth/fbHeight
+
+    // calculate viewport
+    const pureHScale = floor(ctx.width / fbWidth),
+          pureVScale = floor(ctx.height / fbHeight)
+    let scale = 1
+    if (pureHScale < pureVScale) {
+        scale = pureHScale
+    } else {
+        scale = pureVScale
+    }
+
+    const vpWidth  = fbWidth * scale,
+          vpHeight = fbHeight * scale
+
+    const vpx = floor((ctx.width - vpWidth) / 2),
+          vpy = floor((ctx.height - vpHeight) / 2)
+          
+    // buffer settings
+    this.x = vpx
+    this.y = vpy
+    this.w = vpWidth
+    this.h = vpHeight
+    this.scale = scale
+
+    /*
     // calculate the edge
     const base = env.height < env.width? env.height : env.width
     env.tune.edge = base * .05
@@ -19,13 +46,13 @@ function draw() {
     const h = env.height - 2*env.tune.edge
 
     // determine the best scale factor
-    const hscale = w/width
-    const vscale = h/height
+    const hscale = w/fbWidth
+    const vscale = h/fbHeight
     const scale = hscale < vscale? hscale : vscale
 
     // calculate actual screen dimension and position
-    const sw = width  * scale * env.tune.scale
-    const sh = height * scale * env.tune.scale
+    const sw = fbWidth  * scale * env.tune.scale
+    const sh = fbHeight * scale * env.tune.scale
     const x  = (env.width  - sw)/2
     const y  = (env.height - sh)/2
 
@@ -35,6 +62,7 @@ function draw() {
     this.w = sw
     this.h = sh
     this.scale = scale
+    */
 
     blocky()
     //smooth() - this one looks UUUGLY!
@@ -43,7 +71,7 @@ function draw() {
         if ( i === env.context.screen || (env.context.screenMask & (1 << i)) ) {
             const nextCtx = pin.rlab.rendercontext[i]
             lib.gx.syncRenderbuffer(i)
-            image(nextCtx.canvas, x, y , sw, sh)
+            image(nextCtx.canvas, vpx, vpy , vpWidth, vpHeight)
         }
     }
 

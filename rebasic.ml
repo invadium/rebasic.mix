@@ -27,12 +27,10 @@ V transparent paper (to be able to CLS with the transparent color and use backgr
 V multiple graphic modes
 V sprite hex data
 V save and restore drawing context
+V presize scaling in exact multiples to keep pixel size consistent
 
 > ability to set the border size
-> presize scaling in exact multiples to keep pixel size consistent
 
-> ability to set the border size
-> presize scaling in exact multiples to keep pixel size consistent
 > read a pixel (is it HEX value or a number from the palette?)
 > DELETE LINE and DELETE FROM-TO
 

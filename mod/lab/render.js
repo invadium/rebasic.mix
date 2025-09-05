@@ -4,24 +4,40 @@ function draw() {
     // TODO draw from the screen 0
     background(env.context.border)
 
-    // === calculate viewport scale and placement ===
-
     // all screens MUST be in the same MODE!!!
 
-    // determine current framebuffer mode and aspect rate
+    // === calculate viewport scale and placement ===
+
+    // determine current framebuffer dimensions and aspect rate
     const fbWidth  = env.context.width,
           fbHeight = env.context.height,
           fbAspect = fbWidth/fbHeight
 
-    // calculate viewport
-    const pureHScale = floor(ctx.width / fbWidth),
-          pureVScale = floor(ctx.height / fbHeight)
+    // calculate minimal edge
+    const base = env.height < env.width? env.height : env.width
+    const edge = base * env.tune.edge
+
+    // calculate proper viewport scale
     let scale = 1
-    if (pureHScale < pureVScale) {
-        scale = pureHScale
+
+    if (env.tune.discreteScale) {
+        const pureHScale = floor((ctx.width  - 2 * edge) / fbWidth),
+              pureVScale = floor((ctx.height - 2 * edge) / fbHeight)
+        if (pureHScale < pureVScale) {
+            scale = max(pureHScale, 1)
+        } else {
+            scale = max(pureVScale, 1)
+        }
     } else {
-        scale = pureVScale
+        const potentialWidth  = ctx.width  - 2 * edge
+        const potentialHeight = ctx.height - 2 * edge
+
+        // determine the best scale factor
+        const hscale = potentialWidth/fbWidth
+        const vscale = potentialHeight/fbHeight
+        scale = hscale < vscale? hscale : vscale
     }
+    scale *= env.tune.scale
 
     const vpWidth  = fbWidth * scale,
           vpHeight = fbHeight * scale
@@ -29,42 +45,16 @@ function draw() {
     const vpx = floor((ctx.width - vpWidth) / 2),
           vpy = floor((ctx.height - vpHeight) / 2)
           
-    // buffer settings
+    // === cache the calculated settings ===
     this.x = vpx
     this.y = vpy
     this.w = vpWidth
     this.h = vpHeight
     this.scale = scale
 
-    /*
-    // calculate the edge
-    const base = env.height < env.width? env.height : env.width
-    env.tune.edge = base * .05
+    // === render all enabled renderbuffers ===
 
-    // calculate viewport
-    const w = env.width  - 2*env.tune.edge
-    const h = env.height - 2*env.tune.edge
-
-    // determine the best scale factor
-    const hscale = w/fbWidth
-    const vscale = h/fbHeight
-    const scale = hscale < vscale? hscale : vscale
-
-    // calculate actual screen dimension and position
-    const sw = fbWidth  * scale * env.tune.scale
-    const sh = fbHeight * scale * env.tune.scale
-    const x  = (env.width  - sw)/2
-    const y  = (env.height - sh)/2
-
-    // buffer settings
-    this.x = x
-    this.y = y
-    this.w = sw
-    this.h = sh
-    this.scale = scale
-    */
-
-    blocky()
+    blocky() // we want screen to be pixelated
     //smooth() - this one looks UUUGLY!
     
     for (let i = 0; i < pin.rlab.rendercontext.length; i++) {

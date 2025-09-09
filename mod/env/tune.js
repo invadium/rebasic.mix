@@ -1,7 +1,7 @@
 const tune = {
-    scale:         1,
-    edge:          0,
-    discreteScale: true,
+    scale:    1,
+    dscale:   1,
+    edge:     0,
     maxLines: 16384,
     storagePrefix: 'rebasic',
 

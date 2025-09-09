@@ -67,11 +67,11 @@ function loadProfile(name) {
         log.raw(profileSrc)
         lab.vm.runSource(profileSrc)
 
-        const optRestored = this.restoreOpt()
-        if (!optRestored) {
-            lab.vm.scope.opt.data = {}
-        }
-        env.opt = lab.vm.scope.opt.data
+        //const optRestored = this.restoreOpt()
+        //if (!optRestored) {
+        //    lab.vm.scope.opt.data = {}
+        //}
+        //env.opt = lab.vm.scope.opt.data
 
         const cacheRestored = this.restoreCache()
         if (!cacheRestored) {
@@ -84,6 +84,7 @@ function loadProfile(name) {
     }
 }
 
+/*
 function storeOpt(profile) {
     if (!lab.vm.scope.opt || Object.keys(lab.vm.scope.opt.data).length === 0) return
     lib.storage.storeEntry('opt-' + (profile || env.profile.name), lab.vm.scope.opt.data)
@@ -93,6 +94,7 @@ function restoreOpt() {
     const storedOpt = lib.storage.restoreEntry('opt-' + env.profile.name)
     return this.restoreMap(lab.vm.scope.opt, storedOpt)
 }
+*/
 
 function storeCache(profile) {
     if (!lab.vm.scope.cache || Object.keys(lab.vm.scope.cache.data).length === 0) return
@@ -129,7 +131,7 @@ function saveProfile(name) {
     lib.storage.storeEntry('profile-' + name, {
         src: profileSrc,
     })
-    storeOpt(name)
+    //storeOpt(name)
     storeCache(name)
     storeSources(name)
     registerCustomProfile(name)

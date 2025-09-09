@@ -14,7 +14,7 @@ function setupOpt() {
         if (isFun(this.handlers[key])) {
             this.handlers[key](val)
         }
-        lib.profile.storeOpt()
+        // lib.profile.storeOpt()
     }
 
     lab.vm.assign('opt', opt)
@@ -22,6 +22,8 @@ function setupOpt() {
     env.opt = opt.data
 
     opt.set('mouse', 'show')
+    opt.set('edge', env.tune.edge)
+    opt.set('dscale', 1)
 }
 
 function setupCache() {

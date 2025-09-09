@@ -1,6 +1,10 @@
 const Z = 1
 
 function draw() {
+    const opt = lab.vm.scope.opt.data
+    const edgeFactor = opt.edge === undefined? env.tune.edge : opt.edge
+    const dscale = opt.dscale === undefined? env.tune.dscale : opt.dscale
+
     // TODO draw from the screen 0
     background(env.context.border)
 
@@ -15,12 +19,12 @@ function draw() {
 
     // calculate minimal edge
     const base = env.height < env.width? env.height : env.width
-    const edge = base * env.tune.edge
+    const edge = base * edgeFactor
 
     // calculate proper viewport scale
     let scale = 1
 
-    if (env.tune.discreteScale) {
+    if (dscale === 1) {
         const pureHScale = floor((ctx.width  - 2 * edge) / fbWidth),
               pureVScale = floor((ctx.height - 2 * edge) / fbHeight)
         if (pureHScale < pureVScale) {

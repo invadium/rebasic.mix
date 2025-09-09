@@ -28,12 +28,11 @@ V multiple graphic modes
 V sprite hex data
 V save and restore drawing context
 V presize scaling in exact multiples to keep pixel size consistent
+V ability to set the border size
 
-> ability to set the border size
 
 > read a pixel (is it HEX value or a number from the palette?)
 > DELETE LINE and DELETE FROM-TO
-
 > overlay command, like OVERLAY AT 1000 "PROGRAM-NAME"
 > output markdown options to control the style and formatting
 > active links 

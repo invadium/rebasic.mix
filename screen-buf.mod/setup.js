@@ -10,7 +10,11 @@ function setup() {
 
     lib.contextUtil.createContext(0, w, h)
     for (let i = 2; i < context.MAX_SCREEN; i++) {
-        lib.contextUtil.createContext(i, w, h)
+        if (i === context.MAX_SCREEN - 1) {
+            lib.contextUtil.createContext(i, w, h, 'symbols')
+        } else {
+            lib.contextUtil.createContext(i, w, h)
+        }
     }
 
     _$.pin.link(lab, 'rlab')

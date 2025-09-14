@@ -35,6 +35,10 @@ function syncOut(screen) {
     if (screen === undefined) screen = env.context.screen
 
     const context2D = lab.rendercontext[screen]
+    if (screen === env.context.MAX_SCREEN - 1) {
+        lib.contextUtil.generateSymbolTable(context2D)
+    }
+
     lab.renderbuffers[screen] = context2D.getImageData(0, 0, context2D.width, context2D.height)
     if (env.context.screen === screen) {
         lab.pdata = lab.renderbuffers[screen].data
@@ -71,6 +75,10 @@ function clearScreen(screen, ci) {
         floodScreen(screen, sRGBA)
     } else {
         floodScreen(screen)
+    }
+
+    if (screen === env.context.MAX_SCREEN - 1) {
+        syncOut(screen)
     }
 }
 

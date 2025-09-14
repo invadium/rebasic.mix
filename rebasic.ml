@@ -30,6 +30,8 @@ V save and restore drawing context
 V presize scaling in exact multiples to keep pixel size consistent
 V ability to set the border size
 
+> a screen with a symbol table
+> render text with current ink
 
 > read a pixel (is it HEX value or a number from the palette?)
 > DELETE LINE and DELETE FROM-TO

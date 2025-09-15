@@ -85,6 +85,11 @@ function enter() {
     this.buf = []
 }
 
+function clearBuffer() {
+    this.cur = 0
+    this.buf = []
+}
+
 function prev() {
     if (this.disabled) return
     lab.textmode.touch()

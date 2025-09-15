@@ -63,6 +63,7 @@ function setupVM() {
 
     vm.onStop = function() {
         if (lab.vm.loop) lab.ioCtrl.enable()
+        lab.ioCtrl.clearBuffer()
         lab.textmode.restoreState()
         // TODO restore the text mode settings
     }

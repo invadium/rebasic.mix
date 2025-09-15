@@ -1,4 +1,4 @@
-function iget(x, y, w, h) {
+function iget(x, y, w, h, screen) {
     const W = env.context.width
     const H = env.context.height
 
@@ -7,7 +7,11 @@ function iget(x, y, w, h) {
     const x1 = clamp(x, 0, W)
     const y1 = clamp(y, 0, H)
 
-    const pdata = lab.pdata
+    let pdata = lab.pdata
+    if (isNum(screen)) {
+        pdata = lab.renderbuffers[screen].data
+    }
+
     const d = [w, h]
     
     let i = 2

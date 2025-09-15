@@ -36,7 +36,7 @@ function syncOut(screen) {
 
     const context2D = lab.rendercontext[screen]
     if (screen === env.context.MAX_SCREEN - 1) {
-        lib.contextUtil.generateSymbolTable(context2D)
+        lib.contextUtil.generateSymbolTable(context2D, screen)
     }
 
     lab.renderbuffers[screen] = context2D.getImageData(0, 0, context2D.width, context2D.height)
@@ -186,5 +186,123 @@ function drawCircle(xc, yc, r, RGBA) {
             y--
         }
         drawCirclePoints(x, y, xc, yc, RGBA)
+    }
+}
+
+function getMask(x, y, w, h, screen) {
+    const W = env.context.width
+    const H = env.context.height
+
+    const x2 = clamp(x + w, 0, W)
+    const y2 = clamp(y + h, 0, H)
+    const x1 = clamp(x, 0, W)
+    const y1 = clamp(y, 0, H)
+
+    let pdata = lab.pdata
+    if (isNum(screen)) {
+        pdata = lab.renderbuffers[screen].data
+    }
+
+    const d = [w, h]
+    
+    let i = 2
+    for (let cy = y1; cy < y2; cy++) {
+        const base = (cy * W * 4)
+        for (let cx = x1; cx < x2; cx++) {
+            let sh = base + cx * 4
+            if (pdata[sh + 3] === 255) {
+                d[i++] = true
+            } else {
+                d[i++] = false
+            }
+        }
+    }
+    return d
+}
+
+function putMask(mask, x, y, sRGBA, screen) {
+    const W = env.context.width
+    const H = env.context.height
+    x = x | 0
+    y = y | 0
+    if (x >= W || y >= H) return
+
+    let pdata = lab.pdata
+    if (isNum(screen)) {
+        pdata = lab.renderbuffers[screen].data
+    }
+
+    const d = mask
+    const w = d[0]
+    const h = d[1]
+
+    let sx1 = 0, tx1 = x,
+        sx2 = w, tx2 = x + w
+    if (tx2 < 0) return
+    if (tx1 < 0) {
+        sx1 = abs(tx1)
+        tx1 = 0
+    }
+    if (tx2 >= W) {
+        sx2 -= (tx2 - W)
+        tx2 = W - 1
+    }
+
+    let sy1 = 0, ty1 = y,
+        sy2 = h, ty2 = y + h
+    if (ty2 < 0) return
+    if (ty1 < 0) {
+        sy1 = abs(ty1)
+        ty1 = 0
+    }
+    if (ty2 >= H) {
+        sy2 -= (ty2 - H)
+        ty2 = H - 1
+    }
+
+    let sy = sy1
+    for (let ty = ty1; ty < ty2; ty++) {
+        const tbase = (ty * W * 4)
+        const sbase = (sy * w)
+        
+        let sx = sx1
+        for (let tx = tx1; tx < tx2; tx++) {
+            const tsh = tbase + tx * 4
+            const ssh = 2 + sbase + sx
+
+            const v = d[ssh]
+            if (v) {
+                pdata[tsh  ] = sRGBA[0]
+                pdata[tsh+1] = sRGBA[1]
+                pdata[tsh+2] = sRGBA[2]
+                pdata[tsh+3] = sRGBA[3]
+            }
+
+            sx++
+        }
+        sy++
+    }
+}
+
+function drawSymbol(c, x, y, sRGBA) {
+    const fontMap = env.context.fontMap
+    const sym = fontMap._dir[c]
+    if (!sym) return
+
+    // TODO cache symbols
+    const snap = getMask(sym[5], sym[6], sym[7], sym[8], fontMap.screen)
+    putMask(snap, x, y, sRGBA)
+}
+
+function drawText(text, x, y, sRGBA) {
+    const fontMap = env.context.fontMap,
+          dx = fontMap.fw + 1,
+          sq = text.split('')
+
+    let bx = x, by = y
+    for (let i = 0; i < sq.length; i++) {
+        drawSymbol(sq[i], bx, by, sRGBA)
+
+        bx += dx
     }
 }

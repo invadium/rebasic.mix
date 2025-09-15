@@ -38,7 +38,7 @@ const monogramMap = [
     ['B', 13, 25,  5,  10 ],
     ['C', 19, 25,  5,  10 ],
     ['D', 25, 25,  5,  10 ],
-    ['I', 31, 25,  5,  10 ],
+    ['E', 31, 25,  5,  10 ],
     ['F', 37, 25,  5,  10 ],
     ['G', 43, 25,  5,  10 ],
     ['H', 49, 25,  5,  10 ],
@@ -118,6 +118,11 @@ const monogramMap = [
     ['¬', 85, 73,  5,  10 ],
     ['‾', 91, 73,  5,  10 ],
 ]
-
 monogramMap.fw = 5
 monogramMap.fh = 10
+
+const _dir = {}
+monogramMap._dir = _dir
+monogramMap.forEach(sym => {
+    _dir[sym[0]] = sym
+})

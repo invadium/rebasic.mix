@@ -16,9 +16,13 @@ function drawSymbol(c2d, fmap, id, x, y) {
           sh  = sym[4]
 
     c2d.drawImage(img, sx, sy, sw, sh, x, y, sw, sh)
+    sym[5] = x
+    sym[6] = y
+    sym[7] = sw
+    sym[8] = sh
 }
 
-function generateSymbolTable(c2d) {
+function generateSymbolTable(c2d, screen) {
     c2d.clearRect(0, 0, c2d.width, c2d.height)
 
     /*
@@ -85,6 +89,9 @@ function generateSymbolTable(c2d) {
             by += dy
         }
     }
+
+    fontMap.screen = screen
+    env.context.fontMap = fontMap
 }
 
 function createContext(id, w, h, special) {

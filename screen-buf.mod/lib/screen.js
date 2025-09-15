@@ -335,6 +335,15 @@ const screen = {
             sy++
         }
     },
+
+    text: function(str, x, y, ci) {
+        let c = env.context.ink
+        if (ci !== undefined) c = lib.gx.mapColor(ci)
+        if (!c) return
+        const RGBA = color.color2RGBA(c) // TODO optimize to have in the color table
+
+        lib.gx.drawText(str.toUpperCase(), x, y, RGBA)
+    },
 }
 
 // aliases
@@ -423,3 +432,5 @@ screen.circle.man = "draw a circle"
 screen.iput.usage = '[array], [x], [y]'
 screen.iput.man = 'draw image data'
 
+screen.text.usage = '[string], [x], [y]'
+screen.text.man = 'render a text string'

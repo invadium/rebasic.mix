@@ -464,24 +464,28 @@ function draw() {
                 case 3:
                     // underscore with the face color
                     stroke(face)
+                    lineWidth(1)
                     line(ux, uy + uh, ux + uw, uy + uh)
                     break
                 case 4:
                     // underscore with the char backdrop color
                     if (back) {
                         stroke(back)
+                        lineWidth(1)
                         line(ux, uy + uh, ux + uw, uy + uh)
                     }
                     break
                 case 5:
                     // strikethrough with the face color
                     stroke(face)
+                    lineWidth(1)
                     line(ux, uy + .65*uh, ux + uw, uy + .65*uh)
                     break
                 case 6:
                     // strikethrough with the char backdrop color
                     if (back) {
                         stroke(back)
+                        lineWidth(1)
                         line(ux, uy + .65*uh, ux + uw, uy + .65*uh)
                     }
                     break

@@ -11,6 +11,7 @@ dist
 
 # jeddy
 .jeddy
+.stat
 
 # MacOS X
 .DS_Store

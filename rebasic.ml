@@ -32,6 +32,10 @@ V ability to set the border size
 V a screen with a symbol table
 V render text with current ink
 V clear input buffer when interrupted
+V help intro
+
+> getting started
+> update readme
 
 > read a pixel (is it HEX value or a number from the palette?)
 > DELETE LINE and DELETE FROM-TO
@@ -39,7 +43,6 @@ V clear input buffer when interrupted
 > output markdown options to control the style and formatting
 > active links 
 > capture the mouse on click?
-> help intro
 > about command
 > additional help pages
 > man with command details
@@ -58,8 +61,8 @@ V clear input buffer when interrupted
 
 # core
 > "true" subroutines with SUB/CALL/LOCAL
+> function-local variables (LOCAL)
 > function/procedure declaration with defun
-> function-local variables? (LOCAL)
 
 # test
 > test cases with load with swap -> autoreload on stop -> load next...

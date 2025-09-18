@@ -1,34 +1,59 @@
-# ReBASIC Web Edition
+# ReBasic Web Edition
+
+Try live demo at [Itch.io](https://invadium.itch.io/rebasic)
+
+## Welcome Back to Basic!
+
+*_ReBasic Web Edition_* is a web shell for the [ReBasic](https://github.com/invadium/rebasic) interpreter, a simple and interactive retro-dialect of BASIC.
+
+*_ReBasic_* stands for _Return to BASICs_ or _Retro BASIC_ or maybe _Reimplemented BASIC_. We are not quite sure...
+
+*_ReBasic_* tries to preserve the simplicity and interactivity of early BASIC dialects
+of the old 8-bit microcomputer era.
+There are line numbers, a clutterless interactive mode, and a minimalistic environment
+all wrapped in a pixelated retro aesthetic reminiscent of what you might have seen in the 80s.
+
+There is no IDE, no build system, no package manager, no frameworks or libraries.
+Just you and the machine having an intelligent conversation line after line.
+And we believe this straightforward approach is crucial for beginners to grok the programming.
+
+With modern programming environments, one might learn an awful lot about IDEs,
+frameworks and libraries, CI/CD pipelines, and other stuff...
+Unfortunately, all that clutter doesn't help one to learn the most important thing of all - 
+how the computer actually works.
+And on the fundamental level, all computers work the same,
+executing actions one-by-one with occasional conditional or unconditional branching.
+Which maps perfectly on the BASIC model of representing instruction in numbered lines form.
 
 
-## Welcome Back to Basic
-
-_ReBasic Web Edition_ is a web-based shell for _ReBasic_, a simple and interactive retro-dialect of BASIC.
-
-_ReBasic_ stands for _Return to BASICs_ or _Retro BASIC_ or maybe _Reimplemented BASIC_. We are not quite sure yet...
-
-_ReBasic_ tries to preserve the interactivity and simplicity of BASIC on the old 8-bit era microcomputers.
-There are line numbers, clutterless interactive mode, and a minimalistic environment.
-And we believe, these are crucial for beginners to grok the programming.
+## Project Structure
 
 This project contains only a web shell and related functions and utilities.
 The ReBasic interpreter itself and its core functions are located
 in [the ReBasic repository](https://github.com/invider/rebasic).
 
 
-
 ## Design Goals
-Most modern implementations of BASIC are quite sophisticated. Usually, they have support for advanced features like sophisticated data structures, objects, and a rich runtime environment.
+Most modern implementations of BASIC are quite sophisticated. Typically, they offer support for advanced features, including sophisticated data structures, objects, and a rich runtime environment.
 
-BASIC is ridiculed for line numbers. Modern BASIC implementations drop them completely. And although _ReBasic_ allows you to skip numbers, we consider them crucial to the understanding of algorithms and execution flow.
+BASIC is ridiculed for line numbers. Modern BASIC implementations drop them completely.
+And, although *_ReBasic_* allows you to skip numbers, we consider them crucial to the understanding of algorithms and execution flow.
 
-Just observe, how kids learn to write and count. At some point, they might compile numbered lists of items or actions.
-And that is exactly what classic BASIC offers only now with a computer.
+Just observe how kids learn to write and count.
+At some point, they start compiling numbered lists of items or actions -
+that is a natural thing to do once you've learned the superpower of written words and numbers.
+Children create numbered lists of their favorite toys, rank superheroes,
+or create a shopping list of sweets to buy for a holiday.
+This is exactly what classic BASIC provides, only now for interactions with a computer.
+What is a shopping list if not an algorithm - remap 1-2-3 to 10-20-30,
+wrap items in a ```PRINT "..."``` command, and you've got yourself a working BASUC program!
 
-Back in 2006, David Brin published [an article called "Why Johnny can't code"](https://www.salon.com/2006/09/14/basic_2/).
+Back in 2006, David Brin published an article called
+["Why Johnny can't code"](https://www.salon.com/2006/09/14/basic_2/).
 It caused a lot of debates on public forums (besides a ton of hate mail to the author by "professional" programmers trying to prove that Java/C#/C++ is so much better than BASIC).
 
-Microsoft, famous for its BASIC implementations in the past, created and published Small Basic to address the issues highlighted in the article. But, although it is a great dev environment, it still got a lot of things wrong. It lacks interactivity, line numbers, and most of all - its core features are object-oriented. The later is the biggest shortcoming since even the simplest operations like printing require a cumbersome object manipulation, e.g.:
+Microsoft, famous for its BASIC implementations in the past, created and published Small Basic to address the issues highlighted in the article. But, although it is a decent dev environment, it got so many things wrong.
+It lacks interactivity, it doesn't have line numbers, and most of all, its core features are object-oriented. The latter is the biggest shortcoming since even the simplest operations like printing require a cumbersome object manipulation, e.g.:
 
 ```
 TextWindow.WriteLine("Hello, Basic")
@@ -42,22 +67,24 @@ Do I really need parentheses for that?
 Ugly...
 Too much boilerplate...
 Too much clutter...
-Too many concepts to understand just to print a simple line.
+Too many concepts to understand to print a single line.
 
 Compare that to the original:
 ```
 PRINT "HELLO, BASIC"
 ```
 
-How can you get any simpler than that? It is just a command followed by a string. You are telling the computer to print out a string. Plain and simple. No objects, no boilerplate, no noise.
+How can you get any simpler than that? It is just a command followed by a quoted string. You are telling the computer to print out a string. Plain and simple.
+No objects, no ```.``` operator, no parentheses, no boilerplate, no noise.
 
-_And that is how it is supposed to be in a learning environment._ That is how it is in _ReBasic_.
+_And that is how it is supposed to be in a learning environment._ That is how it is in
+[ReBasic](https://invadium.itch.io/rebasic).
 
 
 
 ## Getting Started
 
-Here is the canonical "Hello World!" in ReBasic:
+Here is the canonical "Hello World!" in *_ReBasic_*:
 
 ```
 PRINT "HELLO, BASIC!"
@@ -69,7 +96,7 @@ or as a runnable program:
 10 PRINT "HELLO, BASIC!"
 ```
 
-You can see the program listing with _LIST_ and run it with _RUN_:
+You can see the program listing with ```LIST``` and run it with ```RUN```:
 
 ```
 LIST
@@ -77,7 +104,14 @@ CLS
 RUN
 ```
 
-CLS command clears the screen before the run.
+```CLS``` command clears the screen before the run.
+But for commands like ```LIST``` and ```RUN``` we have shortcuts
+to clear the screen and then run a command:
+
+```
+LIST!
+RUN!
+```
 
 Let's try to create something more complex:
 
@@ -105,43 +139,56 @@ Later, that value gets printed.
 There are a bunch of samples in
 [ReBasic ROM](https://github.com/invider/rebasic.mix/tree/master/mod/lib/rom).
 
-You can load and run them as simple as that:
+You can load and run them simply as that:
 ```
+ROM
 LOAD "PALETTE"
 LIST
 RUN
 ```
 
-Also, some samples can be found here:
+In this example, ```ROM``` lists examples provided in the Read-Only Memory.
+You can use it with a  string key to narrow the results, like so:
+
+```
+ROM "MATH"
+```
+
+The ```LOAD``` command loads the selected program and ```LIST``` shows the loaded source.
+Use PageUp and PageDown keys to scroll the output if it occupies more than a single screen.
+
+
+Also, some additional examples can be found here:
 
 [Mark's Journey to the Land of ReBasic](https://github.com/invider/rebasic-journey)
 
-You can download files locally, then just type:
+You can download files locally, then type:
 
 ```
 LOAD
 ```
 
-And point to the needed \*.bas file in a dialog window.
+And point to the desired \*.bas file in a dialog window.
 
 
-### 
+
+### Autoload from ROM
 
 Use URL # section to indicate a ROM sample you want to load, e.g:
 
 ```
 http://localhost:9999#stars
 ```
-will load "stars" sample from the ROM.
+will load the "STARS" sample from the ROM.
 
 Adding a bang (!) after the (#) will load and then instantly execute the program
-(so you don't have to type "run"):
+(so you don't have to type ```RUN``` after it is loaded):
 
 ```
 http://localhost:9999#!stars
 ```
 
-You can also use a special name "latest" to load and run the latest run source
+You can also use a special name "latest" to load and run the latest executed source
 on this profile:
 
 ```
@@ -149,18 +196,47 @@ http://localhost:9999#!latest
 ```
 
 
+## Profiles
+A profile defines the default color schema and some additional environment settings.
+
+You can list existing profiles with the ```PROFILE``` command:
+
+```
+PROFILE
+```
+
+And load a profile by specifying a name:
+
+```
+PROFILE "MOON"
+```
+
+You can create a custom profile by creating a program that sets
+the necessary environment variables and save it with:
+
+```
+PROFILE "MY-NEW-PROFILE", "SAVE"
+```
+
 
 
 ## Reference
 
 You can get help directly in the web shell by typing the _help_ command:
 ```
-help
+HELP
 ```
 
 Or get help on particular command or function:
 ```
-help abs
+HELP ABS
+```
+
+There are also some help pages not associated with any command in particular:
+
+```
+HELP INTRO
+HELP START
 ```
 
 
@@ -207,8 +283,18 @@ help abs
 * peek(address) - get content of memory at <address>
 
 ## Graphics
-* plot(x, y, c) - draw a pixel at <x,y> with color <c>
-* background(c) - set the background
-* face(c) - set the font color
-* box(x, y, w, h, c) - draw a filled rectangle
+* background [color] or paper [color] - set the background color
+* face [c] - set the font color
+* ink [c] - set the current color
+* plot [x], [y], <c> - draw a pixel at <x,y> with color <c> or current ink if not specified
+* pset [x], [y], <color> - set a pixel with color <color>
+
+* line [x1], [y1], [x2], [y2], <color> - draw a line
+* circle [x], [y], [r], <color> - draw a circle
+* box [x], [y], [w], [h], [c] - draw a filled rectangle
+
+* iget(x, y, w, h) - copy a square section of the screen, returns image data array
+* iput [imageArray], [x], [y] - paste a screen copy at specified coordinates
+* xstore - store the graphics context
+* xrestore - restore previously stored graphics context
 

@@ -1,3 +1,3 @@
-ink    "#a7f070"
-paper  "#333c57"
-border "#1e2022"
+border 60
+paper  90
+ink    74

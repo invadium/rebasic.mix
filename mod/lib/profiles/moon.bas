@@ -1,3 +1,3 @@
-ink    29
-border 25
-paper  26
+10 border 94
+20 paper  70
+30 ink    73

@@ -5,6 +5,7 @@
 40 by = 3
 50 W = limits("width")
 60 H = limits("height")
+70 bh = 9
 
 100 ink 43
 110 paper 15
@@ -16,9 +17,13 @@
 
 200 for u = 0 to 30
 210   for v = 0 to 9
-220     y = by + u*7
+220     y = by + u*bh
 230     x = bx + v*25
-240     box x, y, 25, 7, c
+240     box x, y, 25, bh, c
+245     tx = "#" + c
 250     c = c + 1
-260   next v
-270 next u
+260     ink c + 1
+270     text tx, x, y
+280   next v
+290 next u
+

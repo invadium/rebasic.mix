@@ -159,9 +159,12 @@ io.print.man = 'print out\n'
        + '    nothing is used when separated by [;],\n'
        + '    skip the new line when ended by [;],\n'
        + '    [print] with no arguments prints a new line'
+io.print.tags = 'core, io'
 
 
 io.cls.man = 'clear the screen (both the textbuffer and framebuffer)'
+io.cls.tags = 'core, io'
+
 io.home = io.cls
 
 io.clt.man = 'clear the textbuffer (text only)'
@@ -174,13 +177,19 @@ io.screenshot.manual = 'take a screenshot'
 io.rom.usage = '(filter)',
 io.rom.man = 'list rebasic examples from rom\n'
              + '  provide a filter string to narrow the result'
+io.rom.tags = 'core, io'
 
 io.htab.man = 'set horizontal cursor position'
+io.htab.tags = 'core, io'
+
 io.vtab.man = 'set vertical cursor position'
+io.vtab.tags = 'core, io'
 
 io.vsync.man = 'wait for the next frame'
+io.vsync.tags = 'core, io'
 
 io.locate.usage = '[x], [y], <cursor-mode>'
 io.locate.man = 'set the cursor position and mode'
+io.locate.tags = 'core, io'
 
 io.close.service = true // hide from help

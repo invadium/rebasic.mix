@@ -150,6 +150,7 @@ const system = {
                 if (cmd.startsWith('_')) return
                 const obj = vm.command[cmd]
                 if (typeof obj !== 'function' || obj.service) return
+                if (!obj.tags || !obj.tags.includes('core')) return
                 ls.push(cmd)
                 //vm.command.print(prefix + cmd, { semi: true })
             })
@@ -157,9 +158,12 @@ const system = {
                 if (fn.startsWith('_')) return
                 const obj = vm.fun[fn]
                 if (typeof obj !== 'function' || obj.service) return
+                if (!obj.tags || !obj.tags.includes('core')) return
                 ls.push(fn + '()')
                 //vm.command.print(fn + '() ', { semi: true })
             })
+
+            ls.sort()
             for (let i = 0; i < ls.length; i++) {
                 const name = ls[i]
                 const prefix = i > 0? ' * ' : '* '
@@ -183,5 +187,6 @@ system.profile.man = 'manage profiles\n'
                 + '    * list all profiles when no name is specified\n'
                 + '    * load the profile when the name is specified\n'
                 + '    * save the profile if the name is followed by "save"'
+system.profile.tags = 'core'
 
 module.exports = system

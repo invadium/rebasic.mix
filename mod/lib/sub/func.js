@@ -13,6 +13,7 @@ const func = {
 
 func.inkey$.usage = ''
 func.inkey$.man = 'read a value of a currently pressed key'
+func.inkey$.tags = 'core'
 
 func.get = func.inkey$
 func.get.usage = ''

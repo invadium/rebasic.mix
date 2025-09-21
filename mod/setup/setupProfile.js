@@ -48,13 +48,16 @@ function setupProfile() {
     setupOpt()
     setupCache()
 
-    lib.profile.restoreProfileConfig()
     log(`PROFILE: [${env.profile.name}]`)
     console.dir(env.profile.customList)
 
-    lib.profile.loadProfile(env.profile.name)
+    try {
+        lib.profile.loadProfile(env.profile.name)
+    } catch (e) {
+        log.err(`unable to load profile [${env.profile.name}], loading [default]`)
+        lib.profile.loadProfile('default')
+    }
     lab.textmode.clear()
-    //lib.gx.syncOutAll()
     lib.gx.clearAll()
     lib.gx.flood(env.context.paper)
 }

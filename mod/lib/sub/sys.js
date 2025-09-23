@@ -130,27 +130,24 @@ const system = {
             }
         }
 
-        if (name) {
-            helpFor(name)
-            if (arguments.length > 1) {
-                for (let i = 1; i < arguments.length; i++) {
-                    helpFor(arguments[i])
-                }
-            }
-
-        } else {
+        function basicHelp(all) {
             vm.command.print('type "help <name>" for brief on any page/command.')
             vm.command.print('type "help intro" to read the introduction.')
+            vm.command.print('type "help all" to list all commands.')
             vm.command.print('')
 
-            vm.command.print('=== major commands and functions ===')
+            if (all) {
+                vm.command.print('=== all commands and functions ===')
+            } else {
+                vm.command.print('=== major commands and functions ===')
+            }
 
             const ls = []
             Object.keys(vm.command).forEach((cmd, i) => {
                 if (cmd.startsWith('_')) return
                 const obj = vm.command[cmd]
                 if (typeof obj !== 'function' || obj.service) return
-                if (!obj.tags || !obj.tags.includes('core')) return
+                if (!all && (!obj.tags || !obj.tags.includes('core'))) return
                 ls.push(cmd)
                 //vm.command.print(prefix + cmd, { semi: true })
             })
@@ -158,7 +155,7 @@ const system = {
                 if (fn.startsWith('_')) return
                 const obj = vm.fun[fn]
                 if (typeof obj !== 'function' || obj.service) return
-                if (!obj.tags || !obj.tags.includes('core')) return
+                if (!all && (!obj.tags || !obj.tags.includes('core'))) return
                 ls.push(fn + '()')
                 //vm.command.print(fn + '() ', { semi: true })
             })
@@ -175,6 +172,22 @@ const system = {
                 vm.command.print(line, { semi: true })
             }
             vm.command.print('')
+        }
+
+        if (name) {
+            if (name.id === 'all') {
+                return basicHelp(true)
+            }
+
+            helpFor(name)
+            if (arguments.length > 1) {
+                for (let i = 1; i < arguments.length; i++) {
+                    helpFor(arguments[i])
+                }
+            }
+
+        } else {
+            basicHelp(false)
         }
     }
 }

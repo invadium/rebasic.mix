@@ -90,6 +90,31 @@ const system = {
     help: function help(name) {
         const vm = this
 
+        function normalizeArg(target) {
+            // normalize possible ReBasic id object
+            if (!target) return ''
+
+            if ((typeof target === 'object') && isStr(target.id)) {
+                return target.id
+            } else if (isStr(target)) {
+                return target
+            }
+            return ''
+        }
+
+        function printDotted(ls) {
+            for (let i = 0; i < ls.length; i++) {
+                const name = ls[i]
+                const prefix = i > 0? ' * ' : '* '
+                let line = prefix + name
+                if (lab.textmode.shiftsRemaining() <= line.length) {
+                    vm.command.print("")
+                    line = '* ' + name
+                }
+                vm.command.print(line, { semi: true })
+            }
+        }
+
         function helpForFn(target, fn) {
             let def = target
             if (fn.usage) def += ' ' + fn.usage
@@ -98,10 +123,7 @@ const system = {
         }
 
         function helpFor(target) {
-            // normalize possible ReBasic id object
-            if (target && typeof target === 'object') {
-                target = target.id
-            }
+            target = normalizeArg(target)
 
             if (target === 'tags') {
                 vm.command.print(vm.listTags())
@@ -131,12 +153,23 @@ const system = {
         }
 
         function basicHelp(all) {
-            vm.command.print('type "help <name>" for brief on any page/command.')
-            vm.command.print('type "help intro" to read the introduction.')
-            vm.command.print('type "help all" to list all commands.')
+            vm.command.print('type "help <name>" for info on any command/page.')
+            if (!all) {
+                vm.command.print('type "help intro" to read the introduction.')
+                vm.command.print('type "help start" to learn how to start.')
+                vm.command.print('type "help pages" to list other available pages.')
+                vm.command.print('type "help all" to list every command and page.')
+            }
             vm.command.print('')
 
             if (all) {
+                vm.command.print('=== available pages ===')
+
+                const pages = Object.keys(lib.page._dir).sort()
+                printDotted(pages)
+                vm.command.print('')
+                vm.command.print('')
+
                 vm.command.print('=== all commands and functions ===')
             } else {
                 vm.command.print('=== major commands and functions ===')
@@ -161,22 +194,20 @@ const system = {
             })
 
             ls.sort()
-            for (let i = 0; i < ls.length; i++) {
-                const name = ls[i]
-                const prefix = i > 0? ' * ' : '* '
-                let line = prefix + name
-                if (lab.textmode.shiftsRemaining() <= line.length) {
-                    vm.command.print("")
-                    line = '* ' + name
-                }
-                vm.command.print(line, { semi: true })
-            }
+            printDotted(ls)
             vm.command.print('')
         }
 
         if (name) {
-            if (name.id === 'all') {
+            name = normalizeArg(name)
+
+            if (name === 'all') {
                 return basicHelp(true)
+            } else if (name === 'pages') {
+                const pages = Object.keys(lib.page._dir).sort()
+                printDotted(pages)
+                vm.command.print('')
+                return
             }
 
             helpFor(name)

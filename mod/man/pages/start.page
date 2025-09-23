@@ -1,11 +1,13 @@
-=======================================
-            Getting Started
-=======================================
-BASIC is a computer language.
+Use "HELP" and "HELP ALL" to explore ReBasic.
 
-It allows you to tell your computer what to do
-in a series of simple commands.
+You can use PAGE-UP and PAGE-DOWN keys
+to scroll the output if needed.
 
-These commands are just like magic spell - each
-has a specific form and effect.
+Use samples in ROM as your inspiration.
+Type "ROM" command to list all samples
+and then [LOAD "NAME"] to load one.
+Check the sources by calling "LIST"
+and run the sample with "RUN".
 
+Explore LET, PRINT, INPUT, IF, GOTO, FOR, RND(),
+SAVE, and NEW for starters.

@@ -1,0 +1,46 @@
+
+=====  PROFILES  =====
+A profile defines the default environment.
+Typically, it is ink, paper, and border colors,
+but there could be other settings, like
+the mouse cursor visibility.
+
+The [PROFILE] command shows the current profile
+and lists all available profiles.
+Initially, it shows something like [+ DEFAULT].
+
+Say, it is late in the evening, and you don't
+want a light profile to disturb your eyes,
+select a dark profile with [PROFILE "DARK"],
+or maybe [PROFILE "SELENITE"], which goes well
+in a low-light environment.
+The previous text ink is preserved,
+so clear the screen with [CLS] or just replace
+the text buffer with new output by running
+something like [HELP].
+
+-----  CUSTOM PROFILES  -----
+Maybe available color schemas are not enough
+and you need a custom one.
+
+Just create a [NEW] program and setup
+the environment like so:
+
+10 BORDER 70
+20 PAPER 86
+30 INK 105
+40 OPT("MOUSE") = "HIDE"
+
+
+First, we set the border, paper, and ink colors
+and then hide the mouse cursor.
+
+Run the program to validate the effect.
+If everything is fine, save a new profile with
+[PROFILE "MY-OWN-PROFILE", "SAVE"].
+Then, select the create profile with
+[PROFILE "MY-OWN-PROFILE"].
+It will be saved in the local browser cache.
+
+Next time you'll load ReBasic, it should
+activate your personal profile.

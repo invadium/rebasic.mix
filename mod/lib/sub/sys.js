@@ -153,12 +153,13 @@ const system = {
         }
 
         function basicHelp(all) {
-            vm.command.print('type "help <name>" for info on any command/page.')
+            vm.command.print('* [help <name>] - info on any command or page.')
             if (!all) {
-                vm.command.print('type "help intro" to read the introduction.')
-                vm.command.print('type "help start" to learn how to start.')
-                vm.command.print('type "help pages" to list other available pages.')
-                vm.command.print('type "help all" to list every command and page.')
+                vm.command.print('* [help intro] - read the introduction.')
+                vm.command.print('* [help start] - to learn how to start.')
+                vm.command.print('* [help pages] - list other available pages.')
+                vm.command.print('* [help all] - list every command and page.')
+                vm.command.print('* Use <PageUp> and <PageDown> to scroll output.')
             }
             vm.command.print('')
 

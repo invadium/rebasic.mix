@@ -33,9 +33,20 @@ V a screen with a symbol table
 V render text with current ink
 V clear input buffer when interrupted
 V help intro
+V start page
+V profiles page
 
-> getting started
+> fix profile loading
+> about page
+> features page
+> math-ops page
+> strings page
+> arrays page
+> maps page
+> graphics page
+> why basic page
 > update readme
+> release 0.4
 
 > read a pixel (is it HEX value or a number from the palette?)
 > DELETE LINE and DELETE FROM-TO

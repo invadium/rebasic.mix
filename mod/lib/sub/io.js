@@ -76,7 +76,7 @@ const io = {
         for (let i = 0; i < arguments.length; i++) {
             const v = arguments[i]
 
-            if (typeof v === 'object' && v.id) {
+            if (typeof v === 'object') {
                 this.inputTarget = v
             } else {
                 lab.textmode.printout('' + v + ' ')

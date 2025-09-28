@@ -1,3 +1,15 @@
+function setupDefaultProfileConfig() {
+    env.profile = {
+        name: 'default',
+        customList: [],
+    }
+}
+
+function validateProfile() {
+    if (isObj(env.profile)) return
+    setupDefaultProfileConfig()
+}
+
 function restoreMap(map, data) {
     if (!data) return false
 
@@ -15,29 +27,32 @@ function restoreMap(map, data) {
 // set the profile name and cache the profile config
 function setProfile(profileName) {
     profileName = profileName.toLowerCase()
+    validateProfile()
 
-    // TODO store the custom index
-    if (!isObj(env.profile)) {
-        env.profile = {
-            name: profileName,
-            customList: []
-        }
-    } else {
-        env.profile.name = profileName
-    }
+    env.profile.name = profileName
     storeProfileConfig()
 }
 
 function registerCustomProfile(profileName) {
-    if (!isObj(env.profile)) {
-        env.profile = {
-            name: 'default',
-            customList: []
-        }
-    }
+    validateProfile()
     if (env.profile.customList.indexOf(profileName) < 0) {
         env.profile.customList.push(profileName)
     }
+    storeProfileConfig()
+}
+
+function unregisterCustomProfile(profileName) {
+    validateProfile()
+
+    const at = env.profile.customList.indexOf(profileName)
+    if (at >= 0) {
+        env.profile.customList.splice(at, 1)
+    }
+    storeProfileConfig()
+}
+
+function storeProfileConfig() {
+    lib.storage.storeEntry('profile', env.profile)
 }
 
 // restore the profile from cache if previously stored
@@ -47,6 +62,7 @@ function restoreProfileConfig() {
         env.profile = storedProfile
     }
 }
+
 
 // load an existing profile or create and store a new one
 function loadProfile(name) {
@@ -120,10 +136,6 @@ function restoreSources() {
     return env.profile.sources = lib.storage.restoreEntry('sources-' + env.profile.name) || {}
 }
 
-function storeProfileConfig() {
-    lib.storage.storeEntry('profile', env.profile)
-}
-
 function saveProfile(name) {
     log(`saving profile [${name}]`)
     const profileSrc = lab.vm.source()
@@ -135,5 +147,14 @@ function saveProfile(name) {
     storeCache(name)
     storeSources(name)
     registerCustomProfile(name)
-    storeProfileConfig()
+}
+
+function removeProfile(name) {
+    log(`removing profile [${name}]`)
+    // TODO remove and clean catalog
+}
+
+function removeAll() {
+    lib.storage.clearEntries()
+    setupDefaultProfileConfig()
 }

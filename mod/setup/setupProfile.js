@@ -41,10 +41,8 @@ function setupCache() {
 }
 
 function setupProfile() {
-    env.profile = {
-        name: 'default',
-        customList: [],
-    }
+    lib.profile.setupDefaultProfileConfig()
+    lib.profile.restoreProfileConfig()
     setupOpt()
     setupCache()
 

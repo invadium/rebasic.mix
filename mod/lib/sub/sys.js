@@ -4,8 +4,17 @@ const system = {
         const vm = this
 
         if (save) {
-            if (save !== "save") throw new Error('"save" string flag is expected')
-            lib.profile.saveProfile(name)
+            if (save === "remove") {
+                if (name === "" || name === "all") {
+                    lib.profile.removeAll()
+                } else {
+                    lib.profile.removeProfile(name)
+                }
+            } else if (save === "save") {
+                lib.profile.saveProfile(name)
+            } else {
+                throw new Error('"save" or "remove" string flags are expected!')
+            }
         } else if (name) {
             lib.profile.loadProfile(name)
         } else {
@@ -227,11 +236,16 @@ const system = {
 system.savelog.usage = '(name)'
 system.savelog.man = 'save screen text log in a file'
 
-system.profile.usage = '(name), (save)'
+system.profile.usage = '(name), (flag)'
 system.profile.man = 'manage profiles\n'
                 + '    * list all profiles when no name is specified\n'
                 + '    * load the profile when the name is specified\n'
-                + '    * save the profile if the name is followed by "save"'
+                + '[flag = "save"]\n'
+                + '    * save current listing as a profile\n'
+                + '[flag = "remove"]\n'
+                + '    * remove the profile\n'
+                + '["all", "remove"]\n'
+                + '    * remove all custom profiles and configs'
 system.profile.tags = 'core'
 
 module.exports = system

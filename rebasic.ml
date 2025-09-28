@@ -35,8 +35,8 @@ V clear input buffer when interrupted
 V help intro
 V start page
 V profiles page
+V fix profile loading
 
-> fix profile loading
 > about page
 > features page
 > math-ops page

@@ -1,6 +1,8 @@
+
+==============  Getting Started  ==============
 Use "HELP" and "HELP ALL" to explore ReBasic.
 
-You can use PAGE-UP and PAGE-DOWN keys
+You can use [PAGE-UP] and [PAGE-DOWN] keys
 to scroll the output if needed.
 
 Use samples in ROM as your inspiration.
@@ -9,5 +11,5 @@ and then [LOAD "NAME"] to load one.
 Check the sources by calling "LIST"
 and run the sample with "RUN".
 
-Explore LET, PRINT, INPUT, IF, GOTO, FOR, RND(),
-SAVE, and NEW for starters.
+Explore LET, PRINT, INPUT, IF, GOTO, FOR,
+RND(), SAVE, and NEW for starters.

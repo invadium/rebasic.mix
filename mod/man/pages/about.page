@@ -1,11 +1,17 @@
-=======================================
-            Getting Started
-=======================================
-BASIC is a computer language.
+===============================================
+                     About
+===============================================
+ReBasic is a simple, web-based, 8-bit-inspired
+BASIC language environment. It resurrects
+the idea of interactive and iterative
+programming without any IDE or build-run cycle.
 
-It allows you to tell your computer what to do
-in a series of simple commands.
+Use a web console to build your program
+line by line, just line on an old Apple II,
+Commodore 64 or ZX Spectrum.
 
-These commands are just like magic spell - each
-has a specific form and effect.
-
+Many examples from old BASIC books should
+work with little to no changes.
+But be cognizant about PEEK and POKE magic,
+since it is machine-dependent.
+Replace them with appropriate ReBasic commands.

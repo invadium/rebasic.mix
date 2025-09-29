@@ -8,12 +8,19 @@ Instead of declaring a separate variable
 for each, you could say:
 
 10 dim arr(10)
-20 print "enter values:"
+20 print "enter 10 numbers:"
 30 for i = 1 to 10
-40   input "#";i, arr(i)
+35   print "#";i;":";
+40   input arr(i)
 50 next i
-60 print arr
+60 print "your numbers:"
+70 for i = 1 to 10
+80 print arr(i);" ";
+90 next i
+100 print ""
 
-We declare an array of 10 elements
-and read the values one-by-one
-from the user in a loop.
+We declare an array of 10 elements and read
+the values one-by-one from the user in a loop.
+
+Then we loop over the array and print out
+entered values in a single line.

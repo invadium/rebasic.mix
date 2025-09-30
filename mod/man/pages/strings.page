@@ -1,1 +1,18 @@
-TODO strings functions review
+================  STRINGS  ================
+You can list the string manipulation
+function by running [HELP STRING].
+
+Most of them follow the classic 8-bit BASIC
+conventions and compatible with examples
+you can find in the old BASIC books.
+
+Functions returning strings are usually
+prefixed by [$], e.g.:
+
+* LEFT$()
+* MID$()
+* RIGHT$()
+
+While functions returning numbers don't:
+
+* LEN()

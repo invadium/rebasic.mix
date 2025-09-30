@@ -14,6 +14,8 @@ instead of numbers:
 70 print "3:",m("test")
 
 Here, we declare a map [m] and associate
+
+
 values with keys "one", "two" and "test".
 
 Then we dump the whole map and print out

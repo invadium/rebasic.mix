@@ -1,4 +1,4 @@
-==============  NUMERICAL  ==============
+===============  NUMERICAL  ===============
 Use [HELP MATH] or even [HELP "#MATH"]
 to list all math-related functions.
 
@@ -19,5 +19,9 @@ then calculate [dx] and [dy] shifts
 for the specified speed and angle.
 
 The last line calculates the angle
-based on provided [dx] and [dy],
-which should be exactly the same as [a].
+based on the provided [dx] and [dy],
+which should be the same as [a].
+
+Most math operations exactly match their
+8-bit counterparts from the old BASIC
+books.

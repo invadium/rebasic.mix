@@ -167,7 +167,8 @@ const system = {
                 vm.command.print('* [help intro] - read the introduction.')
                 vm.command.print('* [help start] - to learn how to start.')
                 vm.command.print('* [help pages] - list other available pages.')
-                vm.command.print('* [help all] - list every command and page.')
+                vm.command.print('* [help tags]  - list available tags.')
+                vm.command.print('* [help all]   - list every command and page.')
                 vm.command.print('* Use <PageUp> and <PageDown> to scroll output.')
             }
             vm.command.print('')

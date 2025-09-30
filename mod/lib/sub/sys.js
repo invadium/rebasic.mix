@@ -125,7 +125,7 @@ const system = {
         }
 
         function helpForFn(target, fn) {
-            let def = target
+            let def = fn.alias || target
             if (fn.usage) def += ' ' + fn.usage
             if (fn.man) def += ' - ' + fn.man
             vm.command.print(def)

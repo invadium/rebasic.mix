@@ -1,5 +1,5 @@
 
-=====  PROFILES  =====
+=========  PROFILES  =========
 A profile defines the default environment.
 Typically, it is ink, paper, and border colors,
 but there could be other settings, like
@@ -38,7 +38,7 @@ and then hide the mouse cursor.
 Run the program to validate the effect.
 If everything is fine, save a new profile with
 [PROFILE "MY-OWN-PROFILE", "SAVE"].
-Then, select the create profile with
+Then, select the created profile with
 [PROFILE "MY-OWN-PROFILE"].
 It will be saved in the local browser cache.
 

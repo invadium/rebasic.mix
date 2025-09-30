@@ -1,6 +1,6 @@
-=== DIM/ARRAYS ===
+=========  DIM/ARRAYS  =========
 
-Arrays are a way to group and acess data
+Arrays are a way to group and access data
 in a uniform linear way.
 
 Say, you want to read a sequence of numbers.
@@ -20,7 +20,7 @@ for each, you could say:
 100 print ""
 
 We declare an array of 10 elements and read
-the values one-by-one from the user in a loop.
+the values one by one in a loop.
 
 Then we loop over the array and print out
 entered values in a single line.

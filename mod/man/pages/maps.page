@@ -1,2 +1,20 @@
-TODO maps review
+================  MAPS  ================
+Maps implement association arrays -
+a data structure very similar to arrays,
+but with the ability to use string keys
+instead of numbers:
 
+10 map m
+20 m("one") = 101
+30 m("two") = 202
+35 m("test") = "ok"
+40 print m
+50 print "1:",m("one")
+60 print "2:",m("two")
+70 print "3:",m("test")
+
+Here, we declare a map [m] and associate
+values with keys "one", "two" and "test".
+
+Then we dump the whole map and print out
+values extracted for each key.

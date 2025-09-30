@@ -36,17 +36,20 @@ V help intro
 V start page
 V profiles page
 V fix profile loading
+V about page
+V arrays page
+V maps page
 
-> about page
 > features page
 > math-ops page
 > strings page
-> arrays page
-> maps page
 > graphics page
 > why basic page
 > update readme
 > release 0.4
+
+> prevent scroll for print outs (useful for map pages)
+> show blinking [V] indicator if there is more output below
 
 > read a pixel (is it HEX value or a number from the palette?)
 > DELETE LINE and DELETE FROM-TO

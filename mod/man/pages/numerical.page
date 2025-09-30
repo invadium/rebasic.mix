@@ -1,0 +1,23 @@
+==============  NUMERICAL  ==============
+Use [HELP MATH] or even [HELP "#MATH"]
+to list all math-related functions.
+
+Functions must be used in expressions
+usually on the right side of
+the assignment operator:
+
+10 let speed = 20
+20 let a = 3.1415 / 2
+30 let dx = cos(a) * speed
+40 let dy = sin(a) * speed
+50 print dx;":";dy
+60 print atn2(dy, dx)
+
+
+Here, we calculate an angle to be half PI,
+then calculate [dx] and [dy] shifts
+for the specified speed and angle.
+
+The last line calculates the angle
+based on provided [dx] and [dy],
+which should be exactly the same as [a].

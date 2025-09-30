@@ -1,3 +1,34 @@
-TODO reasoning about BASIC value
-     in the modern world
+===============================================
+                  WHY BASIC?
+===============================================
+ReBasic recreates 8-bit BASIC simplicity
+and approachability on the modern web.
 
+Modern languages are too powerful to serve
+as an introduction to programming.
+They can accomplish amazing things, but
+demand a broad background from the users.
+You need to understand object-oriented
+or functional programming concepts,
+Integrated Development Environments,
+build tools and pipelines, dependency managers,
+clouds and deployment strategies...
+A lot of setup and boilerplate is usually
+required to build the simplest thing.
+They simplify the construction of
+auto-scalable services in the cloud
+available for millions of users,
+but accidentally make basic things hard.
+
+Maybe it is possible to learn to fly using
+a 400-ton jumbo jet, but one might consider
+simpler options first.
+
+ReBasic tries to be a simpler option.
+Many generations of programmers started
+with simple 8-bit era environments
+running mostly BASIC dialects.
+
+ReBasic replicates the 8-bit feel, the syntax,
+the interactivity, the features,
+and the line numbers.

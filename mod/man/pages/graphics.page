@@ -1,2 +1,65 @@
-TODO core graphics features should be
-     described here.
+==================  GRAPHICS  ==================
+Graphics is the most unique aspect
+of ReBasic. Classic BASIC didn't define
+any drawing routines and each 8-bit machine
+implemented it's own unique set of commands.
+
+Computers like C64 and VIC-20 didn't have
+any dedicated routines and all drawing
+was done by direct memory manipulation
+with POKE.
+Many had a PLOT routine to draw a pixel
+and ReBasic starts with that and implements
+a set of convenient drawing routines.
+Where possible, it follows conventions
+defined by ZX Spectrum, MSX and Quick BASIC.
+But sometimes it defines its own unique
+commands.
+
+For some commands, ReBasic defines aliases
+to be compatible with a wider range
+of BASIC dialects, e.g. there are
+multiple ways to define the background
+color:
+
+paper 17
+background 17
+
+You can use any interchangeably.
+
+To list all graphics commands,
+use [#draw] tag:
+
+help draw
+
+At the moment, the ReBasic graphics system
+is very simple - there are only
+a few drawing calls and not much
+of the draw context customization.
+You can't set line width, can't set custom
+fonts, can't clip and transform coordinates...
+
+But the basics are there, and it is entirely
+possible to adapt graphics examples from
+the classic BASIC books.
+
+There are also some advanced capabilities -
+you can select different graphics modes with
+[MODE #] command and manipulate framebuffers
+with the [SCREEN] command.
+
+For example, select the [320x200] mode
+with [MODE 5].
+[SCREEN #] selects the current framebuffer.
+You can draw and switch between framebuffers
+to do double buffering and other effects.
+
+Also, it is possible to show multiple
+framebuffers at once by enabling them:
+
+SCREEN 2, "ENABLE"
+SCREEN 3, "ENABLE"
+
+By keeping the top screens partially transparent,
+you can achieve a multi-layered effect
+(e.g. use the top layer for HUD).

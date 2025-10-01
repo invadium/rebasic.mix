@@ -44,9 +44,9 @@ V strings page
 V graphics page
 V why basic page
 V tips page
+V features page
 
 > tour page
-> features page
 > update readme
 > release 0.4
 

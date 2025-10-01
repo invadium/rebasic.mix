@@ -2,13 +2,63 @@
 ReBasic is shipped with a lot of fascinating
 and sometimes unique features.
 
+* 8-bit Spirit
+--------------
 We try to preserve compatibility with
 8-bit BASIC dialects whenever possible,
 but also provide some exclusive capabilities
 where they seem fit.
 
+You could expect a pleasant mix of
+a genuine retro-styled user interface and
+early microcomputers' simplicity, all wrapped up
+in a web of modern technologies.
 
+* Line-driven
+-------------
+Lines are a fundamental part of classic BASIC.
+And even though all modern BASIC dialects
+abandoned line numbering, we consider it
+to be an invaluable learning tool that directly
+illustrates how both the machine and
+an abstract algorithm work.
 
+* Dynamically-typed
+-------------------
+ReBasic is dynamically-typed, meaning that
+variables can hold values of any type.
+Only in rare cases, variable suffixes like [$
+can be used to hint the expected type, e.g.:
 
+INPUT S$
+INPUT N
 
+ReBasic will read the input into
+the [S$] variable as a string and will try
+to parse the input into [N] as
+a floating point number.
 
+* Separated text buffer and multiple framebuffers
+-------------------------------------------------
+The text and graphics are rendered into different
+layers and don't mix.
+Text is always on top (although you can draw text
+on the graphics plane as well).
+
+Moreover, there are multiple framebuffers for
+graphics that you can use with [SCREEN] command.
+You can have text and multiple semi-transparent
+graphical layers on the screen at the same time.
+
+* Missing Features
+------------------
+Some features are obviously missing and we will
+try to introduce them in the future releases.
+
+  - no sound support
+  - no sprite engine
+  - no true procedures with formal parameters
+    and local variables
+  - no desktop version or PWA
+
+Follow the updates on the invadium.itch.io page.

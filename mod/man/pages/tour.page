@@ -1,0 +1,32 @@
+============  TOUR   ============
+
+1. Say Hello
+------------
+10 PRINT "HELLO, REBASIC"
+
+2. Many Times Hello
+-------------------
+10 PRINT "HELLO AGAIN"
+20 GOTO 10
+
+It ends up in an endless loop.
+Press [ESC] or [CTRL+C]
+or [CTRL+BACKSPACE] to interrupt.
+
+3. Slow Hello
+-------------
+Introduce a delay between iterations,
+so you could observe the effect of each line
+in real time:
+
+10 LET I = 1
+20 PRINT I;". SLOW HELLO"
+30 SLEEP 0.5
+40 I = I + 1
+50 GOTO 20
+
+
+Here, you could see an introduction
+of a variable [I] we are going to use to count
+iterations and a more complex form of
+the [PRINT] output.

@@ -45,9 +45,9 @@ V graphics page
 V why basic page
 V tips page
 V features page
+V tour page
+V update readme
 
-> tour page
-> update readme
 > release 0.4
 
 > prevent scroll for print outs (useful for map pages)

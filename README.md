@@ -40,19 +40,17 @@ BASIC is ridiculed for line numbers. Modern BASIC implementations drop them comp
 And, although *_ReBasic_* allows you to skip numbers, we consider them crucial to the understanding of algorithms and execution flow.
 
 Just observe how kids learn to write and count.
-At some point, they start compiling numbered lists of items or actions -
-that is a natural thing to do once you've learned the superpower of written words and numbers.
-Children create numbered lists of their favorite toys, rank superheroes,
-or create a shopping list of sweets to buy for a holiday.
+At some point, they start compiling numbered lists of items or actions - that is a natural thing to do once you've learned the superpower of written words and numbers.
+Children create numbered lists of their favorite toys, rank superheroes, or create a shopping list of sweets to buy for a holiday.
 This is exactly what classic BASIC provides, only now for interactions with a computer.
 What is a shopping list if not an algorithm - remap 1-2-3 to 10-20-30,
-wrap items in a ```PRINT "..."``` command, and you've got yourself a working BASUC program!
+wrap items in a ```PRINT "..."``` command, and you've got yourself a working BASIC program!
 
 Back in 2006, David Brin published an article called
 ["Why Johnny can't code"](https://www.salon.com/2006/09/14/basic_2/).
 It caused a lot of debates on public forums (besides a ton of hate mail to the author by "professional" programmers trying to prove that Java/C#/C++ is so much better than BASIC).
 
-Microsoft, famous for its BASIC implementations in the past, created and published Small Basic to address the issues highlighted in the article. But, although it is a decent dev environment, it got so many things wrong.
+Microsoft, famous for its BASIC implementations in the past, created and published Small Basic to address the issues highlighted in the article. But, although it is a decent and feature-rich development environment, it got so many things wrong.
 It lacks interactivity, it doesn't have line numbers, and most of all, its core features are object-oriented. The latter is the biggest shortcoming since even the simplest operations like printing require a cumbersome object manipulation, e.g.:
 
 ```
@@ -60,21 +58,29 @@ TextWindow.WriteLine("Hello, Basic")
 ```
 
 What is that _TextWindow_ thingy?
+
 Why do I even need that to print a simple line?
+
 Why is it necessary to capitalize WriteLine?
+
 Do I really need parentheses for that?
 
+
 Ugly...
+
 Too much boilerplate...
+
 Too much clutter...
+
 Too many concepts to understand to print a single line.
+
 
 Compare that to the original:
 ```
 PRINT "HELLO, BASIC"
 ```
 
-How can you get any simpler than that? It is just a command followed by a quoted string. You are telling the computer to print out a string. Plain and simple.
+How can you get any simpler than that? It is just a verb command followed by a quoted string. You are telling the computer to print out a string. Plain and simple.
 No objects, no ```.``` operator, no parentheses, no boilerplate, no noise.
 
 _And that is how it is supposed to be in a learning environment._ That is how it is in
@@ -188,8 +194,7 @@ Adding a bang (!) after the (#) will load and then instantly execute the program
 http://localhost:9999#!stars
 ```
 
-You can also use a special name "latest" to load and run the latest executed source
-on this profile:
+You can also use a special name to load and run the latest executed source on this profile:
 
 ```
 http://localhost:9999#!latest
@@ -227,7 +232,7 @@ You can get help directly in the web shell by typing the _help_ command:
 HELP
 ```
 
-Or get help on particular command or function:
+Or get help on a particular command or function:
 ```
 HELP ABS
 ```
@@ -239,26 +244,37 @@ HELP INTRO
 HELP START
 ```
 
+You can also list all commands taged by a particular topic:
 
-### Commands
+```
+HELP CORE
+HELP MATH
+HELP DRAW
+```
+
+Type ```HELP PAGES``` to list all available pages and ```HELP TAGS``` to list all available tags.
+
+
+### Some Key Commands
+
 * print <params...> - print provided params, where params are comma or semicolon-separated string/number literals or variables
 * list [from],[to] - list the lines of current program
-* run - run current program
+* run - run the current program
 * cls - clear the screen
 * new - erase current program
 * env - list all defined variables with their values
-* clr - erase all defained variables
-* input <var>... - read values from the keyboard to provided variables
+* clr - erase all defined variables
+* input <var>... - read values from the keyboard into specified variables
 * sleep <n> - wait for <n> seconds
 * poke <address>, <value> - set memory cell at [address] to [value]
-* load [name] - load a program from file
-* save [name] - save current program to a file
-* help [name] - list all commands and functions or show help for particular command/function
+* load [name] - load a program from a file
+* save [name] - save the current program to a file
+* help [name] - list all commands and functions or show help for a particular command/function
 
 
-### Functions
+### Some Key Functions
 
-* abs(x) - absolute values of the number
+* abs(x) - absolute value of the number
 * rnd() - a random number in the range of 0 <= N < 1
 * sin(x) - sine of <x>
 * cos(x) - cosine of <x>
@@ -282,7 +298,9 @@ HELP START
 * tab(n) - string of [n] tabs
 * peek(address) - get content of memory at <address>
 
-## Graphics
+
+### Some Graphics Capabilities
+
 * background [color] or paper [color] - set the background color
 * face [c] - set the font color
 * ink [c] - set the current color
@@ -297,4 +315,7 @@ HELP START
 * iput [imageArray], [x], [y] - paste a screen copy at specified coordinates
 * xstore - store the graphics context
 * xrestore - restore previously stored graphics context
+
+
+
 

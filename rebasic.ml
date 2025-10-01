@@ -39,12 +39,12 @@ V fix profile loading
 V about page
 V arrays page
 V maps page
+V numerical page
+V strings page
+V graphics page
+V why basic page
 
 > features page
-> math-ops page
-> strings page
-> graphics page
-> why basic page
 > update readme
 > release 0.4
 

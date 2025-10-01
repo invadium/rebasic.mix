@@ -42,14 +42,6 @@ function adjust() {
     this.fw = 4
     this.fh = 8
 
-    // operator
-    this.font = 'px pixel-operator-mono8'
-    this.fontSize = 6
-    this.curSize = 8
-    this.curShift = -1
-    this.fw = 6
-    this.fh = 10
-
     // typewriter
     this.font = 'px typewriter'
     this.fontSize = 6

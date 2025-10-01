@@ -354,6 +354,7 @@ screen.face = screen.ink
 // === help ===
 //
 screen.screen.usage = '[number], (state)'
+screen.screen.tags = 'draw'
 screen.screen.man = 'activate the screen #\n'
                 + '    (state) - can be "enable" or "disable"\n'
                 + '    provide to enable/disable a screen\n'
@@ -417,7 +418,7 @@ screen.pset.usage = "[x], [y], <color>"
 screen.pset.tags = "core, classic, draw"
 screen.pset.man = "low-level set of a pixel value"
 
-screen.line.usage = "[x1], [y1], [x2], [y2], <color>"
+screen.line.usage = "[x1], [y1], [x2], [y2], <colr>"
 screen.line.tags = "draw"
 screen.line.man = "draw a line"
 
@@ -430,7 +431,9 @@ screen.circle.tags = "draw"
 screen.circle.man = "draw a circle"
 
 screen.iput.usage = '[array], [x], [y]'
+screen.iput.tags = "draw"
 screen.iput.man = 'draw image data'
 
 screen.text.usage = '[string], [x], [y]'
+screen.text.tags = "draw"
 screen.text.man = 'render a text string'

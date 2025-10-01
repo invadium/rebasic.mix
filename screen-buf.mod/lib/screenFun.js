@@ -28,5 +28,6 @@ function iget(x, y, w, h, screen) {
     return new lab.vm.Dim(d)
 }
 iget.usage = '(x, y, w, h)'
+iget.tags = "draw"
 iget.man = 'copy a screen area'
 

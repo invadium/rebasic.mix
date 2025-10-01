@@ -153,7 +153,9 @@ const system = {
                 } else {
                     if (vm.tags.indexOf(target) >= 0) {
                         const targets = vm.getByTag(target)
-                        targets.forEach(next => helpForFn(next.name, next))
+
+                        vm.command.print(`=========  #${target}  =========`)
+                        targets.forEach(entry => helpForFn(entry[0], entry[1]))
                     } else {
                         vm.command.print(target + ' - unknown command/page/tag')
                     }

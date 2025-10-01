@@ -1,0 +1,81 @@
+============  USEFUL TIPS  ============
+
+* Use Line Numbers(Or Not)
+--------------------------
+The ReBasic interpreter does not strictly
+require line numbers. However, we feel that
+they are an integral part of the 8-bit micro
+subculture and also allow easy program editing
+when in interactive mode.
+
+When loading a program from a file
+(by the [LOAD] command), You can easily skip
+line numbers and use named labels instead
+for commands like GOTO and GOSUB.
+
+* Empty number deletes the line
+-------------------------------
+To delete a particular line from the program,
+enter the line number with no commands.
+That line will be removed from the listing.
+
+* Scroll up to see the hidden output
+------------------------------------
+Some commands and programs could print more
+than fits the screen. In such a case,
+use the [PageUp] and [PageDown] keys
+to review the output text buffer.
+
+* Use History
+-------------
+The command history is a handy tool
+in interactive programming.
+Use [Up] and [Down] keys to recall, edit
+and execute past commands.
+
+It is useful when we want to repeat
+a particularly long command without the need
+to retype it.
+
+Also useful to fix errors in recently entered
+line of program - just rewind to that line
+with [UP], use [LEFT], [RIGHT], [DELETE], and
+[BACKSPACE] keys to locate and fix the error,
+and [ENTER] the line again.
+
+* Use Source Rewind
+-------------------
+You can also recall any line from the current
+program.
+Use [CTRL + UP] and [CTRL + DOWN] to recall
+and edit program lines.
+
+* Explore ROM
+-------------
+You can explore many examples supplied in ROM.
+
+Just type [ROM] to list all included examples
+with a short description for each.
+Pick an example and load it with
+the [LOAD "<NAME>"] command.
+
+* Save Your Program
+-------------------
+You can save your program by running
+[SAVE "<NAME>"]. The web browser should save
+the [<name>.bas] file with your program listing.
+
+Next time, type [LOAD] to bring the browser
+file dialog and pick the saved .bas file
+to load it back.
+
+* Get the latest from local storage
+-----------------------------------
+The ReBasic web shell saves the latest run
+program listing in the browser local storage.
+
+If you've closed your ReBasic browser tab
+by mistake and forgot to save the program,
+just add #latest suffix to the URL
+and refresh the page. ReBasic should restore
+the latest run listing.

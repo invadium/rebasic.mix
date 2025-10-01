@@ -43,13 +43,18 @@ V numerical page
 V strings page
 V graphics page
 V why basic page
+V tips page
 
+> tour page
 > features page
 > update readme
 > release 0.4
 
 > prevent scroll for print outs (useful for map pages)
 > show blinking [V] indicator if there is more output below
+
+> explore directory picker for resource and script loading
+> explore conversion to PWA
 
 > read a pixel (is it HEX value or a number from the palette?)
 > DELETE LINE and DELETE FROM-TO

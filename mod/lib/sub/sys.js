@@ -131,6 +131,13 @@ const system = {
             vm.command.print(def)
         }
 
+        function titleForFn(target, fn) {
+            let def = fn.alias || target
+            if (fn.usage) def += ' ' + fn.usage
+            if (fn.title) def += ' - ' + fn.title
+            vm.command.print(def)
+        }
+
         function helpFor(target) {
             target = normalizeArg(target)
 
@@ -155,7 +162,7 @@ const system = {
                         const targets = vm.getByTag(target)
 
                         vm.command.print(`=========  #${target}  =========`)
-                        targets.forEach(entry => helpForFn(entry[0], entry[1]))
+                        targets.forEach(entry => titleForFn(entry[0], entry[1]))
                     } else {
                         vm.command.print(target + ' - unknown command/page/tag')
                     }

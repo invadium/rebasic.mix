@@ -416,7 +416,7 @@ screen.plot.man = "draw a pixel"
 
 screen.pset.usage = "[x], [y], <color>"
 screen.pset.tags = "core, classic, draw"
-screen.pset.man = "low-level set of a pixel value"
+screen.pset.man = "set the pixel value"
 
 screen.line.usage = "[x1], [y1], [x2], [y2], <colr>"
 screen.line.tags = "draw"
